@@ -280,6 +280,13 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
+
+        /* Center honors cards under the Honorable Mentions heading */
+        .honors .projects-grid {
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
         
         .project-card {
             background-color: white;
@@ -337,31 +344,8 @@
             gap: 10px;
         }
         
-        /* Contact Section */
-        .contact {
-            background-color: var(--light);
-        }
-        
-        .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
+
+    .contact-details {
             list-style: none;
         }
         
@@ -737,7 +721,29 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="honors" class="honors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Honorable Mentions</h2>
+                <p>Selected collaborations and consulting work.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #95a5a6; background-image: url('images/stark.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-content">
+                        <h3>Stærk balance consultant</h3>
+                        <p>I helped consult on design choices for the Stærk Balance website. See the project live at <a href="https://staerkbalance.dk/" target="_blank" rel="noopener">staerkbalance.dk</a>.</p>
+                        <div class="project-links">
+                            <a href="https://staerkbalance.dk/" class="btn" target="_blank" rel="noopener">View Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
