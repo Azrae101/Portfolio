@@ -472,6 +472,37 @@
             font-size: 0.9rem;
         }
         
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .scroll-to-top.show {
+            display: flex;
+        }
+        
+        .scroll-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content, .contact-content {
@@ -515,6 +546,8 @@
                 gap: 30px;
             }
         }
+
+
     </style>
 </head>
 <body>
@@ -545,7 +578,7 @@
             <p>Combining research in learning and memory with practical tools for education. My work blends data science, AI, and human-centered design to create engaging, effective learning experiences.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <a href="#contact" class="btn btn-outline" style="border-color: white; color: white;">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -614,6 +647,7 @@
                     <div class="project-content">
                         <h3>CogCards.dk</h3>
                         <p>Master Any Subject with Gamified Learning. Turn studying into play with fun flashcard games, grounded in real brain science.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">March, 2024 - Now</p>
                         <div class="project-tags">
                             <span class="project-tag">EdTech</span>
                             <span class="project-tag">Gamification</span>
@@ -625,13 +659,34 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 2: Social & Green -->
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #27ae60; background-image: url('images/DGI.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-content">
+                        <h3>Social & Green</h3>
+                        <p>A youth-driven platform for hands-on sustainable events and rewarding initiatives that make climate action engaging through community participation.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">November 23rd, 2025 - Now</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Sustainability</span>
+                            <span class="project-tag">Community Platform</span>
+                            <span class="project-tag">Gamification</span>
+                            <span class="project-tag">Event Management</span>
+                            <span class="project-tag">Social Impact</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="http://127.0.0.1:5500/DeepGreenSocial/index.html" class="btn" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- Project 2: Curating Data Science -->
+                <!-- Project 3: Curating Data Science -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #1abc9c; background-image: url('images/cds.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3>Curating Data Science</h3>
                         <p>A digital exhibition exploring data curation practices through the lens of critical data studies.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">November 11th - November 30th, 2025</p>
                         <div class="project-tags">
                             <span class="project-tag">Critical Data Studies</span>
                             <span class="project-tag">Curating Data</span>
@@ -644,12 +699,13 @@
                     </div>
                 </div>
                 
-                <!-- Project 3: The Algorithmic Mirror -->
+                <!-- Project 4: The Algorithmic Mirror -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #e67e22; background-image: url('images/algomirror.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3>The Algorithmic Mirror</h3>
                         <p>A critical data visualization examining how e-commerce platforms categorize consumers based on behavioral data.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">November 10, 2025</p>
                         <div class="project-tags">
                             <span class="project-tag">Critical Data Studies</span>
                             <span class="project-tag">Data Visualization</span>
@@ -663,12 +719,13 @@
                     </div>
                 </div>
                 
-                <!-- Project 4: 10Space10 -->
+                <!-- Project 5: 10Space10 -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #34495e; background-image: url('images/10space10.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3>10Space10</h3>
                         <p>A spaceship escape room game where players must solve puzzles to progress through 10 rooms in 10 minutes.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">12th - 14th of September, 2025</p>
                         <div class="project-tags">
                             <span class="project-tag">Viborg Game Jam</span>
                             <span class="project-tag">Game Development</span>
@@ -682,12 +739,13 @@
                     </div>
                 </div>
                 
-                <!-- Project 5: SustainaBag -->
+                <!-- Project 6: SustainaBag -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #27ae60; background-image: url('images/sustainabaglogo.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3>SustainaBag</h3>
                         <p>A platform to reduce textile waste in airports by allowing travelers to donate clean, unused clothes.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">7th - 11th of July, 2025</p>
                         <div class="project-tags">
                             <span class="project-tag">Sustainability</span>
                             <span class="project-tag">Circular Economy</span>
@@ -700,12 +758,13 @@
                     </div>
                 </div>
                 
-                <!-- Project 6: Vestas Cybersecurity -->
+                <!-- Project 7: Vestas Cybersecurity -->
                 <div class="project-card">
                     <div class="project-img" style="background-color: #2980b9; background-image: url('images/vestas.png'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3>Vestas Cybersecurity Challenge</h3>
                         <p>An interactive game designed to enhance cybersecurity knowledge through quizzes and challenges.</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 10px;">April 24, 2024</p>
                         <div class="project-tags">
                             <span class="project-tag">Cybersecurity</span>
                             <span class="project-tag">Educational Game</span>
@@ -713,7 +772,8 @@
                             <span class="project-tag">Finalist</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://azrae101.github.io/CaseCompetition/" class="btn" target="_blank" rel="noopener">View Details</a>
+                            <a href="https://azrae101.github.io/CaseCompetition/" class="btn" target="_blank" rel="noopener">Visit Site</a>
+                            <a href="https://github.com/Azrae101/CaseCompetition.git" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -744,10 +804,176 @@
         </div>
     </section>
 
+    <!-- Academic papers -->
+    
+    <!-- Research & Papers Section -->
+    <section id="research" class="research-papers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research & Papers</h2>
+                <p>Selected academic research, project papers, and case studies on cognitive science, neuroscience, and education.</p>
+            </div>
+            <div class="papers-grid">
+                <!-- Paper 1: Bachelor's project -->
+                <div class="paper-card">
+                    <div class="paper-header">
+                        <span class="paper-category">Bachelor's Thesis</span>
+                        <span class="paper-date">2023</span>
+                    </div>
+                    <h3 class="paper-title">Oscillatory Patterns During Emotional Face Processing using OPM-MEG Data</h3>
+                    <p class="paper-abstract">Investigating neural oscillatory patterns during emotional face processing using OPM-MEG technology. This research explores how different emotions modulate brain activity in specific frequency bands and cortical regions.</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">Neuroscience</span>
+                        <span class="paper-tag">OPM-MEG</span>
+                        <span class="paper-tag">EEG/ERP</span>
+                        <span class="paper-tag">Emotion Processing</span>
+                        <span class="paper-tag">Data Analysis</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="documents/bachelors-thesis.pdf" class="paper-link" target="_blank" download="Azrae_Bachelors_Thesis.pdf">
+                            <i class="fas fa-file-pdf"></i> Download PDF (50 pages)
+                        </a>
+                        <a href="https://github.com/Azrae101/Bachelors-Thesis" class="paper-link">
+                            <i class="fab fa-github"></i> Code & Data
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Paper 2: Cognitive Neuroscience project -->
+                <div class="paper-card">
+                    <div class="paper-header">
+                        <span class="paper-category">Cognitive Neuroscience</span>
+                        <span class="paper-date">2023</span>
+                    </div>
+                    <h3 class="paper-title">Fatigue-Driven Declines in Cognitive and Neural Performance Across Trials</h3>
+                    <p class="paper-abstract">Examining how time-on-task and time-of-day affect cognitive performance, reaction times, accuracy, and EEG/ERP markers. Research reveals the neural correlates of cognitive fatigue and performance decline.</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">Cognitive Science</span>
+                        <span class="paper-tag">EEG Analysis</span>
+                        <span class="paper-tag">Fatigue</span>
+                        <span class="paper-tag">Performance Metrics</span>
+                        <span class="paper-tag">Statistical Analysis</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="documents/cognitive-neuroscience.pdf" class="paper-link" target="_blank" download="Azrae_Cognitive_Neuroscience.pdf">
+                            <i class="fas fa-file-pdf"></i> Download PDF (50 pages)
+                        </a>
+                        <a href="https://github.com/Azrae101/Cognitive-Neuroscience-Project" class="paper-link">
+                            <i class="fab fa-github"></i> Analysis Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Paper 3: Applied Cognitive Science project -->
+                <div class="paper-card">
+                    <div class="paper-header">
+                        <span class="paper-category">Applied Cognitive Science</span>
+                        <span class="paper-date">2022</span>
+                    </div>
+                    <h3 class="paper-title">CogCards: Transforming Memory and Learning with Flashcard Games</h3>
+                    <p class="paper-abstract">Investigating memory techniques, cognitive biases, and gamification strategies to optimize learning processes. This project bridges cognitive science theory with practical EdTech application.</p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">EdTech</span>
+                        <span class="paper-tag">Gamification</span>
+                        <span class="paper-tag">Memory Techniques</span>
+                        <span class="paper-tag">Cognitive Biases</span>
+                        <span class="paper-tag">Learning Optimization</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="documents/cogcards-research.pdf" class="paper-link" target="_blank" download="Azrae_CogCards_Research.pdf">
+                            <i class="fas fa-file-pdf"></i> Download PDF (50 pages)
+                        </a>
+                        <a href="https://cogcards.dk" class="paper-link">
+                            <i class="fas fa-external-link-alt"></i> Live Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PDF Handling Instructions -->
+            <div class="pdf-notice">
+                <p><strong>Note:</strong> Research papers are large PDFs (50+ pages). For better website performance, consider:</p>
+                <div class="pdf-options">
+                    <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" class="btn" target="_blank">
+                        <i class="fab fa-google-drive"></i> View on Google Drive
+                    </a>
+                    <a href="mailto:youremail@example.com?subject=Request%20Research%20Papers" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Request via Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Games & Simulations Section -->
+    <section id="games" class="games-simulations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Games & Simulations</h2>
+                <p>Interactive coding projects focusing on gameplay mechanics, simulations, and interactive experiences.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Game 1: Misinformation Spread Simulation -->
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #3498db; background-image: url('images/misinfo-sim.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-content">
+                        <h3>Misinformation Spread Simulation</h3>
+                        <p>A Pygame-based simulation modeling the spread of misinformation through agent interactions in different environments (home, work, social media).</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Pygame</span>
+                            <span class="project-tag">Simulation</span>
+                            <span class="project-tag">Agent-Based Model</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Social Dynamics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Azrae101/SocialCulturalABM.git" class="btn" target="_blank">View on GitHub</a>
+                            <a href="https://github.com/Azrae101/SocialCulturalABM/archive/refs/heads/main.zip" class="btn btn-secondary">Download Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 2: RPG-Story-Game -->
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #8e44ad; background-image: url('images/rpg-game.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-content">
+                        <h3>RPG-Story-Game: Kroz</h3>
+                        <p>A text-based adventure game inspired by classic games like "ZORK". Explore a mysterious mansion filled with challenges, puzzles, and hidden objects while uncovering the protagonist's backstory.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Tkinter</span>
+                            <span class="project-tag">Pygame</span>
+                            <span class="project-tag">Text Adventure</span>
+                            <span class="project-tag">High School Project</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Azrae101/RPG-Story-Game.git" class="btn" target="_blank">View on GitHub</a>
+                            <a href="https://github.com/Azrae101/RPG-Story-Game/archive/refs/heads/main.zip" class="btn btn-secondary">Download Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for future game projects -->
+                <div class="project-card project-placeholder">
+                    <div class="project-img" style="background-color: #f1f2f6; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #7f8c8d; font-size: 2rem;">+</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>More Coming Soon</h3>
+                        <p>Currently working on new interactive simulations and game projects.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
+                <h2 style="color: var(--primary);">Get In Touch</h2>
                 <p>Have a question or want to work together? Feel free to reach out!</p>
             </div>
             <div class="contact-content">
@@ -878,6 +1104,29 @@
                         }
                     }
                 });
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
