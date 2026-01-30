@@ -655,2602 +655,2602 @@
         }
 
         /* Projects Grid Layout */
-.projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.project-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-}
-
-/* Inner container for flex/grid layout */
-.project-card-inner {
-    display: flex;
-    min-height: 400px;
-}
-
-/* Left column (project content) */
-.project-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Right column (winner photo) */
-.project-right {
-    width: 250px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-left: 1px solid #dee2e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-/* Full width for regular projects */
-.project-full {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Project image */
-.project-img {
-    height: 200px;
-    width: 100%;
-    position: relative;
-}
-
-/* Project content area */
-.project-content {
-    padding: 25px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-content h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.project-content p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    flex: 1;
-}
-
-.project-date {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-/* Project tags */
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-}
-
-.project-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* Project links */
-.project-links {
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color, #3498db);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--primary-dark, #2980b9);
-}
-
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--primary-color, #3498db);
-    color: var(--primary-color, #3498db);
-}
-
-.btn-outline:hover {
-    background-color: var(--primary-color, #3498db);
-    color: white;
-}
-
-/* Winner photo styling */
-.winner-photo {
-    width: 200px;
-    height: 250px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    position: relative;
-}
-
-.winner-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.winner-photo:hover img {
-    transform: scale(1.05);
-}
-
-.winner-badge {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(90deg, #27ae60, #2ecc71);
-    color: white;
-    text-align: center;
-    padding: 8px 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .project-card-inner {
-        flex-direction: column;
-        min-height: auto;
-    }
-    
-    .project-right {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #dee2e6;
-        padding: 30px 20px;
-        order: 2;
-    }
-    
-    .winner-photo {
-        width: 180px;
-        height: 250px;
-    }
-    
-    .project-content {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
     .projects-grid {
-        gap: 30px;
-    }
-    
-    .project-card {
-        border-radius: 8px;
-    }
-    
-    .winner-photo {
-        width: 150px;
-        height: 250px;
-    }
-    
-    .project-tags {
-        gap: 6px;
-    }
-    
-    .project-tag {
-        font-size: 0.8rem;
-        padding: 4px 10px;
-    }
-}
-
-/* Research Papers Section - 2 columns on desktop */
-.research-papers .container {
-    max-width: 1200px; /* Make container wider */
-}
-
-.research-papers .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
-    gap: 35px; /* Slightly larger gap */
-    margin-top: 40px;
-}
-
-.research-papers .project-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Make all cards same height */
-}
-
-.research-papers .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-}
-
-/* Fixed height for image container */
-.research-papers .project-img {
-    min-height: 250px;
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px; /* Slightly more padding */
-    box-sizing: border-box;
-}
-
-/* Ensure images maintain aspect ratio and fit properly */
-.research-papers .project-img img {
-    max-height: 170px; /* Adjusted for 2-column layout */
-    width: auto;
-    max-width: 85%;
-    object-fit: contain;
-    display: block;
-}
-
-/* For taller images, adjust individually if needed */
-.research-papers .project-card:nth-child(5) .project-img img,
-.research-papers .project-card:nth-child(6) .project-img img {
-    max-height: 160px; /* Slightly smaller for electronics images */
-    max-width: 80%;
-}
-
-/* Consistent content area */
-.research-papers .project-content {
-    padding: 25px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
-.research-papers .project-content h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    line-height: 1.4;
-    min-height: 60px; /* Ensure titles align */
-}
-
-.research-papers .project-content > p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    flex: 1;
-    min-height: 70px; /* Ensure description aligns */
-}
-
-/* Tags styling for research papers */
-.research-papers .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-    min-height: 80px; /* Ensure tags section aligns */
-}
-
-.research-papers .project-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-/* Links styling */
-.research-papers .project-links {
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-}
-
-.research-papers .btn {
-    display: inline-block;
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.research-papers .btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-}
-
-.research-papers .btn-outline {
-    background-color: transparent;
-    border: 2px solid #3498db;
-    color: #3498db;
-}
-
-.research-papers .btn-outline:hover {
-    background-color: #3498db;
-    color: white;
-}
-
-/* Paper info text styling */
-.paper-info {
-    font-weight: 600;
-    font-size: 0.9rem;
-    opacity: 0.9;
-    color: white;
-    text-align: center;
-    margin-top: 15px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive adjustments - 2 columns on tablet, 1 on mobile */
-@media (max-width: 1024px) {
-    .research-papers .projects-grid {
-        gap: 25px;
-    }
-    
-    .research-papers .project-content h3 {
-        font-size: 1.25rem;
-        min-height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .research-papers .projects-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
-        gap: 30px;
-    }
-    
-    .research-papers .project-img {
-        min-height: 220px;
-        padding: 20px;
-    }
-    
-    .research-papers .project-img img {
-        max-height: 150px;
-        max-width: 90%;
-    }
-    
-    .research-papers .project-card:nth-child(5) .project-img img,
-    .research-papers .project-card:nth-child(6) .project-img img {
-        max-height: 140px;
-        max-width: 85%;
-    }
-    
-    .research-papers .project-content {
-        padding: 20px;
-    }
-    
-    .research-papers .project-content h3 {
-        font-size: 1.2rem;
-        min-height: auto;
-    }
-    
-    .research-papers .project-content > p {
-        min-height: auto;
-    }
-    
-    .research-papers .project-tags {
-        min-height: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .research-papers .project-img {
-        min-height: 200px;
-        padding: 15px;
-    }
-    
-    .research-papers .project-img img {
-        max-height: 130px;
-    }
-    
-    .research-papers .project-card:nth-child(5) .project-img img,
-    .research-papers .project-card:nth-child(6) .project-img img {
-        max-height: 120px;
-    }
-    
-    .research-papers .project-tags {
-        gap: 6px;
-    }
-    
-    .research-papers .project-tag {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-    }
-    
-    .research-papers .btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-}
-
-/* For very large screens, you might want to adjust */
-@media (min-width: 1400px) {
-    .research-papers .container {
-        max-width: 1300px;
-    }
-    
-    .research-papers .projects-grid {
+        display: flex;
+        flex-direction: column;
         gap: 40px;
     }
-    
-    .research-papers .project-img img {
-        max-height: 190px;
+
+    .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-}
-/* Updated Projects Section - Carousel with 50% width */
-#projects .container {
-    max-width: 1400px;
-}
 
-#projects .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 80px; /* More space between projects */
-}
-
-#projects .project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    min-height: 650px; /* Taller cards */
-}
-
-#projects .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Split layout for projects with winner photos - 50/50 split */
-#projects .project-card.with-winner .project-card-inner {
-    display: flex;
-    width: 100%;
-    min-height: 650px;
-}
-
-/* Left column (image and content) - 50% */
-#projects .project-card.with-winner .project-left {
-    flex: 1; /* 50% of the width */
-    display: flex;
-    flex-direction: column;
-    background: white;
-}
-
-/* Right column (carousel) - 50% */
-#projects .project-card.with-winner .project-right {
-    flex: 1; /* 50% of the width */
-    background: white;
-    border-left: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0; /* Remove padding */
-    position: relative;
-}
-
-/* Full width layout for regular projects */
-#projects .project-card:not(.with-winner) .project-card-inner {
-    width: 100%;
-    display: flex;
-    min-height: 650px;
-}
-
-#projects .project-card:not(.with-winner) .project-full {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Project image on left side */
-#projects .project-img {
-    flex: 1.2;
-    min-height: 280px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    border-bottom: none;
-}
-
-/* Project content area - with better button visibility */
-#projects .project-content {
-    flex: 0.8;
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#projects .project-content h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.9rem;
-    line-height: 1.3;
-    color: var(--primary);
-}
-
-#projects .project-content > p {
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    flex: 1;
-    font-size: 1.1rem;
-}
-
-#projects .project-date {
-    color: var(--text-light);
-    font-size: 1rem;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    background: linear-gradient(90deg, #f8f9fa, #e9ecef);
-    padding: 6px 12px;
-    border-radius: 10px;
-    display: inline-block;
-    width: auto;
-}
-
-/* Project tags - make them less prominent */
-#projects .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-#projects .project-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-#projects .project-tag:hover {
-    background-color: #bbdefb;
-    transform: translateY(-2px);
-}
-
-/* Project links - MAKE THEM MORE VISIBLE */
-#projects .project-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px solid #e9ecef;
-}
-
-#projects .btn {
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-align: center;
-    min-width: 140px;
-}
-
-#projects .btn-outline {
-    padding: 13px 27px;
-}
-
-#projects .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-}
-
-/* CAROUSEL STYLING - SIMPLIFIED AND BETTER */
-#projects .winner-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#projects .carousel-container {
-    width: 100%;
-    height: 100%; /* Fill the entire right column */
-    position: relative;
-    overflow: hidden;
-}
-
-#projects .carousel-slide {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#projects .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the container */
-    flex-shrink: 0;
-    display: block;
-}
-
-/* Carousel navigation buttons - SMALLER AND BETTER */
-#projects .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--primary);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0.8;
-}
-
-#projects .carousel-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-}
-
-#projects .carousel-btn.prev {
-    left: 15px;
-}
-
-#projects .carousel-btn.next {
-    right: 15px;
-}
-
-/* Carousel indicators - simpler */
-#projects .carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
-}
-
-#projects .indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#projects .indicator.active {
-    background-color: white;
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-/* Carousel counter - simpler */
-#projects .carousel-counter {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    z-index: 10;
-}
-
-/* Autoplay control - CSS DESIGN, NO EMOJI */
-#projects .carousel-autoplay {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
-    font-size: 16px;
-}
-
-#projects .carousel-autoplay:hover {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-#projects .carousel-autoplay::before {
-    content: "❚❚"; /* Pause symbol */
-}
-
-#projects .carousel-autoplay.playing::before {
-    content: "▶"; /* Play symbol */
-}
-
-/* Winner badge - subtle */
-#projects .winner-badge {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-}
-
-/* Responsive design */
-@media (max-width: 1400px) {
-    #projects .container {
-        max-width: 100%;
-        padding: 0 30px;
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     }
-}
 
-@media (max-width: 1200px) {
-    #projects .project-card {
-        min-height: 600px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner,
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        min-height: 600px;
-    }
-    
-    #projects .project-content {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 992px) {
-    #projects .projects-grid {
-        gap: 70px;
-    }
-    
-    #projects .project-card {
-        min-height: 550px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner,
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        min-height: 550px;
-    }
-    
-    #projects .project-img {
-        min-height: 250px;
-    }
-    
-    #projects .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects .projects-grid {
-        gap: 60px;
-    }
-    
-    #projects .project-card {
-        flex-direction: column;
-        min-height: auto;
-        border-radius: 15px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner,
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        flex-direction: column;
-        min-height: auto;
-    }
-    
-    #projects .project-card.with-winner .project-left,
-    #projects .project-card:not(.with-winner) .project-full {
-        width: 100%;
-    }
-    
-    #projects .project-card.with-winner .project-right {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #e9ecef;
-        padding: 0;
+    /* Inner container for flex/grid layout */
+    .project-card-inner {
+        display: flex;
         min-height: 400px;
     }
-    
-    #projects .project-img {
-        min-height: 250px;
-        flex: none;
-    }
-    
-    #projects .project-content {
-        padding: 30px;
-        flex: none;
-    }
-    
-    #projects .btn {
-        padding: 12px 24px;
-        min-width: 120px;
-    }
-    
-    #projects .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-}
 
-@media (max-width: 576px) {
-    #projects .projects-grid {
-        gap: 50px;
-    }
-    
-    #projects .project-content {
-        padding: 25px;
-    }
-    
-    #projects .project-content h3 {
-        font-size: 1.6rem;
-    }
-    
-    #projects .project-tags {
-        gap: 8px;
-    }
-    
-    #projects .project-tag {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-    
-    #projects .project-links {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    #projects .btn {
-        width: 100%;
-        min-width: auto;
-    }
-    
-    #projects .carousel-container {
-        height: 350px;
-    }
-    
-    #projects .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-    
-    #projects .carousel-counter,
-    #projects .carousel-autoplay {
-        font-size: 14px;
-    }
-}
-
-/* Updated Projects Section - Ensure website links are always visible */
-#projects .container {
-    max-width: 1400px;
-}
-
-#projects .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    margin-bottom: 40px; /* Extra space at bottom for links */
-}
-
-#projects .project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    min-height: 700px; /* Increased to ensure links fit */
-}
-
-#projects .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Split layout for projects with winner photos - 50/50 split */
-#projects .project-card.with-winner .project-card-inner {
-    display: flex;
-    width: 100%;
-    min-height: 700px; /* Increased */
-}
-
-/* Left column (image and content) - 50% */
-#projects .project-card.with-winner .project-left {
-    flex: 1; /* 50% of the width */
-    display: flex;
-    flex-direction: column;
-    background: white;
-    position: relative; /* For extending section */
-}
-
-/* Right column (carousel) - 50% */
-#projects .project-card.with-winner .project-right {
-    flex: 1; /* 50% of the width */
-    background: white;
-    border-left: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    position: relative;
-}
-
-/* Ensure the section extends to fit all content */
-#projects .project-content {
-    flex: 1;
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 300px; /* Ensure minimum space for content */
-}
-
-/* Make sure the project links section has enough space */
-#projects .project-content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-#projects .project-content h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.9rem;
-    line-height: 1.3;
-    color: var(--primary);
-}
-
-#projects .project-content > p {
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    flex: 1;
-    font-size: 1.1rem;
-}
-
-#projects .project-date {
-    color: var(--text-light);
-    font-size: 1rem;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    background: linear-gradient(90deg, #f8f9fa, #e9ecef);
-    padding: 8px 15px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-/* Project tags - reduced height to make room for links */
-#projects .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
-    min-height: 60px; /* Reduced */
-}
-
-#projects .project-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    height: fit-content;
-}
-
-#projects .project-tag:hover {
-    background-color: #bbdefb;
-    transform: translateY(-2px);
-}
-
-/* PROJECT LINKS - EXTREMELY IMPORTANT - ENSURE THEY'RE ALWAYS VISIBLE */
-#projects .project-links-container {
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: 2px solid #e9ecef;
-    position: relative;
-    z-index: 10;
-}
-
-#projects .project-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-#projects .btn {
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-align: center;
-    min-width: 140px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-#projects .btn i {
-    margin-right: 8px;
-}
-
-#projects .btn-outline {
-    padding: 13px 27px;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-    background: transparent;
-}
-
-#projects .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-}
-
-/* CAROUSEL STYLING - WITH TINY FRAME */
-#projects .winner-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#projects .carousel-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #f8f9fa; /* Light background for frame effect */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#projects .carousel-slide {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#projects .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Changed to contain to see full images */
-    flex-shrink: 0;
-    display: block;
-    padding: 20px; /* Tiny frame padding */
-    box-sizing: border-box; /* Include padding in dimensions */
-}
-
-/* Carousel navigation buttons - SMALLER */
-#projects .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--primary);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
-}
-
-#projects .carousel-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-}
-
-#projects .carousel-btn.prev {
-    left: 10px;
-}
-
-#projects .carousel-btn.next {
-    right: 10px;
-}
-
-/* Carousel indicators */
-#projects .carousel-indicators {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
-}
-
-#projects .indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#projects .indicator.active {
-    background-color: white;
-    transform: scale(1.3);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-
-/* Carousel counter */
-#projects .carousel-counter {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    z-index: 10;
-}
-
-/* Autoplay control - CSS DESIGN */
-#projects .carousel-autoplay {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-#projects .carousel-autoplay:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-}
-
-#projects .carousel-autoplay::before {
-    content: "⏸"; /* Pause symbol */
-    font-size: 12px;
-    font-weight: bold;
-}
-
-#projects .carousel-autoplay.playing::before {
-    content: "▶"; /* Play symbol */
-}
-
-/* Winner badge - subtle */
-#projects .winner-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    z-index: 10;
-    box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-#projects .winner-badge::before {
-    content: "🏆";
-    font-size: 12px;
-}
-
-/* Responsive design */
-@media (max-width: 1400px) {
-    #projects .container {
-        max-width: 100%;
-        padding: 0 30px;
-    }
-}
-
-@media (max-width: 1200px) {
-    #projects .project-card {
-        min-height: 650px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner {
-        min-height: 650px;
-    }
-    
-    #projects .project-content {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 992px) {
-    #projects .projects-grid {
-        gap: 70px;
-    }
-    
-    #projects .project-card {
-        min-height: 600px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner,
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        min-height: 600px;
-    }
-    
-    #projects .project-img {
-        min-height: 250px;
-    }
-    
-    #projects .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects .projects-grid {
-        gap: 60px;
-    }
-    
-    #projects .project-card {
-        flex-direction: column;
-        min-height: auto;
-        border-radius: 15px;
-    }
-    
-    #projects .project-card.with-winner .project-card-inner,
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        flex-direction: column;
-        min-height: auto;
-    }
-    
-    #projects .project-card.with-winner .project-left,
-    #projects .project-card:not(.with-winner) .project-full {
-        width: 100%;
-    }
-    
-    #projects .project-card.with-winner .project-right {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #e9ecef;
-        padding: 0;
-        min-height: 400px;
-    }
-    
-    #projects .project-img {
-        min-height: 250px;
-        flex: none;
-    }
-    
-    #projects .project-content {
-        padding: 30px;
-        flex: none;
-        min-height: auto;
-    }
-    
-    #projects .project-links-container {
-        margin-top: 30px;
-    }
-    
-    #projects .btn {
-        padding: 12px 24px;
-        min-width: 120px;
-    }
-    
-    #projects .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    #projects .projects-grid {
-        gap: 50px;
-    }
-    
-    #projects .project-content {
-        padding: 25px;
-    }
-    
-    #projects .project-content h3 {
-        font-size: 1.6rem;
-    }
-    
-    #projects .project-tags {
-        gap: 8px;
-        min-height: 50px;
-    }
-    
-    #projects .project-tag {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-    
-    #projects .project-links {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    #projects .btn {
-        width: 100%;
-        min-width: auto;
-    }
-    
-    #projects .carousel-slide img {
-        padding: 15px; /* Smaller padding on mobile */
-    }
-    
-    #projects .carousel-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-    
-    #projects .carousel-counter,
-    #projects .carousel-autoplay {
-        font-size: 12px;
-    }
-    
-    #projects .carousel-autoplay {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-/* Updated Research Papers Section with Carousels */
-#research .container {
-    max-width: 1400px;
-}
-
-#research .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    margin-bottom: 40px;
-}
-
-#research .project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    min-height: 700px;
-}
-
-#research .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Split layout for research papers - 50/50 split */
-#research .project-card .project-card-inner {
-    display: flex;
-    width: 100%;
-    min-height: 700px;
-}
-
-/* Left column (image carousel) - 50% */
-#research .project-card .project-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: white;
-}
-
-/* Right column (content) - 50% */
-#research .project-card .project-right {
-    flex: 1;
-    background: white;
-    border-left: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-/* Ensure the section extends to fit all content */
-#research .project-content {
-    flex: 1;
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 300px;
-}
-
-#research .project-content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-#research .project-content h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.9rem;
-    line-height: 1.3;
-    color: var(--primary);
-}
-
-#research .project-content > p {
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    flex: 1;
-    font-size: 1.1rem;
-}
-
-/* Paper info styling */
-#research .paper-info {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: white;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Project tags for research papers */
-#research .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
-    min-height: 60px;
-}
-
-#research .project-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    height: fit-content;
-}
-
-#research .project-tag:hover {
-    background-color: #bbdefb;
-    transform: translateY(-2px);
-}
-
-/* PROJECT LINKS - EXTREMELY IMPORTANT */
-#research .project-links-container {
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: 2px solid #e9ecef;
-    position: relative;
-    z-index: 10;
-}
-
-#research .project-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-#research .btn {
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-align: center;
-    min-width: 140px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-#research .btn i {
-    margin-right: 8px;
-}
-
-#research .btn-outline {
-    padding: 13px 27px;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-    background: transparent;
-}
-
-#research .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-}
-
-/* CAROUSEL STYLING FOR RESEARCH PAPERS */
-#research .winner-carousel {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#research .carousel-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#research .carousel-slide {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#research .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Carousel navigation buttons */
-#research .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--primary);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
-}
-
-#research .carousel-btn:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-}
-
-#research .carousel-btn.prev {
-    left: 10px;
-}
-
-#research .carousel-btn.next {
-    right: 10px;
-}
-
-/* Carousel indicators */
-#research .carousel-indicators {
-    position: absolute;
-    bottom: 40px; /* Position above paper info */
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
-}
-
-#research .indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#research .indicator.active {
-    background-color: white;
-    transform: scale(1.3);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-}
-
-/* Carousel counter */
-#research .carousel-counter {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    z-index: 10;
-}
-
-/* Autoplay control */
-#research .carousel-autoplay {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-#research .carousel-autoplay:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-}
-
-#research .carousel-autoplay::before {
-    content: "⏸";
-    font-size: 12px;
-    font-weight: bold;
-}
-
-#research .carousel-autoplay.playing::before {
-    content: "▶";
-}
-
-/* Paper badge - shows year and type */
-#research .paper-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: linear-gradient(135deg, var(--secondary), #2980b9);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    z-index: 10;
-    box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-#research .paper-badge::before {
-    content: "📄";
-    font-size: 12px;
-}
-
-/* Responsive design for research papers */
-@media (max-width: 1400px) {
-    #research .container {
-        max-width: 100%;
-        padding: 0 30px;
-    }
-}
-
-@media (max-width: 1200px) {
-    #research .project-card {
-        min-height: 650px;
-    }
-    
-    #research .project-card .project-card-inner {
-        min-height: 650px;
-    }
-    
-    #research .project-content {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 992px) {
-    #research .projects-grid {
-        gap: 70px;
-    }
-    
-    #research .project-card {
-        min-height: 600px;
-    }
-    
-    #research .project-card .project-card-inner {
-        min-height: 600px;
-    }
-    
-    #research .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 768px) {
-    #research .projects-grid {
-        gap: 60px;
-    }
-    
-    #research .project-card {
-        flex-direction: column;
-        min-height: auto;
-        border-radius: 15px;
-    }
-    
-    #research .project-card .project-card-inner {
-        flex-direction: column;
-        min-height: auto;
-    }
-    
-    #research .project-card .project-left {
-        width: 100%;
-    }
-    
-    #research .project-card .project-right {
-        width: 100%;
-        border-left: none;
-        border-top: 1px solid #e9ecef;
-        padding: 0;
-        min-height: 400px;
-    }
-    
-    #research .project-content {
-        padding: 30px;
-        flex: none;
-        min-height: auto;
-    }
-    
-    #research .project-links-container {
-        margin-top: 30px;
-    }
-    
-    #research .btn {
-        padding: 12px 24px;
-        min-width: 120px;
-    }
-    
-    #research .carousel-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    #research .projects-grid {
-        gap: 50px;
-    }
-    
-    #research .project-content {
-        padding: 25px;
-    }
-    
-    #research .project-content h3 {
-        font-size: 1.6rem;
-    }
-    
-    #research .project-tags {
-        gap: 8px;
-        min-height: 50px;
-    }
-    
-    #research .project-tag {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-    
-    #research .project-links {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    #research .btn {
-        width: 100%;
-        min-width: auto;
-    }
-    
-    #research .carousel-slide img {
-        padding: 15px;
-    }
-    
-    #research .carousel-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-    
-    #research .carousel-counter,
-    #research .carousel-autoplay {
-        font-size: 12px;
-    }
-    
-    #research .carousel-autoplay {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-/* ADD THIS AT THE END OF THE STYLE SECTION - BEFORE THE CLOSING </style> TAG */
-
-/* Force project cards to always show full content and links */
-#projects .project-card-inner,
-#research .project-card-inner {
-    min-height: auto !important;
-    display: flex;
-    flex-direction: column;
-}
-
-#projects .project-left,
-#research .project-left {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-#projects .project-content,
-#research .project-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0; /* Allow content to shrink but not overflow */
-}
-
-/* Ensure project links container is always at bottom and visible */
-#projects .project-links-container,
-#research .project-links-container {
-    margin-top: auto;
-    padding-top: 25px;
-    border-top: 2px solid #e9ecef;
-    position: relative;
-    z-index: 20;
-}
-
-/* Make project links more prominent */
-#projects .project-links,
-#research .project-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* Ensure buttons are always visible */
-#projects .btn,
-#research .btn {
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    text-align: center;
-    min-width: 140px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: var(--secondary);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#projects .btn:hover,
-#research .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-    background-color: var(--primary);
-}
-
-#projects .btn-outline,
-#research .btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-}
-
-#projects .btn-outline:hover,
-#research .btn-outline:hover {
-    background-color: var(--secondary);
-    color: white;
-}
-
-/* Ensure carousel doesn't overflow */
-#projects .carousel-container,
-#research .carousel-container {
-    min-height: 400px;
-    max-height: 600px;
-    overflow: hidden;
-}
-
-/* Force section to extend for content */
-#projects,
-#research {
-    overflow: visible !important;
-}
-
-/* Add extra padding to sections to ensure links are visible */
-#projects .container,
-#research .container {
-    padding-bottom: 40px;
-}
-
-/* Make project content area scrollable if needed */
-#projects .project-content-wrapper,
-#research .project-content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 250px; /* Minimum height for content */
-}
-
-/* Reduce project tags height to make more room for links */
-#projects .project-tags,
-#research .project-tags {
-    max-height: 100px;
-    overflow-y: auto;
-    margin: 15px 0;
-    padding-right: 5px;
-}
-
-/* Scrollbar styling for tags */
-#projects .project-tags::-webkit-scrollbar,
-#research .project-tags::-webkit-scrollbar {
-    width: 4px;
-}
-
-#projects .project-tags::-webkit-scrollbar-track,
-#research .project-tags::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 2px;
-}
-
-#projects .project-tags::-webkit-scrollbar-thumb,
-#research .project-tags::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 2px;
-}
-
-#projects .project-tags::-webkit-scrollbar-thumb:hover,
-#research .project-tags::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-}
-
-/* Responsive adjustments for links */
-@media (max-width: 992px) {
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        min-height: auto;
-    }
-    
-    #projects .project-links,
-    #research .project-links {
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-    
-    #projects .btn,
-    #research .btn {
-        min-width: 120px;
-        padding: 12px 24px;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects .project-card,
-    #research .project-card {
-        min-height: auto !important;
-    }
-    
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        min-height: auto;
+    /* Left column (project content) */
+    .project-left {
+        flex: 1;
+        display: flex;
         flex-direction: column;
     }
-    
-    #projects .project-right,
-    #research .project-right {
-        min-height: 400px;
-    }
-    
-    #projects .project-links,
-    #research .project-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    #projects .btn,
-    #research .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
 
-@media (max-width: 576px) {
-    #projects .project-content,
-    #research .project-content {
+    /* Right column (winner photo) */
+    .project-right {
+        width: 250px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 1px solid #dee2e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 20px;
     }
-    
-    #projects .project-links-container,
-    #research .project-links-container {
-        padding-top: 20px;
-    }
-    
-    #projects .btn,
-    #research .btn {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-    }
-}
 
-/* Add visual indicator for links */
-#projects .project-links-container::before,
-#research .project-links-container::before {
-    content: "Links & Resources";
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-/* ADD THIS CSS TO FIX ALL PROJECT TYPES - PLACE AT THE END OF YOUR STYLE SECTION */
-
-/* Fix for ALL project cards - ensure links are always visible */
-#projects .project-card,
-#research .project-card {
-    display: flex;
-    flex-direction: column;
-}
-
-#projects .project-card-inner,
-#research .project-card-inner {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 650px; /* Ensure minimum height for all cards */
-}
-
-#projects .project-full,
-#research .project-full {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
-}
-
-/* Specific fix for Vestas project and similar non-winner cards */
-#projects .project-card:not(.with-winner) .project-card-inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-#projects .project-card:not(.with-winner) .project-full {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-#projects .project-card:not(.with-winner) .project-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 35px;
-}
-
-/* Ensure content wrapper for all projects */
-#projects .project-content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 200px;
-}
-
-/* CRITICAL FIX: Make sure links container is always at bottom */
-#projects .project-card .project-links {
-    margin-top: auto !important;
-    padding-top: 25px !important;
-    display: flex !important;
-    gap: 15px !important;
-    flex-wrap: wrap !important;
-    border-top: 2px solid #e9ecef !important;
-}
-
-/* Make sure buttons are visible */
-#projects .project-card .btn,
-#research .project-card .btn {
-    padding: 14px 28px !important;
-    font-size: 1rem !important;
-    font-weight: 600 !important;
-    border-radius: 10px !important;
-    min-width: 140px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
-    background-color: var(--secondary) !important;
-    color: white !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-}
-
-#projects .project-card .btn:hover,
-#research .project-card .btn:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3) !important;
-    background-color: var(--primary) !important;
-}
-
-#projects .project-card .btn-outline,
-#research .project-card .btn-outline {
-    background-color: transparent !important;
-    border: 2px solid var(--secondary) !important;
-    color: var(--secondary) !important;
-}
-
-#projects .project-card .btn-outline:hover,
-#research .project-card .btn-outline:hover {
-    background-color: var(--secondary) !important;
-    color: white !important;
-}
-
-/* Force minimum height for content area */
-#projects .project-content,
-#research .project-content {
-    min-height: 350px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-}
-
-/* Ensure paragraphs don't take too much space */
-#projects .project-content > p,
-#research .project-content > p {
-    flex: 1;
-    min-height: 80px;
-    max-height: 150px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-}
-
-/* Make tags scrollable if too many */
-#projects .project-tags,
-#research .project-tags {
-    max-height: 100px;
-    overflow-y: auto;
-    margin: 15px 0;
-    padding-right: 5px;
-}
-
-/* Scrollbar styling */
-#projects .project-tags::-webkit-scrollbar,
-#research .project-tags::-webkit-scrollbar {
-    width: 4px;
-}
-
-#projects .project-tags::-webkit-scrollbar-track,
-#research .project-tags::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 2px;
-}
-
-#projects .project-tags::-webkit-scrollbar-thumb,
-#research .project-tags::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 2px;
-}
-
-/* Add visual indicator that there are links */
-#projects .project-links::before {
-    content: "Links:";
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        min-height: 600px;
-    }
-    
-    #projects .project-content,
-    #research .project-content {
-        min-height: 300px !important;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        min-height: auto;
-    }
-    
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        min-height: 500px;
-    }
-    
-    #projects .project-content,
-    #research .project-content {
-        min-height: 250px !important;
-        padding: 25px !important;
-    }
-    
-    #projects .project-card .btn,
-    #research .project-card .btn {
-        min-width: 120px !important;
-        padding: 12px 24px !important;
-    }
-}
-
-@media (max-width: 576px) {
-    #projects .project-content,
-    #research .project-content {
-        min-height: 200px !important;
-        padding: 20px !important;
-    }
-    
-    #projects .project-card .btn,
-    #research .project-card .btn {
-        width: 100% !important;
-        min-width: auto !important;
-        margin-bottom: 10px;
-    }
-    
-    #projects .project-links {
-        flex-direction: column !important;
-        gap: 10px !important;
-    }
-}
-
-/* Emergency override for any hidden links */
-#projects a.btn,
-#research a.btn,
-#projects a.btn-outline,
-#research a.btn-outline {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 100 !important;
-}
-
-/* ADD THIS CSS TO FIX NESTED LINKS STRUCTURE */
-
-/* Fix for when project-links is nested inside project-tags */
-#projects .project-tags {
-    position: relative;
-    min-height: 120px; /* Reserve space for tags and links */
-    padding-bottom: 70px; /* Make room for the links at the bottom */
-}
-
-#projects .project-tags .project-links {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-top: 20px !important;
-    padding-top: 15px !important;
-    border-top: 2px solid #e9ecef !important;
-    display: flex !important;
-    gap: 15px !important;
-    flex-wrap: wrap !important;
-    z-index: 100 !important;
-}
-
-/* Alternative: Use flexbox on project-tags to push links to bottom */
-#projects .project-tags {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-#projects .project-tags .project-links {
-    margin-top: auto !important;
-    padding-top: 20px !important;
-    border-top: 2px solid #e9ecef !important;
-}
-
-/* Ensure project-content has enough height to show everything */
-#projects .project-content {
-    display: flex;
-    flex-direction: column;
-    min-height: 400px; /* Increase minimum height */
-    position: relative;
-}
-
-/* Make sure the tags container can expand */
-#projects .project-tags {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 10px;
-    margin-bottom: 0;
-}
-
-/* Make tags themselves not take up too much vertical space */
-#projects .project-tag {
-    height: fit-content;
-    line-height: 1.4;
-    padding: 6px 12px;
-    margin: 2px;
-}
-
-/* Force visibility of buttons */
-#projects .btn {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 1000 !important;
-    background-color: var(--secondary) !important;
-    color: white !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2) !important;
-}
-
-#projects .btn:hover {
-    background-color: var(--primary) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.25) !important;
-}
-
-#projects .btn-outline {
-    background-color: transparent !important;
-    border: 2px solid var(--secondary) !important;
-    color: var(--secondary) !important;
-}
-
-#projects .btn-outline:hover {
-    background-color: var(--secondary) !important;
-    color: white !important;
-}
-
-/* Add visual container for links */
-#projects .project-tags .project-links::before {
-    content: "Links & Resources";
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-/* Increase overall card height if needed */
-#projects .project-card {
-    min-height: 750px !important; /* Increase from 700px */
-}
-
-#projects .project-card-inner {
-    min-height: 750px !important;
-}
-
-/* Make sure carousel side doesn't overflow */
-#projects .project-right {
-    min-height: 400px;
-    max-height: 750px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    #projects .project-card {
-        min-height: 700px !important;
-    }
-    
-    #projects .project-card-inner {
-        min-height: 700px !important;
-    }
-}
-
-@media (max-width: 992px) {
-    #projects .project-card {
-        min-height: 650px !important;
-    }
-    
-    #projects .project-card-inner {
-        min-height: 650px !important;
-    }
-    
-    #projects .project-content {
-        min-height: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects .project-card {
-        min-height: auto !important;
-    }
-    
-    #projects .project-card-inner {
-        min-height: auto !important;
+    /* Full width for regular projects */
+    .project-full {
+        width: 100%;
+        display: flex;
         flex-direction: column;
     }
-    
+
+    /* Project image */
+    .project-img {
+        height: 200px;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Project content area */
+    .project-content {
+        padding: 25px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .project-content p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex: 1;
+    }
+
+    .project-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Project tags */
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* Project links */
+    .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: var(--primary-color, #3498db);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: var(--primary-dark, #2980b9);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-color, #3498db);
+        color: var(--primary-color, #3498db);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--primary-color, #3498db);
+        color: white;
+    }
+
+    /* Winner photo styling */
+    .winner-photo {
+        width: 200px;
+        height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        position: relative;
+    }
+
+    .winner-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .winner-photo:hover img {
+        transform: scale(1.05);
+    }
+
+    .winner-badge {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #27ae60, #2ecc71);
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #dee2e6;
+            padding: 30px 20px;
+            order: 2;
+        }
+        
+        .winner-photo {
+            width: 180px;
+            height: 250px;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .projects-grid {
+            gap: 30px;
+        }
+        
+        .project-card {
+            border-radius: 8px;
+        }
+        
+        .winner-photo {
+            width: 150px;
+            height: 250px;
+        }
+        
+        .project-tags {
+            gap: 6px;
+        }
+        
+        .project-tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+        }
+    }
+
+    /* Research Papers Section - 2 columns on desktop */
+    .research-papers .container {
+        max-width: 1200px; /* Make container wider */
+    }
+
+    .research-papers .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+        gap: 35px; /* Slightly larger gap */
+        margin-top: 40px;
+    }
+
+    .research-papers .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Make all cards same height */
+    }
+
+    .research-papers .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Fixed height for image container */
+    .research-papers .project-img {
+        min-height: 250px;
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px; /* Slightly more padding */
+        box-sizing: border-box;
+    }
+
+    /* Ensure images maintain aspect ratio and fit properly */
+    .research-papers .project-img img {
+        max-height: 170px; /* Adjusted for 2-column layout */
+        width: auto;
+        max-width: 85%;
+        object-fit: contain;
+        display: block;
+    }
+
+    /* For taller images, adjust individually if needed */
+    .research-papers .project-card:nth-child(5) .project-img img,
+    .research-papers .project-card:nth-child(6) .project-img img {
+        max-height: 160px; /* Slightly smaller for electronics images */
+        max-width: 80%;
+    }
+
+    /* Consistent content area */
+    .research-papers .project-content {
+        padding: 25px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .research-papers .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        line-height: 1.4;
+        min-height: 60px; /* Ensure titles align */
+    }
+
+    .research-papers .project-content > p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex: 1;
+        min-height: 70px; /* Ensure description aligns */
+    }
+
+    /* Tags styling for research papers */
+    .research-papers .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 15px 0;
+        min-height: 80px; /* Ensure tags section aligns */
+    }
+
+    .research-papers .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* Links styling */
+    .research-papers .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .research-papers .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .research-papers .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+    }
+
+    .research-papers .btn-outline {
+        background-color: transparent;
+        border: 2px solid #3498db;
+        color: #3498db;
+    }
+
+    .research-papers .btn-outline:hover {
+        background-color: #3498db;
+        color: white;
+    }
+
+    /* Paper info text styling */
+    .paper-info {
+        font-weight: 600;
+        font-size: 0.9rem;
+        opacity: 0.9;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive adjustments - 2 columns on tablet, 1 on mobile */
+    @media (max-width: 1024px) {
+        .research-papers .projects-grid {
+            gap: 25px;
+        }
+        
+        .research-papers .project-content h3 {
+            font-size: 1.25rem;
+            min-height: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .research-papers .projects-grid {
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 30px;
+        }
+        
+        .research-papers .project-img {
+            min-height: 220px;
+            padding: 20px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 150px;
+            max-width: 90%;
+        }
+        
+        .research-papers .project-card:nth-child(5) .project-img img,
+        .research-papers .project-card:nth-child(6) .project-img img {
+            max-height: 140px;
+            max-width: 85%;
+        }
+        
+        .research-papers .project-content {
+            padding: 20px;
+        }
+        
+        .research-papers .project-content h3 {
+            font-size: 1.2rem;
+            min-height: auto;
+        }
+        
+        .research-papers .project-content > p {
+            min-height: auto;
+        }
+        
+        .research-papers .project-tags {
+            min-height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .research-papers .project-img {
+            min-height: 200px;
+            padding: 15px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 130px;
+        }
+        
+        .research-papers .project-card:nth-child(5) .project-img img,
+        .research-papers .project-card:nth-child(6) .project-img img {
+            max-height: 120px;
+        }
+        
+        .research-papers .project-tags {
+            gap: 6px;
+        }
+        
+        .research-papers .project-tag {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        
+        .research-papers .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* For very large screens, you might want to adjust */
+    @media (min-width: 1400px) {
+        .research-papers .container {
+            max-width: 1300px;
+        }
+        
+        .research-papers .projects-grid {
+            gap: 40px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 190px;
+        }
+    }
+    /* Updated Projects Section - Carousel with 50% width */
+    #projects .container {
+        max-width: 1400px;
+    }
+
+    #projects .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px; /* More space between projects */
+    }
+
+    #projects .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 650px; /* Taller cards */
+    }
+
+    #projects .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for projects with winner photos - 50/50 split */
+    #projects .project-card.with-winner .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 650px;
+    }
+
+    /* Left column (image and content) - 50% */
+    #projects .project-card.with-winner .project-left {
+        flex: 1; /* 50% of the width */
+        display: flex;
+        flex-direction: column;
+        background: white;
+    }
+
+    /* Right column (carousel) - 50% */
+    #projects .project-card.with-winner .project-right {
+        flex: 1; /* 50% of the width */
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0; /* Remove padding */
+        position: relative;
+    }
+
+    /* Full width layout for regular projects */
+    #projects .project-card:not(.with-winner) .project-card-inner {
+        width: 100%;
+        display: flex;
+        min-height: 650px;
+    }
+
+    #projects .project-card:not(.with-winner) .project-full {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Project image on left side */
+    #projects .project-img {
+        flex: 1.2;
+        min-height: 280px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        border-bottom: none;
+    }
+
+    /* Project content area - with better button visibility */
     #projects .project-content {
+        flex: 0.8;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #projects .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #projects .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    #projects .project-date {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+        padding: 6px 12px;
+        border-radius: 10px;
+        display: inline-block;
+        width: auto;
+    }
+
+    /* Project tags - make them less prominent */
+    #projects .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    #projects .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    #projects .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* Project links - MAKE THEM MORE VISIBLE */
+    #projects .project-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+    }
+
+    #projects .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+    }
+
+    #projects .btn-outline {
+        padding: 13px 27px;
+    }
+
+    #projects .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING - SIMPLIFIED AND BETTER */
+    #projects .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-container {
+        width: 100%;
+        height: 100%; /* Fill the entire right column */
+        position: relative;
+        overflow: hidden;
+    }
+
+    #projects .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #projects .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cover the container */
+        flex-shrink: 0;
+        display: block;
+    }
+
+    /* Carousel navigation buttons - SMALLER AND BETTER */
+    #projects .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.85);
+        color: var(--primary);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0.8;
+    }
+
+    #projects .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #projects .carousel-btn.prev {
+        left: 15px;
+    }
+
+    #projects .carousel-btn.next {
+        right: 15px;
+    }
+
+    /* Carousel indicators - simpler */
+    #projects .carousel-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #projects .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #projects .indicator.active {
+        background-color: white;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter - simpler */
+    #projects .carousel-counter {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control - CSS DESIGN, NO EMOJI */
+    #projects .carousel-autoplay {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 16px;
+    }
+
+    #projects .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    #projects .carousel-autoplay::before {
+        content: "❚❚"; /* Pause symbol */
+    }
+
+    #projects .carousel-autoplay.playing::before {
+        content: "▶"; /* Play symbol */
+    }
+
+    /* Winner badge - subtle */
+    #projects .winner-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+        #projects .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #projects .project-card {
+            min-height: 600px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #projects .projects-grid {
+            gap: 70px;
+        }
+        
+        #projects .project-card {
+            min-height: 550px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 550px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+        }
+        
+        #projects .carousel-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .projects-grid {
+            gap: 60px;
+        }
+        
+        #projects .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #projects .project-card.with-winner .project-left,
+        #projects .project-card:not(.with-winner) .project-full {
+            width: 100%;
+        }
+        
+        #projects .project-card.with-winner .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+            flex: none;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+            flex: none;
+        }
+        
+        #projects .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #projects .carousel-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .projects-grid {
+            gap: 50px;
+        }
+        
+        #projects .project-content {
+            padding: 25px;
+        }
+        
+        #projects .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #projects .project-tags {
+            gap: 8px;
+        }
+        
+        #projects .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #projects .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #projects .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #projects .carousel-container {
+            height: 350px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+        
+        #projects .carousel-counter,
+        #projects .carousel-autoplay {
+            font-size: 14px;
+        }
+    }
+
+    /* Updated Projects Section - Ensure website links are always visible */
+    #projects .container {
+        max-width: 1400px;
+    }
+
+    #projects .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        margin-bottom: 40px; /* Extra space at bottom for links */
+    }
+
+    #projects .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 700px; /* Increased to ensure links fit */
+    }
+
+    #projects .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for projects with winner photos - 50/50 split */
+    #projects .project-card.with-winner .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 700px; /* Increased */
+    }
+
+    /* Left column (image and content) - 50% */
+    #projects .project-card.with-winner .project-left {
+        flex: 1; /* 50% of the width */
+        display: flex;
+        flex-direction: column;
+        background: white;
+        position: relative; /* For extending section */
+    }
+
+    /* Right column (carousel) - 50% */
+    #projects .project-card.with-winner .project-right {
+        flex: 1; /* 50% of the width */
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+    }
+
+    /* Ensure the section extends to fit all content */
+    #projects .project-content {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px; /* Ensure minimum space for content */
+    }
+
+    /* Make sure the project links section has enough space */
+    #projects .project-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #projects .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #projects .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    #projects .project-date {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+        padding: 8px 15px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    /* Project tags - reduced height to make room for links */
+    #projects .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+        min-height: 60px; /* Reduced */
+    }
+
+    #projects .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        height: fit-content;
+    }
+
+    #projects .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* PROJECT LINKS - EXTREMELY IMPORTANT - ENSURE THEY'RE ALWAYS VISIBLE */
+    #projects .project-links-container {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        position: relative;
+        z-index: 10;
+    }
+
+    #projects .project-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #projects .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    #projects .btn i {
+        margin-right: 8px;
+    }
+
+    #projects .btn-outline {
+        padding: 13px 27px;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        background: transparent;
+    }
+
+    #projects .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING - WITH TINY FRAME */
+    #projects .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa; /* Light background for frame effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #projects .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Changed to contain to see full images */
+        flex-shrink: 0;
+        display: block;
+        padding: 20px; /* Tiny frame padding */
+        box-sizing: border-box; /* Include padding in dimensions */
+    }
+
+    /* Carousel navigation buttons - SMALLER */
+    #projects .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.9;
+    }
+
+    #projects .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #projects .carousel-btn.prev {
+        left: 10px;
+    }
+
+    #projects .carousel-btn.next {
+        right: 10px;
+    }
+
+    /* Carousel indicators */
+    #projects .carousel-indicators {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #projects .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #projects .indicator.active {
+        background-color: white;
+        transform: scale(1.3);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter */
+    #projects .carousel-counter {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control - CSS DESIGN */
+    #projects .carousel-autoplay {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+    }
+
+    #projects .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    #projects .carousel-autoplay::before {
+        content: "⏸"; /* Pause symbol */
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #projects .carousel-autoplay.playing::before {
+        content: "▶"; /* Play symbol */
+    }
+
+    /* Winner badge - subtle */
+    #projects .winner-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    #projects .winner-badge::before {
+        content: "🏆";
+        font-size: 12px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+        #projects .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #projects .project-card {
+            min-height: 650px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner {
+            min-height: 650px;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #projects .projects-grid {
+            gap: 70px;
+        }
+        
+        #projects .project-card {
+            min-height: 600px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .projects-grid {
+            gap: 60px;
+        }
+        
+        #projects .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #projects .project-card.with-winner .project-left,
+        #projects .project-card:not(.with-winner) .project-full {
+            width: 100%;
+        }
+        
+        #projects .project-card.with-winner .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+            flex: none;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+            flex: none;
+            min-height: auto;
+        }
+        
+        #projects .project-links-container {
+            margin-top: 30px;
+        }
+        
+        #projects .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .projects-grid {
+            gap: 50px;
+        }
+        
+        #projects .project-content {
+            padding: 25px;
+        }
+        
+        #projects .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #projects .project-tags {
+            gap: 8px;
+            min-height: 50px;
+        }
+        
+        #projects .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #projects .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #projects .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #projects .carousel-slide img {
+            padding: 15px; /* Smaller padding on mobile */
+        }
+        
+        #projects .carousel-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        
+        #projects .carousel-counter,
+        #projects .carousel-autoplay {
+            font-size: 12px;
+        }
+        
+        #projects .carousel-autoplay {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    /* Updated Research Papers Section with Carousels */
+    #research .container {
+        max-width: 1400px;
+    }
+
+    #research .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        margin-bottom: 40px;
+    }
+
+    #research .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 700px;
+    }
+
+    #research .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for research papers - 50/50 split */
+    #research .project-card .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 700px;
+    }
+
+    /* Left column (image carousel) - 50% */
+    #research .project-card .project-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: white;
+    }
+
+    /* Right column (content) - 50% */
+    #research .project-card .project-right {
+        flex: 1;
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    /* Ensure the section extends to fit all content */
+    #research .project-content {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         min-height: 300px;
     }
-    
-    #projects .project-tags {
-        padding-bottom: 60px;
-    }
-    
-    #projects .btn {
-        padding: 10px 20px !important;
-        font-size: 0.95rem !important;
-    }
-}
 
-@media (max-width: 576px) {
-    #projects .project-tags .project-links {
+    #research .project-content-wrapper {
+        flex: 1;
+        display: flex;
         flex-direction: column;
-        gap: 10px !important;
     }
-    
-    #projects .btn {
-        width: 100% !important;
-        text-align: center !important;
+
+    #research .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #research .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    /* Paper info styling */
+    #research .paper-info {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        padding: 8px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Project tags for research papers */
+    #research .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+        min-height: 60px;
+    }
+
+    #research .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        height: fit-content;
+    }
+
+    #research .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* PROJECT LINKS - EXTREMELY IMPORTANT */
+    #research .project-links-container {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        position: relative;
+        z-index: 10;
+    }
+
+    #research .project-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #research .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    #research .btn i {
+        margin-right: 8px;
+    }
+
+    #research .btn-outline {
+        padding: 13px 27px;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        background: transparent;
+    }
+
+    #research .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING FOR RESEARCH PAPERS */
+    #research .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #research .carousel-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #research .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #research .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        flex-shrink: 0;
+        display: block;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Carousel navigation buttons */
+    #research .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.9;
+    }
+
+    #research .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #research .carousel-btn.prev {
+        left: 10px;
+    }
+
+    #research .carousel-btn.next {
+        right: 10px;
+    }
+
+    /* Carousel indicators */
+    #research .carousel-indicators {
+        position: absolute;
+        bottom: 40px; /* Position above paper info */
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #research .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #research .indicator.active {
+        background-color: white;
+        transform: scale(1.3);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter */
+    #research .carousel-counter {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control */
+    #research .carousel-autoplay {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+    }
+
+    #research .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    #research .carousel-autoplay::before {
+        content: "⏸";
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #research .carousel-autoplay.playing::before {
+        content: "▶";
+    }
+
+    /* Paper badge - shows year and type */
+    #research .paper-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, var(--secondary), #2980b9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    #research .paper-badge::before {
+        content: "📄";
+        font-size: 12px;
+    }
+
+    /* Responsive design for research papers */
+    @media (max-width: 1400px) {
+        #research .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #research .project-card {
+            min-height: 650px;
+        }
+        
+        #research .project-card .project-card-inner {
+            min-height: 650px;
+        }
+        
+        #research .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #research .projects-grid {
+            gap: 70px;
+        }
+        
+        #research .project-card {
+            min-height: 600px;
+        }
+        
+        #research .project-card .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #research .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #research .projects-grid {
+            gap: 60px;
+        }
+        
+        #research .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #research .project-card .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #research .project-card .project-left {
+            width: 100%;
+        }
+        
+        #research .project-card .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #research .project-content {
+            padding: 30px;
+            flex: none;
+            min-height: auto;
+        }
+        
+        #research .project-links-container {
+            margin-top: 30px;
+        }
+        
+        #research .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #research .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #research .projects-grid {
+            gap: 50px;
+        }
+        
+        #research .project-content {
+            padding: 25px;
+        }
+        
+        #research .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #research .project-tags {
+            gap: 8px;
+            min-height: 50px;
+        }
+        
+        #research .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #research .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #research .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #research .carousel-slide img {
+            padding: 15px;
+        }
+        
+        #research .carousel-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        
+        #research .carousel-counter,
+        #research .carousel-autoplay {
+            font-size: 12px;
+        }
+        
+        #research .carousel-autoplay {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    /* ADD THIS AT THE END OF THE STYLE SECTION - BEFORE THE CLOSING </style> TAG */
+
+    /* Force project cards to always show full content and links */
+    #projects .project-card-inner,
+    #research .project-card-inner {
+        min-height: auto !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #projects .project-left,
+    #research .project-left {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    #projects .project-content,
+    #research .project-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0; /* Allow content to shrink but not overflow */
+    }
+
+    /* Ensure project links container is always at bottom and visible */
+    #projects .project-links-container,
+    #research .project-links-container {
+        margin-top: auto;
+        padding-top: 25px;
+        border-top: 2px solid #e9ecef;
+        position: relative;
+        z-index: 20;
+    }
+
+    /* Make project links more prominent */
+    #projects .project-links,
+    #research .project-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Ensure buttons are always visible */
+    #projects .btn,
+    #research .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        background-color: var(--secondary);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #projects .btn:hover,
+    #research .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        background-color: var(--primary);
+    }
+
+    #projects .btn-outline,
+    #research .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+    }
+
+    #projects .btn-outline:hover,
+    #research .btn-outline:hover {
+        background-color: var(--secondary);
+        color: white;
+    }
+
+    /* Ensure carousel doesn't overflow */
+    #projects .carousel-container,
+    #research .carousel-container {
+        min-height: 400px;
+        max-height: 600px;
+        overflow: hidden;
+    }
+
+    /* Force section to extend for content */
+    #projects,
+    #research {
+        overflow: visible !important;
+    }
+
+    /* Add extra padding to sections to ensure links are visible */
+    #projects .container,
+    #research .container {
+        padding-bottom: 40px;
+    }
+
+    /* Make project content area scrollable if needed */
+    #projects .project-content-wrapper,
+    #research .project-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 250px; /* Minimum height for content */
+    }
+
+    /* Reduce project tags height to make more room for links */
+    #projects .project-tags,
+    #research .project-tags {
+        max-height: 100px;
+        overflow-y: auto;
+        margin: 15px 0;
+        padding-right: 5px;
+    }
+
+    /* Scrollbar styling for tags */
+    #projects .project-tags::-webkit-scrollbar,
+    #research .project-tags::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #projects .project-tags::-webkit-scrollbar-track,
+    #research .project-tags::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 2px;
+    }
+
+    #projects .project-tags::-webkit-scrollbar-thumb,
+    #research .project-tags::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 2px;
+    }
+
+    #projects .project-tags::-webkit-scrollbar-thumb:hover,
+    #research .project-tags::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+
+    /* Responsive adjustments for links */
+    @media (max-width: 992px) {
+        #projects .project-card-inner,
+        #research .project-card-inner {
+            min-height: auto;
+        }
+        
+        #projects .project-links,
+        #research .project-links {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        
+        #projects .btn,
+        #research .btn {
+            min-width: 120px;
+            padding: 12px 24px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .project-card,
+        #research .project-card {
+            min-height: auto !important;
+        }
+        
+        #projects .project-card-inner,
+        #research .project-card-inner {
+            min-height: auto;
+            flex-direction: column;
+        }
+        
+        #projects .project-right,
+        #research .project-right {
+            min-height: 400px;
+        }
+        
+        #projects .project-links,
+        #research .project-links {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #projects .btn,
+        #research .btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .project-content,
+        #research .project-content {
+            padding: 20px;
+        }
+        
+        #projects .project-links-container,
+        #research .project-links-container {
+            padding-top: 20px;
+        }
+        
+        #projects .btn,
+        #research .btn {
+            padding: 12px 20px;
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Add visual indicator for links */
+    #projects .project-links-container::before,
+    #research .project-links-container::before {
+        content: "Links & Resources";
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* ADD THIS CSS TO FIX ALL PROJECT TYPES - PLACE AT THE END OF YOUR STYLE SECTION */
+
+    /* Fix for ALL project cards - ensure links are always visible */
+    #projects .project-card,
+    #research .project-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #projects .project-card-inner,
+    #research .project-card-inner {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 650px; /* Ensure minimum height for all cards */
+    }
+
+    #projects .project-full,
+    #research .project-full {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 100%;
+    }
+
+    /* Specific fix for Vestas project and similar non-winner cards */
+    #projects .project-card:not(.with-winner) .project-card-inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    #projects .project-card:not(.with-winner) .project-full {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    #projects .project-card:not(.with-winner) .project-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 35px;
+    }
+
+    /* Ensure content wrapper for all projects */
+    #projects .project-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 200px;
+    }
+
+    /* CRITICAL FIX: Make sure links container is always at bottom */
+    #projects .project-card .project-links {
+        margin-top: auto !important;
+        padding-top: 25px !important;
+        display: flex !important;
+        gap: 15px !important;
+        flex-wrap: wrap !important;
+        border-top: 2px solid #e9ecef !important;
+    }
+
+    /* Make sure buttons are visible */
+    #projects .project-card .btn,
+    #research .project-card .btn {
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        min-width: 140px !important;
+        display: inline-flex !important;
+        align-items: center !important;
         justify-content: center !important;
+        text-decoration: none !important;
+        background-color: var(--secondary) !important;
+        color: white !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
     }
-    
+
+    #projects .project-card .btn:hover,
+    #research .project-card .btn:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3) !important;
+        background-color: var(--primary) !important;
+    }
+
+    #projects .project-card .btn-outline,
+    #research .project-card .btn-outline {
+        background-color: transparent !important;
+        border: 2px solid var(--secondary) !important;
+        color: var(--secondary) !important;
+    }
+
+    #projects .project-card .btn-outline:hover,
+    #research .project-card .btn-outline:hover {
+        background-color: var(--secondary) !important;
+        color: white !important;
+    }
+
+    /* Force minimum height for content area */
+    #projects .project-content,
+    #research .project-content {
+        min-height: 350px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+
+    /* Ensure paragraphs don't take too much space */
+    #projects .project-content > p,
+    #research .project-content > p {
+        flex: 1;
+        min-height: 80px;
+        max-height: 150px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    /* Make tags scrollable if too many */
+    #projects .project-tags,
+    #research .project-tags {
+        max-height: 100px;
+        overflow-y: auto;
+        margin: 15px 0;
+        padding-right: 5px;
+    }
+
+    /* Scrollbar styling */
+    #projects .project-tags::-webkit-scrollbar,
+    #research .project-tags::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #projects .project-tags::-webkit-scrollbar-track,
+    #research .project-tags::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 2px;
+    }
+
+    #projects .project-tags::-webkit-scrollbar-thumb,
+    #research .project-tags::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 2px;
+    }
+
+    /* Add visual indicator that there are links */
+    #projects .project-links::before {
+        content: "Links:";
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        #projects .project-card-inner,
+        #research .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #projects .project-content,
+        #research .project-content {
+            min-height: 300px !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .project-card-inner,
+        #research .project-card-inner {
+            min-height: auto;
+        }
+        
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 500px;
+        }
+        
+        #projects .project-content,
+        #research .project-content {
+            min-height: 250px !important;
+            padding: 25px !important;
+        }
+        
+        #projects .project-card .btn,
+        #research .project-card .btn {
+            min-width: 120px !important;
+            padding: 12px 24px !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .project-content,
+        #research .project-content {
+            min-height: 200px !important;
+            padding: 20px !important;
+        }
+        
+        #projects .project-card .btn,
+        #research .project-card .btn {
+            width: 100% !important;
+            min-width: auto !important;
+            margin-bottom: 10px;
+        }
+        
+        #projects .project-links {
+            flex-direction: column !important;
+            gap: 10px !important;
+        }
+    }
+
+    /* Emergency override for any hidden links */
+    #projects a.btn,
+    #research a.btn,
+    #projects a.btn-outline,
+    #research a.btn-outline {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 100 !important;
+    }
+
+    /* ADD THIS CSS TO FIX NESTED LINKS STRUCTURE */
+
+    /* Fix for when project-links is nested inside project-tags */
     #projects .project-tags {
-        padding-bottom: 80px;
+        position: relative;
+        min-height: 120px; /* Reserve space for tags and links */
+        padding-bottom: 70px; /* Make room for the links at the bottom */
     }
-}
 
-/* Emergency visibility override */
-#projects .project-links,
-#projects .project-tags .project-links {
-    visibility: visible !important;
-    display: flex !important;
-}
+    #projects .project-tags .project-links {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 20px !important;
+        padding-top: 15px !important;
+        border-top: 2px solid #e9ecef !important;
+        display: flex !important;
+        gap: 15px !important;
+        flex-wrap: wrap !important;
+        z-index: 100 !important;
+    }
 
-#projects a.btn,
-#projects a.btn-outline {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+    /* Alternative: Use flexbox on project-tags to push links to bottom */
+    #projects .project-tags {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    #projects .project-tags .project-links {
+        margin-top: auto !important;
+        padding-top: 20px !important;
+        border-top: 2px solid #e9ecef !important;
+    }
+
+    /* Ensure project-content has enough height to show everything */
+    #projects .project-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 400px; /* Increase minimum height */
+        position: relative;
+    }
+
+    /* Make sure the tags container can expand */
+    #projects .project-tags {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    /* Make tags themselves not take up too much vertical space */
+    #projects .project-tag {
+        height: fit-content;
+        line-height: 1.4;
+        padding: 6px 12px;
+        margin: 2px;
+    }
+
+    /* Force visibility of buttons */
+    #projects .btn {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 1000 !important;
+        background-color: var(--secondary) !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        border-radius: 8px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2) !important;
+    }
+
+    #projects .btn:hover {
+        background-color: var(--primary) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.25) !important;
+    }
+
+    #projects .btn-outline {
+        background-color: transparent !important;
+        border: 2px solid var(--secondary) !important;
+        color: var(--secondary) !important;
+    }
+
+    #projects .btn-outline:hover {
+        background-color: var(--secondary) !important;
+        color: white !important;
+    }
+
+    /* Add visual container for links */
+    #projects .project-tags .project-links::before {
+        content: "Links & Resources";
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* Increase overall card height if needed */
+    #projects .project-card {
+        min-height: 750px !important; /* Increase from 700px */
+    }
+
+    #projects .project-card-inner {
+        min-height: 750px !important;
+    }
+
+    /* Make sure carousel side doesn't overflow */
+    #projects .project-right {
+        min-height: 400px;
+        max-height: 750px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        #projects .project-card {
+            min-height: 700px !important;
+        }
+        
+        #projects .project-card-inner {
+            min-height: 700px !important;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #projects .project-card {
+            min-height: 650px !important;
+        }
+        
+        #projects .project-card-inner {
+            min-height: 650px !important;
+        }
+        
+        #projects .project-content {
+            min-height: 350px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .project-card {
+            min-height: auto !important;
+        }
+        
+        #projects .project-card-inner {
+            min-height: auto !important;
+            flex-direction: column;
+        }
+        
+        #projects .project-content {
+            min-height: 300px;
+        }
+        
+        #projects .project-tags {
+            padding-bottom: 60px;
+        }
+        
+        #projects .btn {
+            padding: 10px 20px !important;
+            font-size: 0.95rem !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .project-tags .project-links {
+            flex-direction: column;
+            gap: 10px !important;
+        }
+        
+        #projects .btn {
+            width: 100% !important;
+            text-align: center !important;
+            justify-content: center !important;
+        }
+        
+        #projects .project-tags {
+            padding-bottom: 80px;
+        }
+    }
+
+    /* Emergency visibility override */
+    #projects .project-links,
+    #projects .project-tags .project-links {
+        visibility: visible !important;
+        display: flex !important;
+    }
+
+    #projects a.btn,
+    #projects a.btn-outline {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
     </style>
 </head>
 <body>
@@ -3263,6 +3263,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#research">Research Papers</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -3653,7 +3654,7 @@
                                         <span class="project-tag">Case Competition</span>
                                         <span class="project-tag">Finalist</span>
                                         <div class="project-links">
-                                            <a href="https://azrae101.github.io/CaseCompetition/" class="btn" target="_blank" rel="noopener">Visit Site</a>
+                                            <a href="https://azrae101.github.io/CaseCompetition/templates/home.html" class="btn" target="_blank" rel="noopener">Visit Site</a>
                                             <a href="https://github.com/Azrae101/CaseCompetition.git" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
                                         </div>
                                     </div>
@@ -3880,6 +3881,7 @@
                             <li><a href="#home">Home</a></li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#projects">Projects</a></li>
+                            <li><a href="#research-papers">Research Papers</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
