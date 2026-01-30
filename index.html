@@ -27,7 +27,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: #f9f9f9;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e8ecf1 30%, #f0f3f7 70%, #f5f7fa 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
         
         a {
@@ -49,6 +66,8 @@
         
         section {
             padding: 80px 0;
+            position: relative;
+            z-index: 1;
         }
         
         .section-title {
@@ -60,13 +79,18 @@
         .section-title h2 {
             font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
         .section-title p {
-            color: var(--text-light);
+            color: #6c757d;
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 400;
         }
         
         .btn {
@@ -151,10 +175,30 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #1a252f 0%, var(--primary) 40%, var(--secondary) 100%);
             color: white;
             padding: 180px 0 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
@@ -177,16 +221,22 @@
         }
         
         /* About Section */
+        #about {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(248,249,250,0.8) 100%);
+            backdrop-filter: blur(10px);
+        }
+        
         /* Card wrapper for a lifted About panel */
         .about .about-card {
-            background-color: white;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%);
             border-radius: 14px;
             padding: 36px;
-            box-shadow: 0 12px 40px rgba(44,62,80,0.06);
+            box-shadow: 0 20px 60px rgba(44,62,80,0.08), 0 0 1px rgba(44,62,80,0.1);
             display: flex;
             gap: 40px;
             align-items: center;
             transform: translateY(-40px);
+            border: 1px solid rgba(255,255,255,0.8);
         }
 
         .about-content {
@@ -275,12 +325,84 @@
         }
         
         /* Projects Section */
+        #projects {
+            background: linear-gradient(to bottom, rgba(52,152,219,0.02) 0%, rgba(52,152,219,0.05) 50%, rgba(52,152,219,0.02) 100%);
+            position: relative;
+        }
+        
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(52,152,219,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(52,152,219,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #projects .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Research Section */
+        #research {
+            background: linear-gradient(to bottom, rgba(255,107,129,0.04) 0%, rgba(255,107,129,0.08) 50%, rgba(255,107,129,0.04) 100%);
+            position: relative;
+        }
+        
+        #research::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,107,129,0.10) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(232,67,147,0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #research .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
 
+        /* Honors Section */
+        #honors {
+            background: linear-gradient(to bottom, rgba(155,89,182,0.03) 0%, rgba(155,89,182,0.06) 50%, rgba(155,89,182,0.03) 100%);
+            position: relative;
+        }
+        
+        #honors::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(155,89,182,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(142,68,173,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #honors .container {
+            position: relative;
+            z-index: 1;
+        }
+        
         /* Center honors cards under the Honorable Mentions heading */
         .honors .projects-grid {
             justify-content: center;
@@ -289,15 +411,17 @@
         }
         
         .project-card {
-            background-color: white;
-            border-radius: 8px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.05);
             transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.6);
         }
         
         .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(52,152,219,0.15), 0 0 1px rgba(0,0,0,0.05);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
@@ -405,6 +529,30 @@
                 height: 100px;
             }
         }
+        
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(to bottom, rgba(26,188,156,0.03) 0%, rgba(22,160,133,0.05) 50%, rgba(26,188,156,0.03) 100%);
+            position: relative;
+        }
+        
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 20%, rgba(26,188,156,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(22,160,133,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #contact .container {
+            position: relative;
+            z-index: 1;
+        }
 
     .contact-details {
             list-style: none;
@@ -459,9 +607,20 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: linear-gradient(180deg, #1e2a35 0%, var(--dark) 50%, #1a252f 100%);
             color: white;
             padding: 50px 0 20px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(52,152,219,0.3) 50%, transparent 100%);
         }
         
         .footer-content {
@@ -512,17 +671,63 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(52,152,219,0.15) 0%, rgba(52,152,219,0.25) 100%);
             border-radius: 50%;
             color: white;
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+        
+        .social-link:hover::before {
+            width: 100%;
+            height: 100%;
         }
         
         .social-link:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(52,152,219,0.4);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .social-link svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover svg {
+            transform: scale(1.1) rotate(-5deg);
+        }
+        
+        /* Social links in contact section (different style) */
+        .contact-info .social-link {
+            background: linear-gradient(135deg, rgba(26,188,156,0.1) 0%, rgba(26,188,156,0.2) 100%);
+            border: 2px solid rgba(26,188,156,0.3);
+            color: var(--secondary);
+        }
+        
+        .contact-info .social-link:hover {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(26,188,156,0.4);
         }
         
         .copyright {
@@ -538,9 +743,9 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
             color: white;
             border: none;
             border-radius: 50%;
@@ -549,19 +754,54 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(52,152,219,0.35);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
         .scroll-to-top.show {
             display: flex;
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .scroll-to-top:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(44,62,80,0.4);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-6px) scale(0.98);
+        }
+        
+        .scroll-to-top::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .scroll-to-top:hover::before {
+            opacity: 0.3;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
         }
         
         /* Responsive Design */
@@ -2596,662 +2836,177 @@
         }
     }
 
-    /* ADD THIS AT THE END OF THE STYLE SECTION - BEFORE THE CLOSING </style> TAG */
-
-    /* Force project cards to always show full content and links */
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        min-height: auto !important;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #projects .project-left,
-    #research .project-left {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    #projects .project-content,
-    #research .project-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-height: 0; /* Allow content to shrink but not overflow */
-    }
-
-    /* Ensure project links container is always at bottom and visible */
-    #projects .project-links-container,
-    #research .project-links-container {
-        margin-top: auto;
-        padding-top: 25px;
-        border-top: 2px solid #e9ecef;
-        position: relative;
-        z-index: 20;
-    }
-
-    /* Make project links more prominent */
-    #projects .project-links,
-    #research .project-links {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    /* Ensure buttons are always visible */
-    #projects .btn,
-    #research .btn {
-        padding: 14px 28px;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        text-align: center;
-        min-width: 140px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        background-color: var(--secondary);
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-
-    #projects .btn:hover,
-    #research .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-        background-color: var(--primary);
-    }
-
-    #projects .btn-outline,
-    #research .btn-outline {
-        background-color: transparent;
-        border: 2px solid var(--secondary);
-        color: var(--secondary);
-    }
-
-    #projects .btn-outline:hover,
-    #research .btn-outline:hover {
-        background-color: var(--secondary);
-        color: white;
-    }
-
-    /* Ensure carousel doesn't overflow */
-    #projects .carousel-container,
-    #research .carousel-container {
-        min-height: 400px;
-        max-height: 600px;
-        overflow: hidden;
-    }
-
-    /* Force section to extend for content */
-    #projects,
-    #research {
-        overflow: visible !important;
-    }
-
-    /* Add extra padding to sections to ensure links are visible */
-    #projects .container,
-    #research .container {
-        padding-bottom: 40px;
-    }
-
-    /* Make project content area scrollable if needed */
-    #projects .project-content-wrapper,
-    #research .project-content-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        min-height: 250px; /* Minimum height for content */
-    }
-
-    /* Reduce project tags height to make more room for links */
-    #projects .project-tags,
-    #research .project-tags {
-        max-height: 100px;
-        overflow-y: auto;
-        margin: 15px 0;
-        padding-right: 5px;
-    }
-
-    /* Scrollbar styling for tags */
-    #projects .project-tags::-webkit-scrollbar,
-    #research .project-tags::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    #projects .project-tags::-webkit-scrollbar-track,
-    #research .project-tags::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 2px;
-    }
-
-    #projects .project-tags::-webkit-scrollbar-thumb,
-    #research .project-tags::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 2px;
-    }
-
-    #projects .project-tags::-webkit-scrollbar-thumb:hover,
-    #research .project-tags::-webkit-scrollbar-thumb:hover {
-        background: #a8a8a8;
-    }
-
-    /* Responsive adjustments for links */
-    @media (max-width: 992px) {
-        #projects .project-card-inner,
-        #research .project-card-inner {
-            min-height: auto;
-        }
-        
-        #projects .project-links,
-        #research .project-links {
-            flex-direction: row;
-            justify-content: flex-start;
-        }
-        
-        #projects .btn,
-        #research .btn {
-            min-width: 120px;
-            padding: 12px 24px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        #projects .project-card,
-        #research .project-card {
-            min-height: auto !important;
-        }
-        
-        #projects .project-card-inner,
-        #research .project-card-inner {
-            min-height: auto;
-            flex-direction: column;
-        }
-        
-        #projects .project-right,
-        #research .project-right {
-            min-height: 400px;
-        }
-        
-        #projects .project-links,
-        #research .project-links {
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        #projects .btn,
-        #research .btn {
-            width: 100%;
-            text-align: center;
-        }
-    }
-
-    @media (max-width: 576px) {
-        #projects .project-content,
-        #research .project-content {
-            padding: 20px;
-        }
-        
-        #projects .project-links-container,
-        #research .project-links-container {
-            padding-top: 20px;
-        }
-        
-        #projects .btn,
-        #research .btn {
-            padding: 12px 20px;
-            font-size: 0.95rem;
-        }
-    }
-
-    /* Add visual indicator for links */
-    #projects .project-links-container::before,
-    #research .project-links-container::before {
-        content: "Links & Resources";
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--primary);
-        margin-bottom: 10px;
-        opacity: 0.8;
-    }
-
-    /* ADD THIS CSS TO FIX ALL PROJECT TYPES - PLACE AT THE END OF YOUR STYLE SECTION */
-
-    /* Fix for ALL project cards - ensure links are always visible */
-    #projects .project-card,
-    #research .project-card {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #projects .project-card-inner,
-    #research .project-card-inner {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-height: 650px; /* Ensure minimum height for all cards */
-    }
-
-    #projects .project-full,
-    #research .project-full {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        height: 100%;
-    }
-
-    /* Specific fix for Vestas project and similar non-winner cards */
-    #projects .project-card:not(.with-winner) .project-card-inner {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    #projects .project-card:not(.with-winner) .project-full {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-
-    #projects .project-card:not(.with-winner) .project-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        padding: 35px;
-    }
-
-    /* Ensure content wrapper for all projects */
-    #projects .project-content-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        min-height: 200px;
-    }
-
-    /* CRITICAL FIX: Make sure links container is always at bottom */
-    #projects .project-card .project-links {
-        margin-top: auto !important;
-        padding-top: 25px !important;
-        display: flex !important;
-        gap: 15px !important;
-        flex-wrap: wrap !important;
-        border-top: 2px solid #e9ecef !important;
-    }
-
-    /* Make sure buttons are visible */
-    #projects .project-card .btn,
-    #research .project-card .btn {
-        padding: 14px 28px !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
-        border-radius: 10px !important;
-        min-width: 140px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-decoration: none !important;
-        background-color: var(--secondary) !important;
-        color: white !important;
-        border: none !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-    }
-
-    #projects .project-card .btn:hover,
-    #research .project-card .btn:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3) !important;
-        background-color: var(--primary) !important;
-    }
-
-    #projects .project-card .btn-outline,
-    #research .project-card .btn-outline {
-        background-color: transparent !important;
-        border: 2px solid var(--secondary) !important;
-        color: var(--secondary) !important;
-    }
-
-    #projects .project-card .btn-outline:hover,
-    #research .project-card .btn-outline:hover {
-        background-color: var(--secondary) !important;
-        color: white !important;
-    }
-
-    /* Force minimum height for content area */
-    #projects .project-content,
-    #research .project-content {
-        min-height: 350px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-    }
-
-    /* Ensure paragraphs don't take too much space */
-    #projects .project-content > p,
-    #research .project-content > p {
-        flex: 1;
-        min-height: 80px;
-        max-height: 150px;
-        overflow-y: auto;
-        margin-bottom: 20px;
-    }
-
-    /* Make tags scrollable if too many */
-    #projects .project-tags,
-    #research .project-tags {
-        max-height: 100px;
-        overflow-y: auto;
-        margin: 15px 0;
-        padding-right: 5px;
-    }
-
-    /* Scrollbar styling */
-    #projects .project-tags::-webkit-scrollbar,
-    #research .project-tags::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    #projects .project-tags::-webkit-scrollbar-track,
-    #research .project-tags::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 2px;
-    }
-
-    #projects .project-tags::-webkit-scrollbar-thumb,
-    #research .project-tags::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 2px;
-    }
-
-    /* Add visual indicator that there are links */
-    #projects .project-links::before {
-        content: "Links:";
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--primary);
-        margin-bottom: 10px;
-        opacity: 0.8;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        #projects .project-card-inner,
-        #research .project-card-inner {
-            min-height: 600px;
-        }
-        
-        #projects .project-content,
-        #research .project-content {
-            min-height: 300px !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        #projects .project-card-inner,
-        #research .project-card-inner {
-            min-height: auto;
-        }
-        
-        #projects .project-card:not(.with-winner) .project-card-inner {
-            min-height: 500px;
-        }
-        
-        #projects .project-content,
-        #research .project-content {
-            min-height: 250px !important;
-            padding: 25px !important;
-        }
-        
-        #projects .project-card .btn,
-        #research .project-card .btn {
-            min-width: 120px !important;
-            padding: 12px 24px !important;
-        }
-    }
-
-    @media (max-width: 576px) {
-        #projects .project-content,
-        #research .project-content {
-            min-height: 200px !important;
-            padding: 20px !important;
-        }
-        
-        #projects .project-card .btn,
-        #research .project-card .btn {
-            width: 100% !important;
-            min-width: auto !important;
-            margin-bottom: 10px;
-        }
-        
-        #projects .project-links {
-            flex-direction: column !important;
-            gap: 10px !important;
-        }
-    }
-
-    /* Emergency override for any hidden links */
-    #projects a.btn,
-    #research a.btn,
-    #projects a.btn-outline,
-    #research a.btn-outline {
-        display: inline-flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 100 !important;
-    }
-
-    /* ADD THIS CSS TO FIX NESTED LINKS STRUCTURE */
-
-    /* Fix for when project-links is nested inside project-tags */
-    #projects .project-tags {
-        position: relative;
-        min-height: 120px; /* Reserve space for tags and links */
-        padding-bottom: 70px; /* Make room for the links at the bottom */
-    }
-
-    #projects .project-tags .project-links {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin-top: 20px !important;
-        padding-top: 15px !important;
-        border-top: 2px solid #e9ecef !important;
-        display: flex !important;
-        gap: 15px !important;
-        flex-wrap: wrap !important;
-        z-index: 100 !important;
-    }
-
-    /* Alternative: Use flexbox on project-tags to push links to bottom */
-    #projects .project-tags {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    #projects .project-tags .project-links {
-        margin-top: auto !important;
-        padding-top: 20px !important;
-        border-top: 2px solid #e9ecef !important;
-    }
-
-    /* Ensure project-content has enough height to show everything */
-    #projects .project-content {
-        display: flex;
-        flex-direction: column;
-        min-height: 400px; /* Increase minimum height */
-        position: relative;
-    }
-
-    /* Make sure the tags container can expand */
-    #projects .project-tags {
-        flex: 1;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        gap: 10px;
-        margin-bottom: 0;
-    }
-
-    /* Make tags themselves not take up too much vertical space */
-    #projects .project-tag {
-        height: fit-content;
-        line-height: 1.4;
-        padding: 6px 12px;
-        margin: 2px;
-    }
-
-    /* Force visibility of buttons */
-    #projects .btn {
-        display: inline-flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 1000 !important;
-        background-color: var(--secondary) !important;
-        color: white !important;
-        padding: 12px 24px !important;
-        border-radius: 8px !important;
-        text-decoration: none !important;
-        font-weight: 600 !important;
-        border: none !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2) !important;
-    }
-
-    #projects .btn:hover {
-        background-color: var(--primary) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.25) !important;
-    }
-
-    #projects .btn-outline {
-        background-color: transparent !important;
-        border: 2px solid var(--secondary) !important;
-        color: var(--secondary) !important;
-    }
-
-    #projects .btn-outline:hover {
-        background-color: var(--secondary) !important;
-        color: white !important;
-    }
-
-    /* Add visual container for links */
-    #projects .project-tags .project-links::before {
-        content: "Links & Resources";
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--primary);
-        margin-bottom: 10px;
-        opacity: 0.8;
-    }
-
-    /* Increase overall card height if needed */
-    #projects .project-card {
-        min-height: 750px !important; /* Increase from 700px */
-    }
-
-    #projects .project-card-inner {
-        min-height: 750px !important;
-    }
-
-    /* Make sure carousel side doesn't overflow */
-    #projects .project-right {
-        min-height: 400px;
-        max-height: 750px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-        #projects .project-card {
-            min-height: 700px !important;
-        }
-        
-        #projects .project-card-inner {
-            min-height: 700px !important;
-        }
-    }
-
-    @media (max-width: 992px) {
-        #projects .project-card {
-            min-height: 650px !important;
-        }
-        
-        #projects .project-card-inner {
-            min-height: 650px !important;
-        }
-        
-        #projects .project-content {
-            min-height: 350px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        #projects .project-card {
-            min-height: auto !important;
-        }
-        
-        #projects .project-card-inner {
-            min-height: auto !important;
-            flex-direction: column;
-        }
-        
-        #projects .project-content {
-            min-height: 300px;
-        }
-        
-        #projects .project-tags {
-            padding-bottom: 60px;
-        }
-        
-        #projects .btn {
-            padding: 10px 20px !important;
-            font-size: 0.95rem !important;
-        }
-    }
-
-    @media (max-width: 576px) {
-        #projects .project-tags .project-links {
-            flex-direction: column;
-            gap: 10px !important;
-        }
-        
-        #projects .btn {
-            width: 100% !important;
-            text-align: center !important;
-            justify-content: center !important;
-        }
-        
-        #projects .project-tags {
-            padding-bottom: 80px;
-        }
-    }
-
-    /* Emergency visibility override */
-    #projects .project-links,
-    #projects .project-tags .project-links {
-        visibility: visible !important;
-        display: flex !important;
-    }
-
-    #projects a.btn,
-    #projects a.btn-outline {
-        display: inline-flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    </style>
+    /* Section Title Component */
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    padding: 0 1.5rem;
+}
+
+/* Main Heading */
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+/* Description Container */
+.section-title .description {
+    max-width: 48rem;
+    margin: 0 auto;
+    position: relative;
+    padding: 1.75rem 2.5rem;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 249, 250, 0.98) 100%);
+    border-radius: 1.25rem;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(52, 152, 219, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for description */
+.section-title .description:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Description Text */
+.section-title .description p {
+    color: var(--text-secondary, #4a5568);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.75;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Decorative left accent */
+.section-title .description::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 60%;
+    background: linear-gradient(180deg, 
+                var(--secondary) 0%, 
+                rgba(var(--secondary-rgb, 52, 152, 219), 0.4) 100%);
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+/* Optional right accent (balanced design) */
+.section-title .description::after {
+    content: '';
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 60%;
+    background: linear-gradient(180deg, 
+                var(--secondary) 0%, 
+                rgba(var(--secondary-rgb, 52, 152, 219), 0.4) 100%);
+    border-radius: 3px;
+    opacity: 0.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 3.5rem;
+        padding: 0 1rem;
+    }
+    
+    .section-title .description {
+        padding: 1.5rem 1.75rem;
+        border-radius: 1rem;
+    }
+    
+    .section-title .description::before,
+    .section-title .description::after {
+        display: none; /* Remove side accents on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        margin-bottom: 3rem;
+    }
+    
+    .section-title .description {
+        padding: 1.25rem 1.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: none; /* Better performance on mobile */
+        -webkit-backdrop-filter: none;
+    }
+    
+    .section-title h2 {
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .section-title .description {
+        background: linear-gradient(135deg, 
+                    rgba(30, 41, 59, 0.95) 0%, 
+                    rgba(15, 23, 42, 0.98) 100%);
+        border-color: rgba(52, 152, 219, 0.12);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .section-title .description p {
+        color: #e2e8f0;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .section-title .description {
+        transition: none;
+    }
+    
+    .section-title .description:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .section-title .description {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        backdrop-filter: none !important;
+    }
+    
+    .section-title .description::before,
+    .section-title .description::after {
+        display: none;
+    }
+}
+
+</style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -3831,15 +3586,44 @@
                     <h3>Let's Connect</h3>
                     <p>I'm always interested in new opportunities, collaborations, and discussions about cognitive science, educational technology, and data visualization.</p>
                     <ul class="contact-details">
-                        <li>📍 Aarhus, Denmark</li>
-                        <li>📧 clara.holst@example.com</li>
-                        <li>🎓 Cognitive Science, Aarhus University</li>
-                    </ul>
-                    <div class="social-links">
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">Git</a>
-                        <a href="#" class="social-link">Tw</a>
-                    </div>
+                        <br>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span style="font-size: 1.1rem;">Aarhus, Denmark</span>
+                        </li>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span style="font-size: 1.1rem;"><a href="mailto:clara.holst@outlook.com">clara.holst@outlook.com</a></span>
+                        </li>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <span style="font-size: 1.1rem;">Cognitive Science, Aarhus University</span>
+                        </li>
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn" style="width: auto; height: auto; background: none; border: none; border-radius: 0; padding: 0; margin: 0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3498db">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <span style="font-size: 1.1rem; font-weight: 450;">Clara Holst - CogCards</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <a href="https://github.com/Azrae101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub" style="width: auto; height: auto; background: none; border: none; border-radius: 0; padding: 0; margin: 0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3498db">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <span style="font-size: 1.1rem; font-weight: 450;">Azrae101</span>
+                    </li>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -3873,6 +3657,18 @@
                 <div class="footer-about">
                     <div class="footer-logo">Clara Holst</div>
                     <p>Cognitive Science student passionate about creating educational tools grounded in research.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/Azrae101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
@@ -3950,8 +3746,13 @@
         });
     </script>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="18 11 12 5 6 11"></polyline>
+            </svg>
+    </button>
 
     <script>
         // Scroll to top button functionality
