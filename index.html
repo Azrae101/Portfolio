@@ -6,6 +6,10 @@
     <title>Clara Holst - Cognitive Science Portfolio</title>
     <style>
         /* Base Styles */
+        html {
+            font-size: 100%; /* Scale everything to 75% */
+        }
+        
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -131,6 +135,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            font-size: 1.333rem; /* Compensate to keep header at 100%: 1 / 0.75 = 1.333 */
         }
         
         nav {
@@ -3033,7 +3038,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1>Cognitive Science & Learning Technology</h1>
+            <h1>Clara Holst - Personal Portfolio</h1>
             <p>Combining research in learning and memory with practical tools for education. My work blends data science, AI, and human-centered design to create engaging, effective learning experiences.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn">View My Work</a>
@@ -3042,55 +3047,60 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
-                <p>Cognitive Science student at Aarhus University with a passion for creating educational tools grounded in research.</p>
             </div>
-
-            <!-- Lifted card-style about panel -->
             <div class="about-card">
                 <div class="about-content">
-                    <div class="about-text">
-                        <h3>Hi, I'm Clara Holst</h3>
-                        <p>I'm a Cognitive Science student at Aarhus University with a passion for combining research in learning and memory with practical tools for education. My work blends data science, AI, and human-centered design to create engaging, effective learning experiences.</p>
-                        <p>With years of teaching experience, from supporting students with special needs to mentoring gifted youth, I am committed to making complex topics clear, accessible, and inspiring.</p>
-                        <p>Additionally, I am also a member of "The Kitchen", Aarhus University's startup hub, where I develop CogCards in an inspiring environment that encourages creativity, innovation, and collaboration. Being part of this community allows me to exchange ideas with other students and entrepreneurs, test new approaches, and gain valuable feedback.</p>
-                        
-                        <div class="skills">
-                            <div class="skill-category">
-                                <h4>Data & Technology</h4>
-                                <ul>
-                                    <li><span class="skill-badge">Data Science & Analysis</span></li>
-                                    <li><span class="skill-badge">Python Programming</span></li>
-                                    <li><span class="skill-badge">Machine Learning</span></li>
-                                    <li><span class="skill-badge">R Statistical Programming</span></li>
-                                    <li><span class="skill-badge">Web Development</span></li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Cognitive Science</h4>
-                                <ul>
-                                    <li><span class="skill-badge">User-Centered Design</span></li>
-                                    <li><span class="skill-badge">Human-Computer Interaction</span></li>
-                                    <li><span class="skill-badge">Learning & Memory Research</span></li>
-                                    <li><span class="skill-badge">Artificial Intelligence</span></li>
-                                    <li><span class="skill-badge">UX/UI Evaluation</span></li>
-                                </ul>
-                            </div>
+                <div class="about-text">
+                    <h3>Hi, I'm Clara Holst</h3>
+                    <div style="display: flex; gap: 30px; align-items: flex-start; margin-top: 1px;">
+                    <div class="about-image" style="flex: 0 0 auto; max-width: 300px;">
+                        <div class="profile-img" style="padding: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 4px solid rgba(255,255,255,0.06); height: auto; display: block;">
+                        <img src="images/Clara_about.jpg" alt="Clara Holst Profile" style="width:auto;max-width:100%;height:auto;object-fit:cover;border-radius:12px;display:block;margin:0;" />
                         </div>
                     </div>
-                    <div class="about-image">
-                        <div class="profile-img">
-                            <img src="images/Clara_about.jpg" alt="Clara Holst Profile" style="width:auto;max-width:100%;max-height:340px;object-fit:contain;border-radius:12px;display:block;margin:auto;" />
+                    <div style="flex: 1;">
+                        <p style="font-size: 1.15rem;">
+                            I'm a Cognitive Science student at Aarhus University passionate about turning research on learning and memory into practical, meaningful tools for education. My work sits at the intersection of data science, AI, and human-centered design, where I build interactive systems that make learning more engaging, effective, and grounded in how the brain actually works.
+                        </p>
+
+                        <p style="font-size: 1.15rem;">
+                            This focus comes to life through projects ranging from <strong>CogCards</strong>: a gamified learning platform based on cognitive principles; to educational simulations, data-driven visualizations, and interactive games. Whether I’m modeling misinformation spread with agent-based systems, designing critical data exhibitions, or building puzzle-based learning experiences, I’m driven by the question: <em>How can we make complex knowledge more intuitive, playful, and impactful?</em>
+                        </p>
+                    </div>
+                    </div>
+                    
+                            <div class="skills">
+                                <div class="skill-category">
+                                    <h4>Data & Technology</h4>
+                                    <ul>
+                                        <li><span class="skill-badge">Data Science & Analysis</span></li>
+                                        <li><span class="skill-badge">Python Programming</span></li>
+                                        <li><span class="skill-badge">Machine Learning</span></li>
+                                        <li><span class="skill-badge">R Statistical Programming</span></li>
+                                        <li><span class="skill-badge">Web Development</span></li>
+                                    </ul>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>Cognitive Science</h4>
+                                    <ul>
+                                        <li><span class="skill-badge">User-Centered Design</span></li>
+                                        <li><span class="skill-badge">Human-Computer Interaction</span></li>
+                                        <li><span class="skill-badge">Learning & Memory Research</span></li>
+                                        <li><span class="skill-badge">Artificial Intelligence</span></li>
+                                        <li><span class="skill-badge">UX/UI Evaluation</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
@@ -3746,12 +3756,12 @@
         });
     </script>
 
-        <!-- Scroll to Top Button -->
-        <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="18 11 12 5 6 11"></polyline>
-            </svg>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="18 11 12 5 6 11"></polyline>
+        </svg>
     </button>
 
     <script>
