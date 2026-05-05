@@ -1,0 +1,3998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara Holst - Cognitive Science Portfolio</title>
+    <style>
+        /* Base Styles */
+        html {
+            font-size: 100%; /* Scale everything to 75% */
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(180deg, #f5f7fa 0%, #e8ecf1 30%, #f0f3f7 70%, #f5f7fa 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            font-size: 1.333rem; /* Compensate to keep header at 100%: 1 / 0.75 = 1.333 */
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, var(--primary) 40%, var(--secondary) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* About Section */
+        #about {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(248,249,250,0.8) 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Card wrapper for a lifted About panel */
+        .about .about-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%);
+            border-radius: 14px;
+            padding: 36px;
+            box-shadow: 0 20px 60px rgba(44,62,80,0.08), 0 0 1px rgba(44,62,80,0.1);
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            transform: translateY(-40px);
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .about-text {
+            flex: 1.2;
+        }
+
+        .about-text h3 {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            letter-spacing: -0.2px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        /* Improved profile area */
+        .about-image {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 360px;
+            height: 360px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 4px solid rgba(255,255,255,0.06);
+        }
+
+        /* Skills as badges */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            margin-top: 22px;
+        }
+
+        .skill-category {
+            flex: 1 1 220px;
+            min-width: 180px;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-category li {
+            margin: 0;
+        }
+
+        .skill-category li .skill-badge {
+            display: inline-block;
+            background-color: #f1fbff;
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 14px rgba(52,152,219,0.06);
+        }
+        
+        /* Projects Section */
+        #projects {
+            background: linear-gradient(to bottom, rgba(52,152,219,0.02) 0%, rgba(52,152,219,0.05) 50%, rgba(52,152,219,0.02) 100%);
+            position: relative;
+        }
+        
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(52,152,219,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(52,152,219,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #projects .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Research Section */
+        #research {
+            background: linear-gradient(to bottom, rgba(255,107,129,0.04) 0%, rgba(255,107,129,0.08) 50%, rgba(255,107,129,0.04) 100%);
+            position: relative;
+        }
+        
+        #research::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,107,129,0.10) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(232,67,147,0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #research .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Honors Section */
+        #honors {
+            background: linear-gradient(to bottom, rgba(155,89,182,0.03) 0%, rgba(155,89,182,0.06) 50%, rgba(155,89,182,0.03) 100%);
+            position: relative;
+        }
+        
+        #honors::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(155,89,182,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(142,68,173,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #honors .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Center honors cards under the Honorable Mentions heading */
+        .honors .projects-grid {
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06), 0 0 1px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(52,152,219,0.15), 0 0 1px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tag {
+            background-color: #e1f0fa;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Projects Section - Winner Photo Layout */
+        .project-card.with-winner-photo .project-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .winner-photo {
+            width: 150px;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            align-self: center;
+        }
+
+        .winner-photo img {
+            width: 100%;
+            height: 150%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .winner-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        /* Adjust spacing for projects without winner photos */
+        .project-card:not(.with-winner-photo) .project-content {
+            padding: 25px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project-card.with-winner-photo .project-content {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .winner-photo {
+                width: 120px;
+                height: 120px;
+                justify-self: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card.with-winner-photo .project-content {
+                padding: 15px;
+            }
+            
+            .winner-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(to bottom, rgba(26,188,156,0.03) 0%, rgba(22,160,133,0.05) 50%, rgba(26,188,156,0.03) 100%);
+            position: relative;
+        }
+        
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 20%, rgba(26,188,156,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(22,160,133,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        #contact .container {
+            position: relative;
+            z-index: 1;
+        }
+
+    .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #1e2a35 0%, var(--dark) 50%, #1a252f 100%);
+            color: white;
+            padding: 50px 0 20px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(52,152,219,0.3) 50%, transparent 100%);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #bdc3c7;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(52,152,219,0.15) 0%, rgba(52,152,219,0.25) 100%);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+        
+        .social-link:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(52,152,219,0.4);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .social-link svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover svg {
+            transform: scale(1.1) rotate(-5deg);
+        }
+        
+        /* Social links in contact section (different style) */
+        .contact-info .social-link {
+            background: linear-gradient(135deg, rgba(26,188,156,0.1) 0%, rgba(26,188,156,0.2) 100%);
+            border: 2px solid rgba(26,188,156,0.3);
+            color: var(--secondary);
+        }
+        
+        .contact-info .social-link:hover {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(26,188,156,0.4);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(52,152,219,0.35);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .scroll-to-top.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(44,62,80,0.4);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-6px) scale(0.98);
+        }
+        
+        .scroll-to-top::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .scroll-to-top:hover::before {
+            opacity: 0.3;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-img {
+            height: 200px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Ensure all project cards have consistent content height */
+        .project-card:not(.with-winner-photo) .project-content {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Responsive grid adjustments */
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Projects Grid Layout */
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Inner container for flex/grid layout */
+    .project-card-inner {
+        display: flex;
+        min-height: 400px;
+    }
+
+    /* Left column (project content) */
+    .project-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Right column (winner photo) */
+    .project-right {
+        width: 250px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 1px solid #dee2e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Full width for regular projects */
+    .project-full {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Project image */
+    .project-img {
+        height: 200px;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Project content area */
+    .project-content {
+        padding: 25px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .project-content p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex: 1;
+    }
+
+    .project-date {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Project tags */
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* Project links */
+    .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: var(--primary-color, #3498db);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: var(--primary-dark, #2980b9);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-color, #3498db);
+        color: var(--primary-color, #3498db);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--primary-color, #3498db);
+        color: white;
+    }
+
+    /* Winner photo styling */
+    .winner-photo {
+        width: 200px;
+        height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        position: relative;
+    }
+
+    .winner-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .winner-photo:hover img {
+        transform: scale(1.05);
+    }
+
+    .winner-badge {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #27ae60, #2ecc71);
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #dee2e6;
+            padding: 30px 20px;
+            order: 2;
+        }
+        
+        .winner-photo {
+            width: 180px;
+            height: 250px;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .projects-grid {
+            gap: 30px;
+        }
+        
+        .project-card {
+            border-radius: 8px;
+        }
+        
+        .winner-photo {
+            width: 150px;
+            height: 250px;
+        }
+        
+        .project-tags {
+            gap: 6px;
+        }
+        
+        .project-tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+        }
+    }
+
+    /* Research Papers Section - 2 columns on desktop */
+    .research-papers .container {
+        max-width: 1200px; /* Make container wider */
+    }
+
+    .research-papers .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+        gap: 35px; /* Slightly larger gap */
+        margin-top: 40px;
+    }
+
+    .research-papers .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Make all cards same height */
+    }
+
+    .research-papers .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Fixed height for image container */
+    .research-papers .project-img {
+        min-height: 250px;
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px; /* Slightly more padding */
+        box-sizing: border-box;
+    }
+
+    /* Ensure images maintain aspect ratio and fit properly */
+    .research-papers .project-img img {
+        max-height: 170px; /* Adjusted for 2-column layout */
+        width: auto;
+        max-width: 85%;
+        object-fit: contain;
+        display: block;
+    }
+
+    /* For taller images, adjust individually if needed */
+    .research-papers .project-card:nth-child(5) .project-img img,
+    .research-papers .project-card:nth-child(6) .project-img img {
+        max-height: 160px; /* Slightly smaller for electronics images */
+        max-width: 80%;
+    }
+
+    /* Consistent content area */
+    .research-papers .project-content {
+        padding: 25px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .research-papers .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        line-height: 1.4;
+        min-height: 60px; /* Ensure titles align */
+    }
+
+    .research-papers .project-content > p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex: 1;
+        min-height: 70px; /* Ensure description aligns */
+    }
+
+    /* Tags styling for research papers */
+    .research-papers .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 15px 0;
+        min-height: 80px; /* Ensure tags section aligns */
+    }
+
+    .research-papers .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* Links styling */
+    .research-papers .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .research-papers .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .research-papers .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+    }
+
+    .research-papers .btn-outline {
+        background-color: transparent;
+        border: 2px solid #3498db;
+        color: #3498db;
+    }
+
+    .research-papers .btn-outline:hover {
+        background-color: #3498db;
+        color: white;
+    }
+
+    /* Paper info text styling */
+    .paper-info {
+        font-weight: 600;
+        font-size: 0.9rem;
+        opacity: 0.9;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive adjustments - 2 columns on tablet, 1 on mobile */
+    @media (max-width: 1024px) {
+        .research-papers .projects-grid {
+            gap: 25px;
+        }
+        
+        .research-papers .project-content h3 {
+            font-size: 1.25rem;
+            min-height: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .research-papers .projects-grid {
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 30px;
+        }
+        
+        .research-papers .project-img {
+            min-height: 220px;
+            padding: 20px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 150px;
+            max-width: 90%;
+        }
+        
+        .research-papers .project-card:nth-child(5) .project-img img,
+        .research-papers .project-card:nth-child(6) .project-img img {
+            max-height: 140px;
+            max-width: 85%;
+        }
+        
+        .research-papers .project-content {
+            padding: 20px;
+        }
+        
+        .research-papers .project-content h3 {
+            font-size: 1.2rem;
+            min-height: auto;
+        }
+        
+        .research-papers .project-content > p {
+            min-height: auto;
+        }
+        
+        .research-papers .project-tags {
+            min-height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .research-papers .project-img {
+            min-height: 200px;
+            padding: 15px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 130px;
+        }
+        
+        .research-papers .project-card:nth-child(5) .project-img img,
+        .research-papers .project-card:nth-child(6) .project-img img {
+            max-height: 120px;
+        }
+        
+        .research-papers .project-tags {
+            gap: 6px;
+        }
+        
+        .research-papers .project-tag {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        
+        .research-papers .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* For very large screens, you might want to adjust */
+    @media (min-width: 1400px) {
+        .research-papers .container {
+            max-width: 1300px;
+        }
+        
+        .research-papers .projects-grid {
+            gap: 40px;
+        }
+        
+        .research-papers .project-img img {
+            max-height: 190px;
+        }
+    }
+    /* Updated Projects Section - Carousel with 50% width */
+    #projects .container {
+        max-width: 1400px;
+    }
+
+    #projects .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px; /* More space between projects */
+    }
+
+    #projects .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 650px; /* Taller cards */
+    }
+
+    #projects .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for projects with winner photos - 50/50 split */
+    #projects .project-card.with-winner .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 650px;
+    }
+
+    /* Left column (image and content) - 50% */
+    #projects .project-card.with-winner .project-left {
+        flex: 1; /* 50% of the width */
+        display: flex;
+        flex-direction: column;
+        background: white;
+    }
+
+    /* Right column (carousel) - 50% */
+    #projects .project-card.with-winner .project-right {
+        flex: 1; /* 50% of the width */
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0; /* Remove padding */
+        position: relative;
+    }
+
+    /* Full width layout for regular projects */
+    #projects .project-card:not(.with-winner) .project-card-inner {
+        width: 100%;
+        display: flex;
+        min-height: 650px;
+    }
+
+    #projects .project-card:not(.with-winner) .project-full {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Project image on left side */
+    #projects .project-img {
+        flex: 1.2;
+        min-height: 280px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        border-bottom: none;
+    }
+
+    /* Project content area - with better button visibility */
+    #projects .project-content {
+        flex: 0.8;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #projects .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #projects .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    #projects .project-date {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+        padding: 6px 12px;
+        border-radius: 10px;
+        display: inline-block;
+        width: auto;
+    }
+
+    /* Project tags - make them less prominent */
+    #projects .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    #projects .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    #projects .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* Project links - MAKE THEM MORE VISIBLE */
+    #projects .project-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+    }
+
+    #projects .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+    }
+
+    #projects .btn-outline {
+        padding: 13px 27px;
+    }
+
+    #projects .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING - SIMPLIFIED AND BETTER */
+    #projects .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-container {
+        width: 100%;
+        height: 100%; /* Fill the entire right column */
+        position: relative;
+        overflow: hidden;
+    }
+
+    #projects .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #projects .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cover the container */
+        flex-shrink: 0;
+        display: block;
+    }
+
+    /* Carousel navigation buttons - SMALLER AND BETTER */
+    #projects .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.85);
+        color: var(--primary);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0.8;
+    }
+
+    #projects .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #projects .carousel-btn.prev {
+        left: 15px;
+    }
+
+    #projects .carousel-btn.next {
+        right: 15px;
+    }
+
+    /* Carousel indicators - simpler */
+    #projects .carousel-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #projects .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #projects .indicator.active {
+        background-color: white;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter - simpler */
+    #projects .carousel-counter {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control - CSS DESIGN, NO EMOJI */
+    #projects .carousel-autoplay {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 16px;
+    }
+
+    #projects .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    #projects .carousel-autoplay::before {
+        content: "❚❚"; /* Pause symbol */
+    }
+
+    #projects .carousel-autoplay.playing::before {
+        content: "▶"; /* Play symbol */
+    }
+
+    /* Winner badge - subtle */
+    #projects .winner-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+        #projects .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #projects .project-card {
+            min-height: 600px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #projects .projects-grid {
+            gap: 70px;
+        }
+        
+        #projects .project-card {
+            min-height: 550px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 550px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+        }
+        
+        #projects .carousel-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .projects-grid {
+            gap: 60px;
+        }
+        
+        #projects .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #projects .project-card.with-winner .project-left,
+        #projects .project-card:not(.with-winner) .project-full {
+            width: 100%;
+        }
+        
+        #projects .project-card.with-winner .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+            flex: none;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+            flex: none;
+        }
+        
+        #projects .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #projects .carousel-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .projects-grid {
+            gap: 50px;
+        }
+        
+        #projects .project-content {
+            padding: 25px;
+        }
+        
+        #projects .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #projects .project-tags {
+            gap: 8px;
+        }
+        
+        #projects .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #projects .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #projects .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #projects .carousel-container {
+            height: 350px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+        
+        #projects .carousel-counter,
+        #projects .carousel-autoplay {
+            font-size: 14px;
+        }
+    }
+
+    /* Updated Projects Section - Ensure website links are always visible */
+    #projects .container {
+        max-width: 1400px;
+    }
+
+    #projects .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        margin-bottom: 40px; /* Extra space at bottom for links */
+    }
+
+    #projects .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 700px; /* Increased to ensure links fit */
+    }
+
+    #projects .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for projects with winner photos - 50/50 split */
+    #projects .project-card.with-winner .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 700px; /* Increased */
+    }
+
+    /* Left column (image and content) - 50% */
+    #projects .project-card.with-winner .project-left {
+        flex: 1; /* 50% of the width */
+        display: flex;
+        flex-direction: column;
+        background: white;
+        position: relative; /* For extending section */
+    }
+
+    /* Right column (carousel) - 50% */
+    #projects .project-card.with-winner .project-right {
+        flex: 1; /* 50% of the width */
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+    }
+
+    /* Ensure the section extends to fit all content */
+    #projects .project-content {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px; /* Ensure minimum space for content */
+    }
+
+    /* Make sure the project links section has enough space */
+    #projects .project-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #projects .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #projects .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    #projects .project-date {
+        color: var(--text-light);
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+        padding: 8px 15px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    /* Project tags - reduced height to make room for links */
+    #projects .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+        min-height: 60px; /* Reduced */
+    }
+
+    #projects .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        height: fit-content;
+    }
+
+    #projects .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* PROJECT LINKS - EXTREMELY IMPORTANT - ENSURE THEY'RE ALWAYS VISIBLE */
+    #projects .project-links-container {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        position: relative;
+        z-index: 10;
+    }
+
+    #projects .project-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #projects .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    #projects .btn i {
+        margin-right: 8px;
+    }
+
+    #projects .btn-outline {
+        padding: 13px 27px;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        background: transparent;
+    }
+
+    #projects .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING - WITH TINY FRAME */
+    #projects .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa; /* Light background for frame effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #projects .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #projects .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Changed to contain to see full images */
+        flex-shrink: 0;
+        display: block;
+        padding: 20px; /* Tiny frame padding */
+        box-sizing: border-box; /* Include padding in dimensions */
+    }
+
+    /* Carousel navigation buttons - SMALLER */
+    #projects .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.9;
+    }
+
+    #projects .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #projects .carousel-btn.prev {
+        left: 10px;
+    }
+
+    #projects .carousel-btn.next {
+        right: 10px;
+    }
+
+    /* Carousel indicators */
+    #projects .carousel-indicators {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #projects .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #projects .indicator.active {
+        background-color: white;
+        transform: scale(1.3);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter */
+    #projects .carousel-counter {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control - CSS DESIGN */
+    #projects .carousel-autoplay {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+    }
+
+    #projects .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    #projects .carousel-autoplay::before {
+        content: "⏸"; /* Pause symbol */
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #projects .carousel-autoplay.playing::before {
+        content: "▶"; /* Play symbol */
+    }
+
+    /* Winner badge - subtle */
+    #projects .winner-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, #27ae60, #2ecc71);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    #projects .winner-badge::before {
+        content: "🏆";
+        font-size: 12px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1400px) {
+        #projects .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #projects .project-card {
+            min-height: 650px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner {
+            min-height: 650px;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #projects .projects-grid {
+            gap: 70px;
+        }
+        
+        #projects .project-card {
+            min-height: 600px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #projects .projects-grid {
+            gap: 60px;
+        }
+        
+        #projects .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #projects .project-card.with-winner .project-card-inner,
+        #projects .project-card:not(.with-winner) .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #projects .project-card.with-winner .project-left,
+        #projects .project-card:not(.with-winner) .project-full {
+            width: 100%;
+        }
+        
+        #projects .project-card.with-winner .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #projects .project-img {
+            min-height: 250px;
+            flex: none;
+        }
+        
+        #projects .project-content {
+            padding: 30px;
+            flex: none;
+            min-height: auto;
+        }
+        
+        #projects .project-links-container {
+            margin-top: 30px;
+        }
+        
+        #projects .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #projects .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #projects .projects-grid {
+            gap: 50px;
+        }
+        
+        #projects .project-content {
+            padding: 25px;
+        }
+        
+        #projects .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #projects .project-tags {
+            gap: 8px;
+            min-height: 50px;
+        }
+        
+        #projects .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #projects .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #projects .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #projects .carousel-slide img {
+            padding: 15px; /* Smaller padding on mobile */
+        }
+        
+        #projects .carousel-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        
+        #projects .carousel-counter,
+        #projects .carousel-autoplay {
+            font-size: 12px;
+        }
+        
+        #projects .carousel-autoplay {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    /* Updated Research Papers Section with Carousels */
+    #research .container {
+        max-width: 1400px;
+    }
+
+    #research .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        margin-bottom: 40px;
+    }
+
+    #research .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        min-height: 700px;
+    }
+
+    #research .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Split layout for research papers - 50/50 split */
+    #research .project-card .project-card-inner {
+        display: flex;
+        width: 100%;
+        min-height: 700px;
+    }
+
+    /* Left column (image carousel) - 50% */
+    #research .project-card .project-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: white;
+    }
+
+    /* Right column (content) - 50% */
+    #research .project-card .project-right {
+        flex: 1;
+        background: white;
+        border-left: 1px solid #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    /* Ensure the section extends to fit all content */
+    #research .project-content {
+        flex: 1;
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px;
+    }
+
+    #research .project-content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #research .project-content h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.9rem;
+        line-height: 1.3;
+        color: var(--primary);
+    }
+
+    #research .project-content > p {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    /* Paper info styling */
+    #research .paper-info {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        padding: 8px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Project tags for research papers */
+    #research .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+        min-height: 60px;
+    }
+
+    #research .project-tag {
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        height: fit-content;
+    }
+
+    #research .project-tag:hover {
+        background-color: #bbdefb;
+        transform: translateY(-2px);
+    }
+
+    /* PROJECT LINKS - EXTREMELY IMPORTANT */
+    #research .project-links-container {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 2px solid #e9ecef;
+        position: relative;
+        z-index: 10;
+    }
+
+    #research .project-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #research .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    #research .btn i {
+        margin-right: 8px;
+    }
+
+    #research .btn-outline {
+        padding: 13px 27px;
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        background: transparent;
+    }
+
+    #research .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CAROUSEL STYLING FOR RESEARCH PAPERS */
+    #research .winner-carousel {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #research .carousel-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #research .carousel-slide {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #research .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        flex-shrink: 0;
+        display: block;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Carousel navigation buttons */
+    #research .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 10;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0.9;
+    }
+
+    #research .carousel-btn:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+
+    #research .carousel-btn.prev {
+        left: 10px;
+    }
+
+    #research .carousel-btn.next {
+        right: 10px;
+    }
+
+    /* Carousel indicators */
+    #research .carousel-indicators {
+        position: absolute;
+        bottom: 40px; /* Position above paper info */
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    #research .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #research .indicator.active {
+        background-color: white;
+        transform: scale(1.3);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel counter */
+    #research .carousel-counter {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 10;
+    }
+
+    /* Autoplay control */
+    #research .carousel-autoplay {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+    }
+
+    #research .carousel-autoplay:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+    }
+
+    #research .carousel-autoplay::before {
+        content: "⏸";
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #research .carousel-autoplay.playing::before {
+        content: "▶";
+    }
+
+    /* Paper badge - shows year and type */
+    #research .paper-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, var(--secondary), #2980b9);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    #research .paper-badge::before {
+        content: "📄";
+        font-size: 12px;
+    }
+
+    /* Responsive design for research papers */
+    @media (max-width: 1400px) {
+        #research .container {
+            max-width: 100%;
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #research .project-card {
+            min-height: 650px;
+        }
+        
+        #research .project-card .project-card-inner {
+            min-height: 650px;
+        }
+        
+        #research .project-content {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        #research .projects-grid {
+            gap: 70px;
+        }
+        
+        #research .project-card {
+            min-height: 600px;
+        }
+        
+        #research .project-card .project-card-inner {
+            min-height: 600px;
+        }
+        
+        #research .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #research .projects-grid {
+            gap: 60px;
+        }
+        
+        #research .project-card {
+            flex-direction: column;
+            min-height: auto;
+            border-radius: 15px;
+        }
+        
+        #research .project-card .project-card-inner {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        #research .project-card .project-left {
+            width: 100%;
+        }
+        
+        #research .project-card .project-right {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid #e9ecef;
+            padding: 0;
+            min-height: 400px;
+        }
+        
+        #research .project-content {
+            padding: 30px;
+            flex: none;
+            min-height: auto;
+        }
+        
+        #research .project-links-container {
+            margin-top: 30px;
+        }
+        
+        #research .btn {
+            padding: 12px 24px;
+            min-width: 120px;
+        }
+        
+        #research .carousel-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #research .projects-grid {
+            gap: 50px;
+        }
+        
+        #research .project-content {
+            padding: 25px;
+        }
+        
+        #research .project-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        #research .project-tags {
+            gap: 8px;
+            min-height: 50px;
+        }
+        
+        #research .project-tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+        }
+        
+        #research .project-links {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #research .btn {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        #research .carousel-slide img {
+            padding: 15px;
+        }
+        
+        #research .carousel-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        
+        #research .carousel-counter,
+        #research .carousel-autoplay {
+            font-size: 12px;
+        }
+        
+        #research .carousel-autoplay {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    /* Section Title Component */
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    padding: 0 1.5rem;
+}
+
+/* Main Heading */
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+/* Description Container */
+.section-title .description {
+    max-width: 48rem;
+    margin: 0 auto;
+    position: relative;
+    padding: 1.75rem 2.5rem;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 249, 250, 0.98) 100%);
+    border-radius: 1.25rem;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(52, 152, 219, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for description */
+.section-title .description:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Description Text */
+.section-title .description p {
+    color: var(--text-secondary, #4a5568);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.75;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Decorative left accent */
+.section-title .description::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 60%;
+    background: linear-gradient(180deg, 
+                var(--secondary) 0%, 
+                rgba(var(--secondary-rgb, 52, 152, 219), 0.4) 100%);
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+/* Optional right accent (balanced design) */
+.section-title .description::after {
+    content: '';
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 60%;
+    background: linear-gradient(180deg, 
+                var(--secondary) 0%, 
+                rgba(var(--secondary-rgb, 52, 152, 219), 0.4) 100%);
+    border-radius: 3px;
+    opacity: 0.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 3.5rem;
+        padding: 0 1rem;
+    }
+    
+    .section-title .description {
+        padding: 1.5rem 1.75rem;
+        border-radius: 1rem;
+    }
+    
+    .section-title .description::before,
+    .section-title .description::after {
+        display: none; /* Remove side accents on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        margin-bottom: 3rem;
+    }
+    
+    .section-title .description {
+        padding: 1.25rem 1.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: none; /* Better performance on mobile */
+        -webkit-backdrop-filter: none;
+    }
+    
+    .section-title h2 {
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .section-title .description {
+        background: linear-gradient(135deg, 
+                    rgba(30, 41, 59, 0.95) 0%, 
+                    rgba(15, 23, 42, 0.98) 100%);
+        border-color: rgba(52, 152, 219, 0.12);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .section-title .description p {
+        color: #e2e8f0;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .section-title .description {
+        transition: none;
+    }
+    
+    .section-title .description:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .section-title .description {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        backdrop-filter: none !important;
+    }
+    
+    .section-title .description::before,
+    .section-title .description::after {
+        display: none;
+    }
+}
+
+</style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Clara <span>Holst</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#research">Research Papers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Clara Holst - Personal Portfolio</h1>
+            <p>Combining research in learning and memory with practical tools for education. My work blends data science, AI, and human-centered design to create engaging, effective learning experiences.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline" style="border-color: white; color: white;">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-card">
+                <div class="about-content">
+                <div class="about-text">
+                    <h3>Hi, I'm Clara Holst</h3>
+                    <div style="display: flex; gap: 30px; align-items: flex-start; margin-top: 1px;">
+                    <div class="about-image" style="flex: 0 0 auto; max-width: 300px;">
+                        <div class="profile-img" style="padding: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 4px solid rgba(255,255,255,0.06); height: auto; display: block;">
+                        <img src="images/Clara_about.jpg" alt="Clara Holst Profile" style="width:auto;max-width:100%;height:auto;object-fit:cover;border-radius:12px;display:block;margin:0;" />
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="font-size: 1.15rem;">
+                            I'm a Cognitive Science student at Aarhus University passionate about turning research on learning and memory into practical, meaningful tools for education. My work sits at the intersection of data science, AI, and human-centered design, where I build interactive systems that make learning more engaging, effective, and grounded in how the brain actually works.
+                        </p>
+
+                        <p style="font-size: 1.15rem;">
+                            This focus comes to life through projects ranging from <strong>CogCards</strong>: a gamified learning platform based on cognitive principles; to educational simulations, data-driven visualizations, and interactive games. Whether I’m modeling misinformation spread with agent-based systems, designing critical data exhibitions, or building puzzle-based learning experiences, I’m driven by the question: <em>How can we make complex knowledge more intuitive, playful, and impactful?</em>
+                        </p>
+                    </div>
+                    </div>
+                    
+                            <div class="skills">
+                                <div class="skill-category">
+                                    <h4>Data & Technology</h4>
+                                    <ul>
+                                        <li><span class="skill-badge">Data Science & Analysis</span></li>
+                                        <li><span class="skill-badge">Python Programming</span></li>
+                                        <li><span class="skill-badge">Machine Learning</span></li>
+                                        <li><span class="skill-badge">R Statistical Programming</span></li>
+                                        <li><span class="skill-badge">Web Development</span></li>
+                                    </ul>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>Cognitive Science</h4>
+                                    <ul>
+                                        <li><span class="skill-badge">User-Centered Design</span></li>
+                                        <li><span class="skill-badge">Human-Computer Interaction</span></li>
+                                        <li><span class="skill-badge">Learning & Memory Research</span></li>
+                                        <li><span class="skill-badge">Artificial Intelligence</span></li>
+                                        <li><span class="skill-badge">UX/UI Evaluation</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>A collection of my work in educational technology, data visualization, and interactive experiences.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: CogCards -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #9b59b6; background-image: url('images/logo.png'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>CogCards.dk</h3>
+                                <p>Master Any Subject with Gamified Learning. Turn studying into play with fun flashcard games, grounded in real brain science.</p>
+                                <p class="project-date">March, 2024 - Now</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">EdTech</span>
+                                    <span class="project-tag">Gamification</span>
+                                    <span class="project-tag">Startup Company</span>
+                                    <span class="project-tag">Cognitive Science</span>
+                                    <div class="project-links">
+                                        <a href="https://cogcards.dk" class="btn" target="_blank">Visit Site</a>
+                                        <a href="papers/Exam paper, Applied CogSci - Google Docs.pdf" class="btn" target="_blank" download="CogCards_Research.pdf">Download PDF of Research</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/cogcardspic.jpg" alt="CogCards Founder">
+                                        <img src="images/cogcardspic2.jpg" alt="CogCards Team">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Social & Green -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #27ae60; background-image: url('images/logodgi.webp'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>Social & Green</h3>
+                                <p>A youth-driven platform for hands-on sustainable events and rewarding initiatives that make climate action engaging through community participation.</p>
+                                <p class="project-date">November 23rd, 2025 - Now</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Sustainability</span>
+                                    <span class="project-tag">Community Platform</span>
+                                    <span class="project-tag">Gamification</span>
+                                    <span class="project-tag">Event Management</span>
+                                    <div class="project-links">
+                                    <a href="https://azrae101.github.io/DeepGreenSocial/index.html" class="btn" target="_blank">View Project</a>
+                                </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/deepgreen.jpg" alt="Social & Green Winner">
+                                        <img src="images/deepgreen1.png" alt="Social & Green game">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Curating Data Science - CORRECTED STRUCTURE -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #1abc9c; background-image: url('images/cds.png'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>Curating Data Science</h3>
+                                <p>A digital exhibition exploring data curation practices through the lens of critical data studies.</p>
+                                <p class="project-date">November 11th - November 30th, 2025</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Critical Data Studies</span>
+                                    <span class="project-tag">Curating Data</span>
+                                    <span class="project-tag">Digital Exhibition</span>
+                                    <span class="project-tag">Data analysis</span>
+                                    <br><br>
+                                    <a href="https://azrae101.github.io/CuratingDataScience/" class="btn" target="_blank">View Project</a>
+                                    <a href="papers/PORTFOLIO.pdf" class="btn" target="_blank" download="Curating_Data_Portfolio.pdf">Download PDF</a>
+                                </div>                         
+                            </div>
+                        </div>
+
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/curating1.png" alt="Curating Data Science Main View">
+                                        <img src="images/curating3.png" alt="Curating Data Science View 1">
+                                        <img src="images/curating2.png" alt="Curating Data Science View 2">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators"></div>
+                                    <div class="carousel-counter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: The Algorithmic Mirror -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #e67e22; background-image: url('images/algomirror.png'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>The Algorithmic Mirror</h3>
+                                <p>A critical data visualization examining how e-commerce platforms categorize consumers based on behavioral data.</p>
+                                <p class="project-date">November 10, 2025</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Critical Data Studies</span>
+                                    <span class="project-tag">Data Visualization</span>
+                                    <span class="project-tag">Critical Design</span>
+                                    <span class="project-tag">Curating Data</span>
+                                    <div class="project-links">
+                                        <a href="https://azrae101.github.io/Assignment3_CDS/" class="btn" target="_blank">View Project</a>
+                                        <a href="papers/PORTFOLIO.pdf" class="btn" target="_blank" download="Curating_Data_Portfolio.pdf">Download PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/algomirror1.png" alt="Algorithmic Mirror View 1">
+                                        <img src="images/algomirror2.png" alt="Algorithmic Mirror View 2">
+                                        <img src="images/algomirror3.png" alt="Algorithmic Mirror View 3">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators"></div>
+                                    <div class="carousel-counter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- Project 5: 10Space10 -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #34495e; background-image: url('images/10space10.png'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>10Space10</h3>
+                                <p>A spaceship escape room game where players must solve puzzles to progress through 10 rooms in 10 minutes.</p>
+                                <p class="project-date">12th - 14th of September, 2025</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Viborg Game Jam</span>
+                                    <span class="project-tag">Game Development</span>
+                                    <span class="project-tag">Escape Room</span>
+                                    <span class="project-tag">Winner</span>
+                                    <div class="project-links">
+                                        <a href="https://one0space10.onrender.com" class="btn" target="_blank">Play Game</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/space.jpg" alt="Viborg Game Jam Winner">
+                                        <img src="images/space2.jpg" alt="Game Jam Team">
+                                        <img src="images/space3.jpg" alt="Game Development">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: SustainaBag -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #27ae60; background-image: url('images/sustainabaglogo.png'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>SustainaBag</h3>
+                                <p>A platform to reduce textile waste in airports by allowing travelers to donate clean, unused clothes.</p>
+                                <p class="project-date">7th - 11th of July, 2025</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Sustainability</span>
+                                    <span class="project-tag">Circular Economy</span>
+                                    <span class="project-tag">Web Development</span>
+                                    <span class="project-tag">Winner</span>
+                                    <div class="project-links">
+                                        <a href="https://sustainabag.onrender.com" class="btn" target="_blank">Visit Site</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/sustainabag.jpg" alt="SustainaBag Winner">
+                                        <img src="images/sustainabag2.jpg" alt="SustainaBag Team">
+                                        <img src="images/sustainabag3.jpg" alt="SustainaBag Development">
+                                        <img src="images/sustainabag4.jpg" alt="SustainaBag Event">
+                                        <img src="images/sustainabag5.jpg" alt="SustainaBag Presentation">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Misinformation Spread Simulation -->
+                <div class="project-card with-winner">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="project-img" style="background-color: #3498db; background-image: url('images/soccultlogo.webp'); background-size: cover; background-position: center;"></div>
+                            <div class="project-content">
+                                <h3>Misinformation Spread Simulation</h3>
+                                <p>A Pygame-based simulation modeling the spread of misinformation through agent interactions in different environments (home, work, social media).</p>
+                                <p class="project-date">April - May, 2025</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Pygame</span>
+                                    <span class="project-tag">Simulation</span>
+                                    <span class="project-tag">Agent-Based Model</span>
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Social Dynamics</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Azrae101/SocialCulturalABM.git" class="btn" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="winner-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide">
+                                        <img src="images/soccult2.png" alt="SocialCulturalABM Team">
+                                        <img src="images/soccult1.png" alt="SocialCulturalABM Winner">
+                                        <img src="images/soccult3.png" alt="SocialCulturalABM Development">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8: Vestas Cybersecurity -->
+                    <div class="project-card with-winner">
+                        <div class="project-card-inner">
+                            <div class="project-left">
+                                <div class="project-img" style="background-color: #2980b9; background-image: url('images/vestaslogo.png'); background-size: cover; background-position: center;"></div>
+                                <div class="project-content">
+                                    <h3>Vestas Cybersecurity Challenge</h3>
+                                    <p>An interactive game designed to enhance cybersecurity knowledge through quizzes and challenges.</p>
+                                    <p class="project-date">April 24, 2024</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Cybersecurity</span>
+                                        <span class="project-tag">Educational Game</span>
+                                        <span class="project-tag">Case Competition</span>
+                                        <span class="project-tag">Finalist</span>
+                                        <div class="project-links">
+                                            <a href="https://azrae101.github.io/CaseCompetition/templates/home.html" class="btn" target="_blank" rel="noopener">Visit Site</a>
+                                            <a href="https://github.com/Azrae101/CaseCompetition.git" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-right">
+                                <div class="winner-carousel">
+                                    <div class="carousel-container">
+                                        <div class="carousel-slide">
+                                            <img src="images/vestas1.png" alt="Vestas Cybersecurity Game">
+                                            <img src="images/vestas2.png" alt="Vestas Team">
+                                        </div>
+                                        <button class="carousel-btn prev">❮</button>
+                                        <button class="carousel-btn next">❯</button>
+                                        <div class="carousel-indicators">
+                                            <span class="indicator active"></span>
+                                            <span class="indicator"></span>
+                                            <span class="indicator"></span>
+                                        </div>
+                                        <div class="carousel-counter">1 / 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Papers Section -->
+    <section id="research" class="research-papers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Papers</h2>
+                <p style="font-size: 1.3rem;">Selected academic research and project papers within Cognitive Science.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Paper 1: Bachelor's project -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="winner-carousel">
+                                <div class="carousel-container" style="background: linear-gradient(135deg, #66eaac 0%, #4ba28f 100%);">
+                                    <div class="carousel-slide">
+                                        <img src="images/bach.png" alt="Bachelor's Thesis">
+                                        <img src="images/bach2.png" alt="Bachelor's Thesis">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 1</div>
+                                    <div class="paper-info">Bachelor's Thesis • 2025</div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="project-content">
+                                <div class="project-content-wrapper">
+                                    <h3>Oscillatory Patterns During Emotional Face Processing using OPM-MEG Data</h3>
+                                    <p>Investigating neural oscillatory patterns during emotional face processing using OPM-MEG technology. This research explores how different emotions modulate brain activity in specific frequency bands and cortical regions.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Neuroscience</span>
+                                        <span class="project-tag">Cognitive Science</span>
+                                        <span class="project-tag">OPM-MEG</span>
+                                        <span class="project-tag">EEG/ERP</span>
+                                        <span class="project-tag">Emotion Processing</span>
+                                        <span class="project-tag">Data Analysis</span>
+                                    </div>
+                                </div>
+                                <div class="project-links-container">
+                                    <div class="project-links">
+                                        <a href="papers/Bachelor's paper - Google Docs.pdf" class="btn" target="_blank" download="Bachelors_Thesis.pdf">
+                                            Download PDF
+                                        </a>
+                                        <a href="https://github.com/Azrae101/Bachelor2025.git" class="btn btn-outline" target="_blank">
+                                            Dataset
+                                        </a>
+                                        <a href="https://github.com/RekaForgo/Oscillatory-Patterns-During-Emotional-Face-Processing-using-OPM-MEG-data.git" class="btn btn-outline" target="_blank">
+                                            Analysis code
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paper 2: Cognitive Neuroscience project -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-left">
+                            <div class="winner-carousel">
+                                <div class="carousel-container" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                    <div class="carousel-slide">
+                                        <img src="images/neuro.png" alt="cognitive neuroscience">
+                                        <img src="images/neuro2.png" alt="cognitive neuroscience">
+                                    </div>
+                                    <button class="carousel-btn prev">❮</button>
+                                    <button class="carousel-btn next">❯</button>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                    </div>
+                                    <div class="carousel-counter">1 / 1</div>
+                                    <div class="paper-info">Cognitive Neuroscience • 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-right">
+                            <div class="project-content">
+                                <div class="project-content-wrapper">
+                                    <h3>Fatigue-Driven Declines in Cognitive and Neural Performance Across Trials</h3>
+                                    <p>Examining how time-on-task and time-of-day affect cognitive performance, reaction times, accuracy, and EEG/ERP markers. Research reveals the neural correlates of cognitive fatigue and performance decline.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Neuroscience</span>
+                                        <span class="project-tag">Cognitive Science</span>
+                                        <span class="project-tag">EEG Analysis</span>
+                                        <span class="project-tag">Fatigue</span>
+                                        <span class="project-tag">Performance Metrics</span>
+                                        <span class="project-tag">Statistical Analysis</span>
+                                    </div>
+                                </div>
+                                <div class="project-links-container">
+                                    <div class="project-links">
+                                        <a href="papers/Final Exam Paper, Neuroscience - Google Docs.pdf" class="btn" target="_blank" download="Cognitive_Neuroscience.pdf">
+                                            Download PDF
+                                        </a>
+                                        <a href="https://github.com/RekaForgo/Fatigue-in-EEG-Cognitive-Neuroscience-2025-.git" class="btn btn-outline" target="_blank">
+                                            View Code
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="honors" class="honors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Honorable Mentions</h2>
+                <p>Selected collaborations and consulting work.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #95a5a6; background-image: url('images/stark.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-content">
+                        <h3>Stærk balance consultant</h3>
+                        <p>I helped consult on design choices for the Stærk Balance website. See the project live at <a href="https://staerkbalance.dk/" target="_blank" rel="noopener">staerkbalance.dk</a>.</p>
+                        <div class="project-links">
+                            <a href="https://staerkbalance.dk/" class="btn" target="_blank" rel="noopener">View Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--primary);">Get In Touch</h2>
+                <p>Have a question or want to work together? Feel free to reach out!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in new opportunities, collaborations, and discussions about cognitive science, educational technology, and data visualization.</p>
+                    <ul class="contact-details">
+                        <br>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span style="font-size: 1.1rem;">Aarhus, Denmark</span>
+                        </li>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span style="font-size: 1.1rem;"><a href="mailto:clara.holst@outlook.com">clara.holst@outlook.com</a></span>
+                        </li>
+                        <li>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 20px;">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <span style="font-size: 1.1rem;">Cognitive Science, Aarhus University</span>
+                        </li>
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn" style="width: auto; height: auto; background: none; border: none; border-radius: 0; padding: 0; margin: 0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3498db">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <span style="font-size: 1.1rem; font-weight: 450;">Clara Holst - CogCards</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <a href="https://github.com/Azrae101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub" style="width: auto; height: auto; background: none; border: none; border-radius: 0; padding: 0; margin: 0;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="#3498db">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <span style="font-size: 1.1rem; font-weight: 450;">Azrae101</span>
+                    </li>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Clara Holst</div>
+                    <p>Cognitive Science student passionate about creating educational tools grounded in research.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/Azrae101" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#research-papers">Research Papers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Projects</h4>
+                        <ul>
+                            <li><a href="https://cogcards.dk" target="_blank">CogCards</a></li>
+                            <li><a href="https://azrae101.github.io/CuratingDataScience/" target="_blank">Curating Data Science</a></li>
+                            <li><a href="https://one0space10.onrender.com" target="_blank">One0Space10</a></li>
+                            <li><a href="https://sustainabag.onrender.com" target="_blank">SustainaBag</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Clara Holst. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle and form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            navLinks.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="18 11 12 5 6 11"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+    // Improved Carousel functionality for winner images
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('#projects .winner-carousel, #research .winner-carousel');
+        
+        carousels.forEach((carousel, carouselIndex) => {
+            const container = carousel.querySelector('.carousel-container');
+            const slide = carousel.querySelector('.carousel-slide');
+            const images = slide.querySelectorAll('img');
+            const prevBtn = carousel.querySelector('.carousel-btn.prev');
+            const nextBtn = carousel.querySelector('.carousel-btn.next');
+            const indicators = carousel.querySelectorAll('.indicator');
+            const counter = carousel.querySelector('.carousel-counter');
+            const autoplayBtn = carousel.querySelector('.carousel-autoplay');
+            
+            let currentIndex = 0;
+            let autoplayInterval;
+            const autoplayDuration = 4000; // 4 seconds per image
+            
+            // Preload images for smoother transitions
+            images.forEach(img => {
+                const imgSrc = img.src;
+                const preloadImg = new Image();
+                preloadImg.src = imgSrc;
+            });
+            
+            // Update carousel
+            function updateCarousel() {
+                // Move slide
+                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+                
+                // Update counter
+                if (counter) {
+                    counter.textContent = `${currentIndex + 1} / ${images.length}`;
+                }
+                
+                // Update autoplay button
+                if (autoplayBtn) {
+                    autoplayBtn.classList.toggle('playing', !autoplayInterval);
+                }
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            // Start autoplay
+            function startAutoplay() {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                }
+                autoplayInterval = setInterval(nextSlide, autoplayDuration);
+                if (autoplayBtn) {
+                    autoplayBtn.classList.remove('playing');
+                }
+            }
+            
+            // Stop autoplay
+            function stopAutoplay() {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                    autoplayInterval = null;
+                }
+                if (autoplayBtn) {
+                    autoplayBtn.classList.add('playing');
+                }
+            }
+            
+            // Toggle autoplay
+            function toggleAutoplay() {
+                if (autoplayInterval) {
+                    stopAutoplay();
+                } else {
+                    startAutoplay();
+                }
+            }
+            
+            // Event listeners
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                    // Reset autoplay timer when manually navigating
+                    if (autoplayInterval) {
+                        stopAutoplay();
+                        startAutoplay();
+                    }
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                    // Reset autoplay timer when manually navigating
+                    if (autoplayInterval) {
+                        stopAutoplay();
+                        startAutoplay();
+                    }
+                });
+            }
+            
+            if (autoplayBtn) {
+                autoplayBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleAutoplay();
+                });
+            }
+            
+            // Indicator clicks
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToSlide(index);
+                    // Reset autoplay timer when manually navigating
+                    if (autoplayInterval) {
+                        stopAutoplay();
+                        startAutoplay();
+                    }
+                });
+            });
+            
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isSwiping = false;
+            
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isSwiping = true;
+            }, { passive: true });
+            
+            container.addEventListener('touchmove', (e) => {
+                if (!isSwiping) return;
+                touchEndX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            container.addEventListener('touchend', (e) => {
+                if (!isSwiping) return;
+                isSwiping = false;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous
+                        prevSlide();
+                    }
+                    // Reset autoplay timer
+                    if (autoplayInterval) {
+                        stopAutoplay();
+                        startAutoplay();
+                    }
+                }
+            }
+            
+            // Start autoplay after 2 seconds
+            setTimeout(() => {
+                startAutoplay();
+            }, 2000);
+            
+            // Pause on hover
+            container.addEventListener('mouseenter', () => {
+                if (autoplayInterval) {
+                    stopAutoplay();
+                }
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                if (!autoplayInterval && images.length > 1) {
+                    startAutoplay();
+                }
+            });
+            
+            // Initialize
+            updateCarousel();
+            
+            // Ensure images are properly sized
+            images.forEach(img => {
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
