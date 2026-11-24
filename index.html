@@ -108,7 +108,8 @@
         nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
         .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--ink); }
         .logo:hover { color: var(--ink); }
-        .logo svg { color: var(--accent); }
+        .logo .mark { width: 32px; height: 32px; display: block; }
+        .logo { white-space: nowrap; }
         .nav-links { display: flex; list-style: none; gap: 28px; }
         .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; }
         .nav-links a:hover { color: var(--accent); }
@@ -122,6 +123,23 @@
             color: var(--ink);
             cursor: pointer;
         }
+        .nav-end { display: flex; align-items: center; gap: 24px; }
+        .nav-in {
+            display: grid; place-items: center;
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--accent);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .nav-in:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+        @media (max-width: 720px) { .nav-end { gap: 10px; } }
+
+        .hero-social { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 22px; }
+        .hero-social a { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+        .hero-social a:hover { color: var(--accent); }
+        .hero-social svg { color: var(--accent); }
 
         /* Hero */
         .hero { position: relative; overflow: hidden; padding: 80px 0 72px; }
@@ -222,6 +240,8 @@
         .about-grid h2 { font-size: clamp(2rem, 4vw, 2.6rem); }
         .about-text p { color: var(--muted); margin-bottom: 18px; max-width: 660px; font-size: 1.04rem; }
         .about-text p strong { color: var(--ink); font-weight: 600; }
+        .about-text a { text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 3px; }
+        .about-text a strong { color: var(--accent); }
         .about-text .question { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); line-height: 1.45; margin: 28px 0 36px; }
         .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
         .skills h3 { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); margin-bottom: 10px; }
@@ -347,12 +367,22 @@
         .cv .now .yr { color: var(--accent); }
         .cv .now .yr small::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
         .cv h4 { font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+        .who { display: flex; align-items: flex-start; gap: 14px; }
+        .org-logo { width: 42px; height: 42px; flex-shrink: 0; object-fit: contain; padding: 5px; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+        .logo-pair { display: flex; flex-shrink: 0; }
+        .logo-pair .org-logo + .org-logo { margin-left: -12px; margin-top: 10px; box-shadow: 0 0 0 1px var(--line), 0 0 0 3px var(--bg); }
+        .vol .org { display: flex; align-items: center; gap: 9px; }
+        .vol .org .org-logo { width: 26px; height: 26px; padding: 3px; border-radius: 7px; }
         .cv .org { display: block; color: var(--accent); font-size: 0.94rem; margin-top: 3px; }
         .cv .org a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 3px; }
         .cv .org a:hover { text-decoration-color: var(--accent); }
         .cv .org a::after { content: " \2197"; font-size: 0.8em; }
         .cv p { color: var(--muted); font-size: 0.95rem; }
         .cv-more p + p { margin-top: 10px; }
+        .cv li.feature > div:nth-child(2) { grid-column: 2 / -1; }
+        .cv li.feature .cv-more { grid-column: 2 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: -10px; }
+        .cv li.feature .cv-more p + p { margin-top: 0; }
+        .cv li.feature .cv-tags { grid-column: 1 / -1; }
         .cv-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 14px; font: 500 0.74rem var(--mono); color: var(--accent); }
         .cv .cv-tags li { display: inline-block; padding: 0; border: 0; }
         .cv-tags li::before { content: "#"; color: var(--accent-line); margin-right: 1px; }
@@ -375,13 +405,64 @@
             .flow-edges path, .flow-nodes .model circle { animation: none; }
         }
         @media (max-width: 900px) {
-            .cv-more { grid-column: 2; }
+            .cv-more, .cv li.feature .cv-more, .cv li.feature > div:nth-child(2) { grid-column: 2; }
+            .cv li.feature .cv-more { grid-template-columns: 1fr; margin-top: 0; }
+            .cv li.feature .cv-more p + p { margin-top: 10px; }
             .flow { grid-column: 1 / -1; }
         }
         @media (max-width: 640px) {
             .flow-svg { display: none; }
             .flow-text { display: block; }
-            .cv-more, .flow { grid-column: auto; }
+            .cv-more, .flow, .cv li.feature .cv-more, .cv li.feature > div:nth-child(2) { grid-column: auto; }
+        }
+
+        /* Volunteering: line drawings over each role */
+        .vol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+        .vol article { padding: 28px 32px 8px; display: flex; flex-direction: column; }
+        .vol article + article { border-left: 1px solid var(--line); }
+        .vol article:first-child { padding-left: 0; }
+        .vol article:last-child { padding-right: 0; }
+        .vol .art { width: 100%; max-width: 220px; height: auto; margin-bottom: 20px; overflow: visible; }
+        .art path, .art rect, .art circle { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+        .art .fill { fill: var(--accent-soft); }
+        .art .ink { fill: var(--accent); stroke: none; }
+        .art .ground { stroke: var(--accent-line); stroke-dasharray: 2 5; }
+        .art .hair, .art .line { stroke-opacity: 0.6; }
+        .art .seam { stroke: #fff; stroke-width: 1.2; }
+        .art .star { fill: var(--accent-soft); }
+        .art text { font: 600 11px var(--mono); fill: var(--accent); }
+        .art .chalk { font-size: 12px; }
+        .art .tick { stroke-width: 2.2; }
+        .live { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 0.72rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 1px 9px; border-radius: 99px; }
+        .live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        .vol .when { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.74rem; color: var(--faint); }
+        .vol h4 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; line-height: 1.3; margin-top: 6px; }
+        .vol .org { color: var(--accent); font-size: 0.94rem; margin-top: 2px; }
+        .vol .org a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 3px; }
+        .vol .org a::after { content: " \2197"; font-size: 0.8em; }
+        .vol p { color: var(--muted); font-size: 0.95rem; margin-top: 10px; }
+
+        /* Small hover animations */
+        .art .ball, .art .arm, .art .block-top, .art .typing circle { transform-box: fill-box; }
+        .art .arm { transform-origin: 100% 100%; }
+        .vol article:hover .ball { animation: bounce 0.7s ease-in-out 2; }
+        .vol article:hover .block-top { animation: wobble 0.8s ease-in-out; transform-origin: 50% 100%; }
+        .vol article:hover .arm { animation: point 0.9s ease-in-out 2; }
+        .vol article:hover .typing circle { animation: typing 0.9s ease-in-out infinite; }
+        .vol article:hover .typing circle:nth-child(2) { animation-delay: 0.15s; }
+        .vol article:hover .typing circle:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-18px); } }
+        @keyframes wobble { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-8deg); } 65% { transform: rotate(5deg); } }
+        @keyframes point { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+        @keyframes typing { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(-3px); opacity: 0.4; } }
+        @media (prefers-reduced-motion: reduce) {
+            .vol article:hover .ball, .vol article:hover .block-top, .vol article:hover .arm, .vol article:hover .typing circle { animation: none; }
+        }
+        @media (max-width: 900px) {
+            .vol { grid-template-columns: 1fr; }
+            .vol article, .vol article:first-child, .vol article:last-child { padding: 28px 0; }
+            .vol article + article { border-left: none; border-top: 1px solid var(--line); }
+            .vol .art { max-width: 200px; }
         }
 
         .cv-note { margin-top: 18px; font-size: 0.92rem; color: var(--faint); }
@@ -405,6 +486,8 @@
         .camps-legend strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.05rem; }
         .camps-legend em { display: block; font-style: normal; font-size: 0.86rem; color: var(--accent); line-height: 1.35; margin: 2px 0 3px; }
         .camps-legend span:not(.k) { font-size: 0.84rem; color: var(--faint); }
+        .camps-legend em a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 3px; }
+        .camps-legend em a::after { content: " \2197"; font-size: 0.8em; }
         @media (max-width: 720px) {
             .camps-legend { grid-template-columns: 1fr; }
             .camps-legend ul { grid-template-columns: 1fr; gap: 12px; }
@@ -420,8 +503,13 @@
         .stops span { font-size: 0.85rem; color: var(--faint); }
 
         /* Languages */
-        .langs { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--ink); padding-top: 22px; }
+        .langs { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--ink); padding-top: 22px; }
         .langs strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.3rem; }
+        .also { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--accent-line); }
+        .also .also-k { width: 100%; font: 500 0.68rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
+        .also .also-l { display: inline-flex; align-items: center; gap: 7px; font-size: 0.9rem; color: var(--ink); }
+        .also svg { width: 20px; height: 14px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); }
+        .langs .flag { display: block; width: 34px; height: 24px; border-radius: 4px; margin-bottom: 12px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; }
         .langs span { display: block; font-size: 0.88rem; color: var(--faint); margin-top: 2px; }
         .meter { display: flex; gap: 5px; margin-top: 10px; }
         .meter i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--accent-line); }
@@ -553,17 +641,22 @@
         <div class="container">
             <nav aria-label="Main">
                 <a href="#top" class="logo">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2.5"/><path d="M7 6.8l9.7 4.3M7 17.2l9.7-4.3M5 8v8"/></svg>
+                    <img class="mark" src="images/favicon.svg" alt="" width="32" height="32">
                     Clara Holst
                 </a>
-                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <div class="nav-end">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <a class="nav-in" href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener" aria-label="Clara Holst on LinkedIn" title="LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    </a>
+                    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -578,12 +671,18 @@
                     <div>
                         <p class="eyebrow">HCI and XR, University of Twente and KTH</p>
                         <h1>I build digital tools grounded in how people think and learn.</h1>
-                        <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. I connect brain research, data and human-centred design.</p>
+                        <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Design with Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. I connect brain research, data and human-centred design.</p>
                         <div class="hero-actions">
-                            <a href="#work" class="btn">See my work</a>
+                            <a href="#experience" class="btn">Work experience</a>
+                            <a href="#work" class="btn btn-ghost">Projects</a>
                             <a href="#research" class="btn btn-ghost">Read my research</a>
                             <a href="#contact" class="btn btn-ghost">Get in touch</a>
                         </div>
+                        <p class="hero-social">
+                            <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+                            <a href="https://github.com/Azrae101" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.6-2.67-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
+                            <a href="mailto:clara.holst@outlook.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>Email</a>
+                        </p>
                     </div>
                     <figure class="hero-photo" id="heroPhoto">
                         <img src="images/Clara_about.jpg" alt="Portrait of Clara Holst">
@@ -631,7 +730,7 @@
                     <h2>Where people, brains and technology meet</h2>
                 </div>
                 <div class="about-text">
-                    <p>I'm studying for an MSc in <strong>Human-Computer Interaction and Extended Reality</strong> at the 28Digital Master School, a joint degree between the University of Twente in Enschede and KTH Royal Institute of Technology in Stockholm. Before that I took a BSc in <strong>Cognitive Science</strong> at Aarhus University, including an exchange semester at Sophia University in Tokyo.</p>
+                    <p>I'm studying for an MSc in <a href="https://masterschool.28digital.eu/human-computer-interaction-and-design-with-extended-reality" target="_blank" rel="noopener"><strong>Human-Computer Interaction and Design with Extended Reality</strong></a> at the 28Digital Master School, a joint degree between the University of Twente in Enschede and KTH Royal Institute of Technology in Stockholm. Before that I took a BSc in <a href="https://bachelor.au.dk/en/cognitivescience/" target="_blank" rel="noopener"><strong>Cognitive Science</strong></a> at Aarhus University, including an exchange semester at Sophia University in Tokyo.</p>
                     <p>Alongside my studies I work as a <strong>junior data scientist at Raptor Services</strong>, building recommendation and personalisation tools for e-commerce. I also run <strong>CogCards</strong>, a gamified flashcard platform, and I build websites for clients such as <strong>Japper Studio</strong>.</p>
                     <p>Teaching has followed me the whole way, from tutoring and homework cafés with Save the Children to talent camps for gifted pupils. It is a big part of why I care about learning tools that actually work.</p>
                     <p class="question">The question I keep coming back to: how can complex knowledge become more intuitive, playful and useful?</p>
@@ -707,10 +806,10 @@
                             <div class="meta"><span>Oct 2026 to present</span><span class="badge">In development</span></div>
                             <p>A web shop and online gallery for Japper Studio, the atelier of Danish painter Laura Kruuse. Her nature-inspired paintings are made with dried flowers and gold leaf, and the site sells them as signed, numbered prints in 50 × 70 cm.</p>
                             <ul class="nodes">
-                                <li>Print shop with cart, quantities, and a choice of delivery or free pickup in Odense</li>
-                                <li>A walk-through portfolio where the paintings hang on a wall like in a real gallery, each with the story behind it</li>
-                                <li>Sketches and studies pinned to a board, with a larger view on click</li>
-                                <li>Danish and English versions, an about page in Laura's own words, and a contact form</li>
+                                <li>Print shop with cart, delivery or free pickup</li>
+                                <li>A walk-through gallery with the story behind each painting</li>
+                                <li>Sketches pinned to a board, enlarged on click</li>
+                                <li>Danish and English, with an about page and contact form</li>
                             </ul>
                             <p class="role"><strong>My role:</strong> Sole designer and developer. Artwork, photos and texts by Laura Kruuse, with the structure and tone worked out together.</p>
                             <div class="tags">
@@ -1048,9 +1147,9 @@
                 <div class="xp-group">
                     <div class="sub-h"><span class="n">01</span><h3>Work</h3><span class="aside">Data, web and teaching</span></div>
                     <ol class="cv">
-                        <li class="now">
+                        <li class="now feature">
                             <div class="yr">2024<small>Sep 2024 to now</small></div>
-                            <div><h4>Junior Data Scientist</h4><span class="org"><a href="https://raptorservices.com/en" target="_blank" rel="noopener">Raptor Services</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/raptor.png" alt="Raptor Services logo" loading="lazy"><div><h4>Junior Data Scientist</h4><span class="org"><a href="https://raptorservices.com/en" target="_blank" rel="noopener">Raptor Services</a></span></div></div>
                             <div class="cv-more">
                                 <p>Raptor is a Danish customer data and personalisation platform, now part of the Ibexa group. It brings together what customers do on websites, in emails and in physical stores, and turns it into audiences and product recommendations for retailers such as nemlig.com, Imerco, hummel and XL-BYG.</p>
                                 <p>I work on the recommendation algorithms behind it: deciding which products each visitor sees on a homepage, a category page or in an email, based on their browsing and shopping behaviour. Along the way I help develop new AI solutions tailored to each client, in a team that is now also building AI agents for marketers.</p>
@@ -1101,32 +1200,32 @@
                         </li>
                         <li>
                             <div class="yr">2025<small>Jun 2025 to Mar 2026</small></div>
-                            <div><h4>Project Lead and Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/redbarnet.png" alt="Red Barnet Ungdom logo" loading="lazy"><div><h4>Project Lead and Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div></div>
                             <p>Taught maths, Danish and English at the Ellekær homework café, planned schedules for staff and volunteers, and ran onboarding meetings and social events.</p>
                         </li>
                         <li>
                             <div class="yr">2024<small>Feb 2024 to Mar 2026</small></div>
-                            <div><h4>Tutor</h4><span class="org"><a href="https://gotutor.dk/" target="_blank" rel="noopener">GoTutor (Egmont)</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/gotutor.png" alt="GoTutor logo" loading="lazy"><div><h4>Tutor</h4><span class="org"><a href="https://gotutor.dk/" target="_blank" rel="noopener">GoTutor (Egmont)</a></span></div></div>
                             <p>One-to-one tutoring planned around each student's level, needs and interests.</p>
                         </li>
                         <li>
                             <div class="yr">2023<small>Aug 2023 to Jun 2024</small></div>
-                            <div><h4>Teaching Assistant</h4><span class="org"><a href="https://talentcamp.dk/" target="_blank" rel="noopener">TalentCamp</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/talentcamp.png" alt="TalentCamp logo" loading="lazy"><div><h4>Teaching Assistant</h4><span class="org"><a href="https://talentcamp.dk/" target="_blank" rel="noopener">TalentCamp</a></span></div></div>
                             <p>Prepared teaching modules and led groups of gifted secondary school pupils on weekend camps.</p>
                         </li>
                         <li>
                             <div class="yr">2022<small>Apr 2022 to Aug 2023</small></div>
-                            <div><h4>IT Support and Web</h4><span class="org"><a href="https://staerkbalance.dk/" target="_blank" rel="noopener">Stærk Balance</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/staerkbalance.png" alt="Stærk Balance logo" loading="lazy"><div><h4>IT Support and Web</h4><span class="org"><a href="https://staerkbalance.dk/" target="_blank" rel="noopener">Stærk Balance</a></span></div></div>
                             <p>WordPress development, IT support and social media for a fitness and health company, including advice on their website design.</p>
                         </li>
                         <li>
                             <div class="yr">2021<small>Aug 2021 to Jun 2022</small></div>
-                            <div><h4>Student Tutor</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>Student Tutor</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
                             <p>Welcomed new students, gave school tours and taught at Girls' Day in Science, where pupils programmed a robot arm.</p>
                         </li>
                         <li>
                             <div class="yr">2020<small>Jul 2020 to Oct 2022</small></div>
-                            <div><h4>Store Assistant</h4><span class="org"><a href="https://sallinggroup.com/" target="_blank" rel="noopener">Netto, Odense</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/netto.png" alt="Netto logo" loading="lazy"><div><h4>Store Assistant</h4><span class="org"><a href="https://sallinggroup.com/" target="_blank" rel="noopener">Netto, Odense</a></span></div></div>
                             <p>Checkout, restocking and keeping the store welcoming, with a focus on working efficiently and helping customers with their questions.</p>
                         </li>
                     </ol>
@@ -1156,11 +1255,11 @@
                             <li><b>05</b><strong>Stockholm</strong><em>KTH Royal Institute of Technology</em><span>Next &middot; MSc</span></li>
                         </ol>
                         <div class="camps-legend">
-                            <span class="k"><i class="diamond" aria-hidden="true"></i>Camps along the way</span>
+                            <span class="k"><i class="diamond" aria-hidden="true"></i>Camps</span>
                             <ul>
-                                <li><strong>Venice</strong><em>MAGICA Summer School, H-FARM</em><span>Jul 2025</span></li>
-                                <li><strong>Hefei, China</strong><em>USTC Winter Camp</em><span>Dec 2025</span></li>
-                                <li><strong>Tallinn</strong><em>Kick-in event, 28Digital Master School</em><span>Oct 2026</span></li>
+                                <li><strong>Venice, Italy</strong><em><a href="https://college.h-farm.com/en/magica-summer-school-2025/" target="_blank" rel="noopener">MAGICA Summer School, H-FARM</a></em><span>Jul 2025</span></li>
+                                <li><strong>Hefei, China</strong><em><a href="https://ic.ustc.edu.cn/en/v7info.php?Nav_x=49" target="_blank" rel="noopener">USTC Winter Camp</a></em><span>Dec 2025</span></li>
+                                <li><strong>Tallinn, Estonia</strong><em>Kick-in event, 28Digital Master School</em><span>Oct 2026</span></li>
                             </ul>
                         </div>
                     </div>
@@ -1168,17 +1267,17 @@
                     <ol class="cv">
                         <li class="now">
                             <div class="yr">2026<small>Sep 2026 to now</small></div>
-                            <div><h4>MSc Human-Computer Interaction and Extended Reality</h4><span class="org">University of Twente and KTH</span></div>
-                            <p>28Digital Master School joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
+                            <div class="who"><span class="logo-pair"><img class="org-logo" src="images/logos/utwente.png" alt="University of Twente logo" loading="lazy"><img class="org-logo" src="images/logos/kth.png" alt="KTH logo" loading="lazy"></span><div><h4>MSc Human-Computer Interaction and Design with Extended Reality</h4><span class="org"><a href="https://masterschool.28digital.eu/human-computer-interaction-and-design-with-extended-reality" target="_blank" rel="noopener">28Digital Master School: University of Twente and KTH</a></span></div></div>
+                            <p>Joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
                         </li>
                         <li>
                             <div class="yr">2023<small>Sep 2023 to Sep 2026</small></div>
-                            <div><h4>BSc Cognitive Science</h4><span class="org">Aarhus University</span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/au.png" alt="Aarhus University logo" loading="lazy"><div><h4>BSc Cognitive Science</h4><span class="org"><a href="https://bachelor.au.dk/en/cognitivescience/" target="_blank" rel="noopener">Aarhus University</a></span></div></div>
                             <p>Psychology, neuroscience and AI, with an exchange semester at Sophia University in Tokyo.</p>
                         </li>
                         <li>
                             <div class="yr">2020<small>Aug 2020 to Jun 2023</small></div>
-                            <div><h4>HTX, Communication and IT</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div>
+                            <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>HTX, Communication and IT</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
                             <p>Programming, Electronics A and 3D printing. Awarded a school scholarship.</p>
                         </li>
                     </ol>
@@ -1187,33 +1286,92 @@
                 <!-- Volunteering -->
                 <div class="xp-group">
                     <div class="sub-h"><span class="n">03</span><h3>Volunteering</h3><span class="aside">Children, learning and student life</span></div>
-                    <ol class="cv">
-                        <li class="now">
-                            <div class="yr">2026<small>Oct 2026 to now</small></div>
-                            <div><h4>Children's Room Volunteer</h4><span class="org">COA asylum centre, Enschede</span></div>
+                    <div class="vol">
+                        <article class="now">
+                            <svg class="art art-play" viewBox="0 0 180 110" aria-hidden="true">
+                                <path class="ground" d="M6 102 H174"/>
+                                <!-- two children -->
+                                <circle class="fill" cx="40" cy="40" r="9"/>
+                                <path class="fill" d="M30 101 L34 56 Q40 50 46 56 L50 101 Z"/>
+                                <path d="M34 62 L22 48 M46 62 L58 50"/>
+                                <path class="hair" d="M31 37 Q40 26 49 37"/>
+                                <circle class="fill" cx="80" cy="54" r="8"/>
+                                <path class="fill" d="M72 101 L75 68 Q80 62 85 68 L88 101 Z"/>
+                                <path d="M76 74 L66 64 M85 74 L96 86"/>
+                                <path class="hair" d="M72 52 Q80 42 88 52"/>
+                                <!-- ball -->
+                                <g class="ball"><circle class="ink" cx="104" cy="94" r="7"/><path class="seam" d="M97 94 Q104 88 111 94"/></g>
+                                <!-- blocks -->
+                                <rect class="fill" x="124" y="82" width="18" height="18" rx="2"/>
+                                <rect class="fill" x="144" y="82" width="18" height="18" rx="2"/>
+                                <rect class="fill block-top" x="134" y="62" width="18" height="18" rx="2"/>
+                                <text x="133" y="95">A</text><text x="153" y="95">B</text><text x="143" y="75" class="block-top">C</text>
+                                <!-- star -->
+                                <path class="star" d="M60 14 l2.4 5 5.4.6 -4 3.7 1.1 5.3 -4.9-2.7 -4.9 2.7 1.1-5.3 -4-3.7 5.4-.6z"/>
+                            </svg>
+                            <div class="when">Oct 2026 to now <span class="live">Now</span></div>
+                            <h4>Children's Room Volunteer</h4>
+                            <span class="org"><img class="org-logo" src="images/logos/coa.png" alt="COA logo" loading="lazy">COA asylum centre, Enschede</span>
                             <p>Planning creative activities and games for children living at the centre, through M-Pact.</p>
-                        </li>
-                        <li>
-                            <div class="yr">2023<small>Nov 2023 to Jun 2025</small></div>
-                            <div><h4>Volunteer Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div>
+                        </article>
+                        <article>
+                            <svg class="art art-teach" viewBox="0 0 180 110" aria-hidden="true">
+                                <path class="ground" d="M6 102 H174"/>
+                                <!-- board on easel -->
+                                <rect class="fill" x="14" y="10" width="96" height="60" rx="4"/>
+                                <path d="M30 70 L22 101 M94 70 L102 101 M62 70 V101"/>
+                                <text x="26" y="34" class="chalk">2 + 3 = 5</text>
+                                <text x="26" y="56" class="chalk">a b c</text>
+                                <path class="tick" d="M84 50 l5 5 9-11"/>
+                                <!-- tutor pointing -->
+                                <circle class="fill" cx="140" cy="30" r="10"/>
+                                <path class="fill" d="M128 101 L131 52 Q140 42 149 52 L152 101 Z"/>
+                                <g class="arm"><path d="M133 58 L112 40"/><circle class="ink" cx="111" cy="39" r="2"/></g>
+                                <path d="M148 60 L156 80"/>
+                            </svg>
+                            <div class="when">Nov 2023 to Jun 2025</div>
+                            <h4>Volunteer Tutor</h4>
+                            <span class="org"><img class="org-logo" src="images/logos/redbarnet.png" alt="Red Barnet Ungdom logo" loading="lazy"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span>
                             <p>Helped primary and upper secondary pupils with maths, English and Danish at the Bispehaven homework café.</p>
-                        </li>
-                        <li>
-                            <div class="yr">2023<small>Sep 2023 to Jun 2024</small></div>
-                            <div><h4>Student Panel Member</h4><span class="org">Arts Karriere, Aarhus University</span></div>
+                        </article>
+                        <article>
+                            <svg class="art art-panel" viewBox="0 0 180 110" aria-hidden="true">
+                                <path class="ground" d="M6 102 H174"/>
+                                <!-- web page under review -->
+                                <rect class="fill" x="14" y="16" width="92" height="74" rx="5"/>
+                                <path d="M14 28 H106"/>
+                                <circle class="ink" cx="22" cy="22" r="1.8"/><circle class="ink" cx="28" cy="22" r="1.8"/><circle class="ink" cx="34" cy="22" r="1.8"/>
+                                <path class="line" d="M24 42 H80 M24 52 H94 M24 62 H70"/>
+                                <rect x="24" y="70" width="30" height="10" rx="2"/>
+                                <!-- feedback bubbles -->
+                                <path class="fill" d="M118 14 h46 a6 6 0 0 1 6 6 v20 a6 6 0 0 1 -6 6 h-30 l-8 8 v-8 h-8 a6 6 0 0 1 -6 -6 v-20 a6 6 0 0 1 6 -6z"/>
+                                <g class="typing"><circle class="ink" cx="130" cy="30" r="2.4"/><circle class="ink" cx="141" cy="30" r="2.4"/><circle class="ink" cx="152" cy="30" r="2.4"/></g>
+                                <path class="fill" d="M124 62 h40 a6 6 0 0 1 6 6 v16 a6 6 0 0 1 -6 6 h-8 v8 l-8 -8 h-24 a6 6 0 0 1 -6 -6 v-16 a6 6 0 0 1 6 -6z"/>
+                                <path class="tick" d="M136 76 l5 5 10-12"/>
+                            </svg>
+                            <div class="when">Sep 2023 to Jun 2024</div>
+                            <h4>Student Panel Member</h4>
+                            <span class="org"><img class="org-logo" src="images/logos/au.png" alt="Aarhus University logo" loading="lazy">Arts Karriere, Aarhus University</span>
                             <p>Reviewed career events, brochures and website design with a focus on UX.</p>
-                        </li>
-                    </ol>
+                        </article>
+                    </div>
                 </div>
 
                 <!-- Languages -->
                 <div class="xp-group">
                     <div class="sub-h"><span class="n">04</span><h3>Languages</h3></div>
                     <ul class="langs">
-                        <li><strong>Danish</strong><span>Native</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></li>
-                        <li><strong>English</strong><span>Fluent</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></li>
-                        <li><strong>German</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
-                        <li><strong>Japanese</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
+                        <li><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#c8102e"/><path d="M12 0h4v28h-4zM0 12h37v4H0z" fill="#fff"/></svg><strong>Danish</strong><span>Native</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+                            <div class="also">
+                                <span class="also-k">Also understands</span>
+                                <span class="also-l"><svg viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg>Norwegian</span>
+                                <span class="also-l"><svg viewBox="0 0 16 10" aria-hidden="true"><rect width="16" height="10" fill="#006aa7"/><path d="M5 0h2v10H5zM0 4h16v2H0z" fill="#fecc00"/></svg>Swedish</span>
+                            </div>
+                        </li>
+                        <li><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><clipPath id="uk"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#uk)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg><strong>English</strong><span>Fluent</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></li>
+                        <li><svg class="flag" viewBox="0 0 5 3" preserveAspectRatio="none" aria-hidden="true"><rect width="5" height="3" fill="#ffce00"/><rect width="5" height="2" fill="#dd0000"/><rect width="5" height="1" fill="#000"/></svg><strong>German</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
+                        <li><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg><strong>Japanese</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
+                        <li><svg class="flag" viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true"><rect width="9" height="6" fill="#21468b"/><rect width="9" height="4" fill="#fff"/><rect width="9" height="2" fill="#ae1c28"/></svg><strong>Dutch</strong><span>Beginner</span><div class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div></li>
                     </ul>
                 </div>
             </div>
