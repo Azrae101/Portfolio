@@ -212,24 +212,27 @@
         .viz-matrix .cells span.rec { opacity: 1; background: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
         .viz-matrix .axis { position: absolute; left: 0; bottom: -2px; font: 500 0.68rem var(--mono); color: var(--faint); }
 
-        /* Framed painting on a gallery wire */
-        .viz-frame { display: flex; flex-direction: column; align-items: flex-start; }
-        .viz-frame .wire { width: 96px; height: 24px; margin-left: 2px; }
-        .viz-frame .wire path { fill: none; stroke: var(--faint); stroke-width: 1; }
-        .viz-frame .wire circle { fill: var(--ink); }
-        .viz-frame .frame {
-            width: 100px; height: 68px;
-            margin-top: -2px;
-            padding: 5px;
-            background: #fff;
-            border: 3px solid var(--ink);
-            box-shadow: 4px 6px 0 var(--accent-soft);
-            transform: rotate(-3deg);
-            transform-origin: 50% -20px;
-            transition: transform 0.5s cubic-bezier(.3,1.6,.5,1);
+        /* Flashcard stack: the top card flips to its answer on hover */
+        .viz-cards { perspective: 700px; }
+        .viz-cards .card { position: absolute; left: 6px; top: 4px; width: 190px; height: 82px; border-radius: 10px; }
+        .viz-cards .c3 { background: var(--accent-soft); border: 1px solid var(--accent-line); transform: rotate(-7deg) translate(-4px, 6px); }
+        .viz-cards .c2 { background: var(--surface); border: 1px solid var(--accent-line); transform: rotate(-3deg) translate(-2px, 3px); }
+        .viz-cards .c1 { transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.4,.2,.2,1); }
+        .viz-cards .face {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; gap: 6px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--accent);
+            background: var(--surface);
+            font: 600 0.84rem/1.3 var(--sans);
+            color: var(--ink);
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
         }
-        .viz-frame .frame img { width: 100%; height: 100%; object-fit: cover; }
-        .quick a:hover .frame { transform: rotate(0deg); }
+        .viz-cards .face span { font: 500 0.68rem var(--mono); color: var(--accent); }
+        .viz-cards .back { transform: rotateY(180deg); background: var(--accent); border-color: var(--accent); color: #fff; }
+        .viz-cards .back span { color: #c9d7f7; }
+        .quick a:hover .viz-cards .c1 { transform: rotateY(180deg); }
 
         @media (prefers-reduced-motion: reduce) {
             .viz-waves .trace path { animation: none; }
@@ -647,7 +650,7 @@
                 <div class="nav-end">
                     <ul class="nav-links" id="navLinks">
                         <li><a href="#about">About</a></li>
-                        <li><a href="#work">Work</a></li>
+                        <li><a href="#work">Projects</a></li>
                         <li><a href="#research">Research</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -673,10 +676,10 @@
                         <h1>I build digital tools grounded in how people think and learn.</h1>
                         <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Design with Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. I connect brain research, data and human-centred design.</p>
                         <div class="hero-actions">
-                            <a href="#experience" class="btn">Work experience</a>
-                            <a href="#work" class="btn btn-ghost">Projects</a>
-                            <a href="#research" class="btn btn-ghost">Read my research</a>
-                            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                            <a href="#work" class="btn">Projects</a>
+                            <a href="#research" class="btn btn-ghost">Research</a>
+                            <a href="#experience" class="btn btn-ghost">Experience</a>
+                            <a href="#contact" class="btn btn-ghost">Contact</a>
                         </div>
                         <p class="hero-social">
                             <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
@@ -691,32 +694,36 @@
                 </div>
 
                 <div class="quick">
+                    <a href="#cogcards">
+                        <div class="viz viz-cards" aria-hidden="true">
+                            <div class="card c3"></div>
+                            <div class="card c2"></div>
+                            <div class="card c1">
+                                <div class="face front"><span>Q</span>Why does spaced repetition work?</div>
+                                <div class="face back"><span>A</span>You review right before you would forget.</div>
+                            </div>
+                        </div>
+                        <span class="label">01 / Projects</span>
+                        <strong>CogCards</strong>
+                        <span class="sub">A gamified flashcard platform built on active recall and spaced repetition.</span>
+                        <span class="go">View the project <i>&rarr;</i></span>
+                    </a>
                     <a href="#research">
                         <div class="viz viz-waves" aria-hidden="true">
                             <svg viewBox="0 0 240 84" preserveAspectRatio="none"><g class="trace" data-c="2,5" data-a="9,4" data-y="16"></g><g class="trace" data-c="5,11" data-a="7,3" data-y="42"></g><g class="trace" data-c="16,27" data-a="4,2.5" data-y="68"></g></svg>
                             <span class="band" style="top:8px">&theta;</span><span class="band" style="top:34px">&alpha;</span><span class="band" style="top:60px">&gamma;</span>
                         </div>
-                        <span class="label">01 / Research</span>
+                        <span class="label">02 / Research</span>
                         <strong>Emotional face processing with OPM-MEG</strong>
                         <span class="sub">My bachelor's thesis on brain rhythms, plus an EEG study of mental fatigue.</span>
                         <span class="go">Read the papers <i>&rarr;</i></span>
                     </a>
                     <a href="#experience">
                         <div class="viz viz-matrix" aria-hidden="true"><div class="cells" id="recoCells"></div><span class="axis">users &times; items</span></div>
-                        <span class="label">02 / Work</span>
+                        <span class="label">03 / Experience</span>
                         <strong>Junior data scientist at Raptor</strong>
                         <span class="sub">Recommendation systems and personalisation for e-commerce.</span>
                         <span class="go">See experience <i>&rarr;</i></span>
-                    </a>
-                    <a href="#japper">
-                        <div class="viz viz-frame" aria-hidden="true">
-                            <svg class="wire" viewBox="0 0 120 30"><path d="M20 30 L60 6 L100 30"/><circle cx="60" cy="5" r="2.5"/></svg>
-                            <div class="frame"><img src="images/japper-vestige.jpg" alt=""></div>
-                        </div>
-                        <span class="label">03 / Building</span>
-                        <strong>Japper Studio</strong>
-                        <span class="sub">A print shop and online gallery for painter Laura Kruuse.</span>
-                        <span class="go">View the project <i>&rarr;</i></span>
                     </a>
                 </div>
             </div>
@@ -788,8 +795,38 @@
 
                 <div class="project-list">
 
+                    <!-- CogCards -->
+                    <article class="project featured" id="cogcards" data-cat="product">
+                        <div class="gallery" data-label="CogCards">
+                            <div class="gallery-track">
+                                <img src="images/cogcardspic.jpg" alt="CogCards platform" loading="lazy">
+                                <img src="images/cogcardspic2.jpg" alt="CogCards platform" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/logo.png" alt="" loading="lazy">
+                                <h3>CogCards</h3>
+                            </div>
+                            <div class="meta"><span>Mar 2024 to present</span><span class="badge">Startup</span></div>
+                            <p>This started as an Applied Cognitive Science course project. I noticed that students often use flashcards poorly, fall for the fluency illusion and procrastinate. CogCards is my answer: a flashcard platform where you study through mini-games such as TetriCards, WordMatch and EscapeRoom, built on active recall and spaced repetition.</p>
+                            <p>You can study your own decks or pick from a public library. The platform is built in Flask, Python, SQLite, JavaScript, HTML and CSS, and became a live startup at The Kitchen, Aarhus University's startup hub. I develop and run it alongside my studies.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer, covering design, code and product strategy. User research and beta testing were done with my course group.</p>
+                            <div class="tags">
+                                <span class="tag">EdTech</span>
+                                <span class="tag">Gamification</span>
+                                <span class="tag">Startup</span>
+                                <span class="tag">Cognitive science</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://cogcards.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
+                                <a href="papers/Applied Cognitive Science.pdf" class="btn btn-sm btn-ghost" target="_blank">Research paper (PDF)</a>
+                            </div>
+                        </div>
+                    </article>
+
                     <!-- Japper Studio -->
-                    <article class="project featured" id="japper" data-cat="product">
+                    <article class="project" id="japper" data-cat="product">
                         <div class="gallery" data-label="Japper Studio">
                             <div class="gallery-track">
                                 <img src="images/japper.jpg" alt="Front page of the Japper Studio website" loading="lazy">
@@ -821,36 +858,6 @@
                             <div class="links">
                                 <a href="https://japperstudio.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
                                 <a href="https://github.com/Azrae101/LauraKunst" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">GitHub</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- CogCards -->
-                    <article class="project" data-cat="product">
-                        <div class="gallery" data-label="CogCards">
-                            <div class="gallery-track">
-                                <img src="images/cogcardspic.jpg" alt="CogCards platform" loading="lazy">
-                                <img src="images/cogcardspic2.jpg" alt="CogCards platform" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="project-body">
-                            <div class="project-head">
-                                <img class="project-logo" src="images/logo.png" alt="" loading="lazy">
-                                <h3>CogCards</h3>
-                            </div>
-                            <div class="meta"><span>Mar 2024 to present</span><span class="badge">Startup</span></div>
-                            <p>This started as an Applied Cognitive Science course project. I noticed that students often use flashcards poorly, fall for the fluency illusion and procrastinate. CogCards is my answer: a flashcard platform where you study through mini-games such as TetriCards, WordMatch and EscapeRoom, built on active recall and spaced repetition.</p>
-                            <p>You can study your own decks or pick from a public library. The platform is built in Flask, Python, SQLite, JavaScript, HTML and CSS, and became a live startup at The Kitchen, Aarhus University's startup hub. I develop and run it alongside my studies.</p>
-                            <p class="role"><strong>My role:</strong> Sole developer, covering design, code and product strategy. User research and beta testing were done with my course group.</p>
-                            <div class="tags">
-                                <span class="tag">EdTech</span>
-                                <span class="tag">Gamification</span>
-                                <span class="tag">Startup</span>
-                                <span class="tag">Cognitive science</span>
-                            </div>
-                            <div class="links">
-                                <a href="https://cogcards.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
-                                <a href="papers/Applied Cognitive Science.pdf" class="btn btn-sm btn-ghost" target="_blank">Research paper (PDF)</a>
                             </div>
                         </div>
                     </article>
