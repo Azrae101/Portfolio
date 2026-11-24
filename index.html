@@ -3,1637 +3,1415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clara Holst - Cognitive Science Portfolio</title>
+    <title>Clara Holst | HCI, Cognitive Science and Web Development</title>
+    <meta name="description" content="Portfolio of Clara Holst: MSc student in Human-Computer Interaction and XR, BSc in Cognitive Science, junior data scientist. Projects, research and experience.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --secondary: #2563eb;
-            --accent: #f97316;
-            --light: #f8fafc;
-            --dark: #0b1220;
-            --text: #102a43;
-            --text-light: #52606d;
-            --border: #d1d5db;
-            --card-bg: #ffffff;
-            --surface: #eef4fb;
-            --hover-bg: #e2e8f0;
-            --badge-bg: #e0f2fe;
-            --badge-text: #1d4ed8;
-            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
-            --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.12);
-            --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.16);
-            --shadow-xl: 0 24px 80px rgba(15, 23, 42, 0.14);
-            --radius-sm: 10px;
-            --radius: 16px;
-            --radius-lg: 24px;
-            --transition: 0.3s ease;
+            --bg: #f4f6fa;
+            --surface: #ffffff;
+            --ink: #131a2b;
+            --muted: #4d566c;
+            --faint: #828ba1;
+            --line: #dde3ee;
+            --accent: #2b59c3;
+            --accent-dark: #1e4399;
+            --accent-soft: #e8eefb;
+            --accent-line: #b9c9ec;
+            --tag: #eef1f7;
+            --media: #eaeef5;
+            --radius: 14px;
+            --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; }
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: linear-gradient(180deg, #f4f7fb 0%, #fbfcfe 45%, #edf2f7 100%);
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--bg);
             -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
         }
 
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        a:hover {
+        img { max-width: 100%; display: block; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-dark); }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        section { padding: 96px 0; scroll-margin-top: 64px; }
+        section + section { border-top: 1px solid var(--line); }
+
+        h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.76rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--accent);
+            margin-bottom: 14px;
         }
+        .eyebrow::before { content: "// "; color: var(--accent-line); }
 
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5px;
-        }
+        .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+        .section-head h2 { font-size: clamp(2rem, 4vw, 2.6rem); }
+        .section-head p { color: var(--muted); max-width: 540px; margin-top: 10px; }
 
-        section {
-            padding: 60px 0;
-        }
-
-        /* ── Section Title ── */
-        .section-title {
-            text-align: center;
-            margin-bottom: 44px;
-        }
-        .section-title h2 {
-            font-size: 2.4rem;
-            color: var(--primary);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-        }
-        .section-title p {
-            color: var(--text-light);
-            max-width: 640px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.75;
-        }
-
-        /* ── Buttons ── */
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, var(--secondary), #4338ca);
+            padding: 11px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            background: var(--accent);
             color: #fff;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            border: none;
+            font: 500 0.92rem/1.2 var(--sans);
             cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
-            letter-spacing: 0.25px;
-            box-shadow: 0 18px 30px rgba(37, 99, 235, 0.18);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
-        .btn:hover {
-            background: linear-gradient(135deg, #1d4ed8, #4338ca);
-            transform: translateY(-2px);
-            box-shadow: 0 22px 32px rgba(37, 99, 235, 0.22);
-        }
-        .btn-outline {
-            background: rgba(37, 99, 235, 0.08);
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-        }
-        .btn-outline:hover {
-            background: var(--secondary);
-            color: #fff;
-        }
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 0.84rem;
-            border-radius: 6px;
-        }
+        .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+        .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
+        .btn-ghost:hover { background: var(--surface); color: var(--accent); border-color: var(--accent-line); }
+        .btn-sm { padding: 8px 14px; font-size: 0.86rem; }
 
-        /* ── Header ── */
+        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: var(--shadow-sm);
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            background: rgba(244, 246, 250, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line);
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.3px;
-        }
-        .logo span {
-            color: var(--secondary);
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-        }
-        .nav-links a {
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.94rem;
-        }
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        .hamburger {
+        nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+        .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--ink); }
+        .logo:hover { color: var(--ink); }
+        .logo svg { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; gap: 28px; }
+        .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+        .menu-toggle {
             display: none;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font: 500 0.88rem var(--sans);
+            color: var(--ink);
             cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .hamburger div {
-            width: 24px;
-            height: 2.5px;
-            background: var(--text);
-            border-radius: 2px;
         }
 
-        /* ── Hero ── */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1e40af 100%);
-            color: #fff;
-            padding: 140px 0 80px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.6rem;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
-        }
-        .hero p {
-            font-size: 1.08rem;
-            max-width: 660px;
-            margin: 0 auto 28px;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .hero .btn-outline {
-            border-color: rgba(255, 255, 255, 0.7);
-            color: #fff;
-        }
-        .hero .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: #fff;
-        }
-
-        /* ── About ── */
-        #about {
-            background: #fff;
-        }
-        .about-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 32px 28px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 12px;
-            font-size: 0.97rem;
-            line-height: 1.65;
-        }
-        .about-image {
-            flex: 0 0 auto;
-            max-width: 200px;
-        }
-        .about-image img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            border: 3px solid #f1f5f9;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px 28px;
-            margin-top: 16px;
-        }
-        .skill-category h4 {
-            font-size: 0.9rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .skill-category ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .skill-badge {
-            display: inline-block;
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            padding: 6px 12px;
-            border-radius: 99px;
-            font-weight: 600;
-            font-size: 0.82rem;
-        }
-
-        /* ── Projects & Research Cards ── */
-        .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 36px;
-        }
-        .project-card {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        .project-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-        .project-card-inner {
-            display: flex;
-            min-height: 380px;
-        }
-        .project-left {
-            position: relative;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
-        .project-right {
-            flex: 0 0 340px;
-            background: #f8fafc;
-            border-left: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .project-img {
+        /* Hero */
+        .hero { position: relative; overflow: hidden; padding: 80px 0 72px; }
+        .hero canvas {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #f1f5f9;
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-        }
-        .project-content {
-            padding: 90px 24px 22px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: visible;
-        }
-        .project-content h3 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 6px;
-            letter-spacing: -0.2px;
-        }
-        .project-content>p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.55;
-            margin-bottom: 8px;
-        }
-        .project-date {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 6px 0 12px;
-        }
-        .project-tag {
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            padding: 5px 11px;
-            border-radius: 99px;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-        .project-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
-        }
-
-        #honors {
-            background: linear-gradient(180deg, rgba(239, 246, 255, 0.95) 0%, rgba(250, 251, 255, 1) 100%);
-        }
-        #honors .projects-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 28px;
-        }
-        #honors .project-card {
-            max-width: 520px;
-            background: rgba(255, 255, 255, 0.98);
-            border: 1px solid rgba(37, 99, 235, 0.16);
-            box-shadow: 0 22px 48px rgba(15, 23, 42, 0.06);
-            border-radius: calc(var(--radius-lg) + 8px);
-        }
-        #honors .project-card-inner {
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-            padding: 34px 26px;
-        }
-        #honors .project-img {
-            position: static;
-            width: 140px;
-            height: 140px;
-            background-size: 60%;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 24px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(37, 99, 235, 0.14);
-            margin-bottom: 0;
-        }
-        #honors .project-content {
-            padding: 0;
-            text-align: center;
-        }
-        #honors .project-content h3 {
-            margin-top: 0;
-            font-size: 1.55rem;
-            letter-spacing: -0.3px;
-        }
-        #honors .project-content p {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-        #honors .project-links {
-            justify-content: center;
-            width: 100%;
-            border-top: none;
-            margin-top: 0;
-            padding-top: 0;
-        }
-
-        .portfolio-card {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(236, 248, 255, 0.95));
-            border: 1px solid rgba(37, 99, 235, 0.14);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            box-shadow: var(--shadow-sm);
-            max-width: 960px;
-            margin: 0 auto;
-            color: var(--text);
-        }
-        .portfolio-card p {
-            color: #334e68;
-            font-size: 1rem;
-            line-height: 1.75;
-            margin-bottom: 18px;
-        }
-
-        /* ── Carousel ── */
-        .winner-carousel {
+            inset: 0;
             width: 100%;
             height: 100%;
-            position: relative;
-        }
-        .carousel-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            background: #f1f5f9;
-        }
-        .carousel-slide {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            flex-shrink: 0;
-            padding: 24px;
-            box-sizing: border-box;
-            background: #f8fafc;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            color: #1e293b;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 700;
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        .carousel-btn:hover {
-            background: #fff;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-        }
-        .carousel-btn.prev {
-            left: 10px;
-        }
-        .carousel-btn.next {
-            right: 10px;
-        }
-        .carousel-indicators {
-            position: absolute;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 6px;
-            z-index: 10;
-        }
-        .indicator {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .indicator.active {
-            background: #fff;
-            transform: scale(1.4);
-        }
-        .carousel-counter {
-            position: absolute;
-            bottom: 10px;
-            right: 14px;
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            padding: 3px 9px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            z-index: 10;
-        }
-        .carousel-autoplay {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.55);
-            color: #fff;
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        .carousel-autoplay:hover {
-            background: rgba(0, 0, 0, 0.75);
-        }
-        .winner-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #22c55e;
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            z-index: 10;
-            letter-spacing: 0.3px;
-        }
-        .paper-badge {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.55);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 10px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            z-index: 10;
-            white-space: nowrap;
-        }
-
-        /* ── Research Papers Specific ── */
-        #research {
-            background: #fafbfc;
-        }
-        #research .project-card-inner {
-            min-height: 340px;
-        }
-        #research .project-right {
-            flex: 0 0 340px;
-        }
-
-        /* ── Honors ── */
-        #honors {
-            background: #fff;
-        }
-        #honors .projects-grid {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        #honors .project-card {
-            flex: 1 1 360px;
-            max-width: 500px;
-        }
-        #honors .project-card-inner {
-            min-height: auto;
-            flex-direction: column;
-        }
-        #honors .project-img {
-            height: 140px;
-        }
-        #honors .project-content {
-            padding: 18px 22px;
-        }
-
-        /* ── Contact ── */
-        #contact {
-            background: #f8fafc;
-        }
-        .contact-content {
-            display: flex;
-            gap: 36px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .contact-info {
-            flex: 1 1 280px;
-        }
-        .contact-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-        .contact-info p {
-            color: var(--text-light);
-            margin-bottom: 14px;
-            font-size: 0.94rem;
-        }
-        .contact-details {
-            list-style: none;
-        }
-        .contact-details li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-            font-size: 0.94rem;
-        }
-        .contact-details svg {
-            flex-shrink: 0;
-        }
-        .contact-form {
-            flex: 1 1 300px;
-        }
-        .form-group {
-            margin-bottom: 14px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 4px;
-            font-weight: 600;
-            font-size: 0.88rem;
-        }
-        .form-control {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 0.92rem;
-            transition: var(--transition);
-            background: #fff;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* ── Footer ── */
-        footer {
-            background: var(--dark);
-            color: #cbd5e1;
-            padding: 40px 0 20px;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 28px;
-            margin-bottom: 28px;
-        }
-        .footer-logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-        .footer-links {
-            display: flex;
-            gap: 36px;
-            flex-wrap: wrap;
-        }
-        .footer-column h4 {
-            color: #fff;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-        .footer-column ul {
-            list-style: none;
-        }
-        .footer-column li {
-            margin-bottom: 6px;
-        }
-        .footer-column a {
-            color: #94a3b8;
-            font-size: 0.88rem;
-        }
-        .footer-column a:hover {
-            color: #fff;
-        }
-        .social-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            color: #fff;
-            transition: var(--transition);
-        }
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.82rem;
-            color: #64748b;
-        }
-
-        /* ── Scroll to Top ── */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 44px;
-            height: 44px;
-            background: var(--secondary);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            z-index: 999;
-            opacity: 0;
-            transform: translateY(16px);
             pointer-events: none;
-            transition: var(--transition);
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 35%, #000 70%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 35%, #000 70%);
         }
-        .scroll-to-top.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+        .hero .container { position: relative; z-index: 1; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: center; }
+        .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); max-width: 14ch; margin-bottom: 24px; }
+        .hero-lead { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin-bottom: 32px; }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .hero-photo { justify-self: center; text-align: center; }
+        .hero-photo img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--accent-line);
+            padding: 8px;
+            background: var(--surface);
         }
-        .scroll-to-top:hover {
-            background: #1d4ed8;
-            transform: translateY(-3px);
+        .hero-photo figcaption { font-family: var(--mono); font-size: 0.78rem; color: var(--faint); margin-top: 14px; }
+
+        .quick {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 64px;
+        }
+        .quick a {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 18px 20px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            color: var(--ink);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .quick a:hover { border-color: var(--accent-line); transform: translateY(-2px); color: var(--ink); }
+        .quick .label { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+        .quick strong { font-weight: 600; font-size: 0.98rem; line-height: 1.4; }
+        .quick span.sub { font-size: 0.88rem; color: var(--muted); }
+        .quick .go { margin-top: auto; padding-top: 6px; font-size: 0.85rem; font-weight: 500; color: var(--accent); }
+
+        /* About */
+        .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+        .about-grid h2 { font-size: clamp(2rem, 4vw, 2.6rem); }
+        .about-text p { color: var(--muted); margin-bottom: 18px; max-width: 660px; font-size: 1.04rem; }
+        .about-text p strong { color: var(--ink); font-weight: 600; }
+        .about-text .question { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); line-height: 1.45; margin: 28px 0 36px; }
+        .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+        .skills h3 { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); margin-bottom: 10px; }
+        .skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .tag { display: inline-block; background: var(--tag); color: var(--muted); padding: 4px 11px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; }
+
+        /* Node list: connected points, used for features and timelines */
+        .nodes { list-style: none; margin: 4px 0 18px; }
+        .nodes li { position: relative; padding: 0 0 12px 30px; color: var(--muted); font-size: 0.94rem; }
+        .nodes li:last-child { padding-bottom: 0; }
+        .nodes li::before {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: 0.42em;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+            z-index: 1;
+        }
+        .nodes li::after {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: calc(0.42em + 11px);
+            bottom: calc(-0.42em - 1px);
+            width: 1px;
+            background: repeating-linear-gradient(to bottom, var(--accent-line) 0 3px, transparent 3px 6px);
+        }
+        .nodes li:last-child::after { display: none; }
+
+        /* Filters */
+        .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            padding: 7px 14px;
+            font: 500 0.86rem var(--sans);
+            color: var(--muted);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .filter:hover { border-color: var(--accent-line); color: var(--ink); }
+        .filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+        /* Projects */
+        .project-list { display: flex; flex-direction: column; gap: 28px; }
+        .project {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .project[hidden] { display: none; }
+        .project-body { padding: 36px 36px 32px; display: flex; flex-direction: column; }
+        .project-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .project-logo { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); object-fit: contain; padding: 5px; background: #fff; flex-shrink: 0; }
+        .project h3 { font-size: 1.55rem; }
+        .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-family: var(--mono); font-size: 0.78rem; color: var(--faint); margin-bottom: 16px; }
+        .badge { font-family: var(--sans); background: var(--accent-soft); color: var(--accent); padding: 2px 10px; border-radius: 99px; font-weight: 600; font-size: 0.76rem; }
+        .project-body p { color: var(--muted); margin-bottom: 14px; font-size: 0.97rem; }
+        .project-body .role { font-size: 0.93rem; }
+        .project-body .role strong { color: var(--ink); font-weight: 600; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 22px; }
+        .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+
+        .project.featured { border-color: var(--accent-line); }
+
+        /* Gallery */
+        .gallery { position: relative; background: var(--media); min-height: 380px; overflow: hidden; }
+        .gallery-track { position: absolute; inset: 0; display: flex; transition: transform 0.45s ease; }
+        .gallery-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; padding: 28px 28px 64px; }
+        .gallery-ctrl {
+            position: absolute;
+            left: 0; right: 0; bottom: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .gallery-btn {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--ink);
+            cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .gallery-btn:hover { background: #fff; border-color: var(--accent-line); color: var(--accent); }
+        .gallery-count { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); background: rgba(255, 255, 255, 0.94); border: 1px solid var(--line); padding: 4px 10px; border-radius: 99px; min-width: 52px; text-align: center; }
+
+        /* Research variant */
+        .research .project { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+
+        .footnote { margin-top: 20px; font-size: 0.85rem; color: var(--faint); }
+        .badge sup, .footnote sup { font-size: 0.7em; margin-left: 1px; }
+
+        /* Experience */
+        .xp-group + .xp-group { margin-top: 88px; }
+        .sub-h { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+        .sub-h .n { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); }
+        .sub-h h3 { font-size: clamp(1.6rem, 3vw, 2rem); }
+        .sub-h .aside { margin-left: auto; font-size: 0.92rem; color: var(--faint); }
+
+        .cv { list-style: none; border-top: 1px solid var(--ink); }
+        .cv li {
+            display: grid;
+            grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1.35fr);
+            gap: 32px;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .cv .yr { font-family: var(--serif); font-size: 1.9rem; line-height: 1; color: var(--ink); font-variant-numeric: lining-nums; }
+        .cv .yr small { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.72rem; color: var(--faint); margin-top: 10px; }
+        .cv .now .yr { color: var(--accent); }
+        .cv .now .yr small::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+        .cv h4 { font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+        .cv .org { display: block; color: var(--accent); font-size: 0.94rem; margin-top: 3px; }
+        .cv .org a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 3px; }
+        .cv .org a:hover { text-decoration-color: var(--accent); }
+        .cv .org a::after { content: " \2197"; font-size: 0.8em; }
+        .cv p { color: var(--muted); font-size: 0.95rem; }
+        .cv-note { margin-top: 18px; font-size: 0.92rem; color: var(--faint); }
+        .cv-note strong { color: var(--muted); font-weight: 600; }
+
+        /* Study map */
+        .study { margin: 8px 0 36px; }
+        .maps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: end; }
+        .map { margin: 0; }
+        .map svg { display: block; width: 100%; height: auto; }
+        .map figcaption { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); margin-top: 8px; }
+        .map .pin-label { font: 600 13px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+        .map .pin-num { font: 500 10.5px var(--mono); fill: var(--accent); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+        .map .pin-sub { font: 400 11px var(--sans); fill: var(--muted); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+        .stops em { display: block; font-style: normal; font-size: 0.88rem; color: var(--accent); line-height: 1.35; margin: 2px 0 4px; }
+        .map .route { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
+        .map .route.plan { stroke-dasharray: 2 5; }
+        .map .lens { fill: none; stroke: var(--accent-line); stroke-width: 1; stroke-dasharray: 3 3; }
+        .study.no-map .maps { display: none; }
+        .stops { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+        .stops b { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--accent); }
+        .stops strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.15rem; }
+        .stops span { font-size: 0.85rem; color: var(--faint); }
+
+        /* Languages */
+        .langs { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--ink); padding-top: 22px; }
+        .langs strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.3rem; }
+        .langs span { display: block; font-size: 0.88rem; color: var(--faint); margin-top: 2px; }
+        .meter { display: flex; gap: 5px; margin-top: 10px; }
+        .meter i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--accent-line); }
+        .meter i.on { background: var(--accent); border-color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .cv li { grid-template-columns: 120px minmax(0, 1fr); gap: 8px 24px; }
+            .cv li p { grid-column: 2; }
+            .maps { grid-template-columns: 1fr; gap: 20px; }
+            .stops { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 18px; }
+            .langs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 560px) {
+            .cv li { grid-template-columns: 1fr; gap: 6px; padding: 22px 0; }
+            .cv li p { grid-column: auto; }
+            .cv .yr { font-size: 1.5rem; display: flex; align-items: baseline; gap: 12px; }
+            .cv .yr small { margin-top: 0; }
+            .stops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .sub-h .aside { display: none; }
         }
 
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .project-card-inner {
-                min-height: 340px;
-            }
-            .project-right {
-                flex: 0 0 280px;
-            }
-            #research .project-right {
-                flex: 0 0 280px;
-            }
-            .carousel-slide img {
-                padding: 16px;
-            }
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+        .contact-grid h2 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 16px; }
+        .contact-grid > div > p { color: var(--muted); margin-bottom: 32px; max-width: 440px; }
+        .contact-list { list-style: none; border-top: 1px solid var(--line); }
+        .contact-list li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+        .contact-list span:first-child { font-family: var(--mono); font-size: 0.8rem; color: var(--faint); padding-top: 2px; }
+        .contact-list a, .contact-list span:last-child { color: var(--ink); text-align: right; }
+        .contact-list a:hover { color: var(--accent); }
+
+        form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; }
+        .field { margin-bottom: 18px; }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        label { display: block; font-size: 0.86rem; font-weight: 500; margin-bottom: 6px; }
+        input, textarea {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font: 400 0.95rem var(--sans);
+            color: var(--ink);
+            background: var(--bg);
+            transition: border-color 0.2s;
         }
-        @media (max-width: 860px) {
-            .project-card-inner {
-                flex-direction: column;
-                min-height: auto;
-            }
-            .project-right {
-                flex: 0 0 260px;
-                border-left: none;
-                border-top: 1px solid var(--border);
-                min-height: 260px;
-            }
-            #research .project-right {
-                flex: 0 0 260px;
-            }
-            .carousel-slide img {
-                padding: 14px;
-            }
-            .project-content {
-                padding: 16px 18px;
-            }
-            .project-img {
-                height: 40px;
-            }
-            .project-content {
-                padding-top: 80px;
-            }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); background: #fff; }
+        textarea { min-height: 130px; resize: vertical; }
+        .form-note { font-size: 0.82rem; color: var(--faint); margin-top: 12px; }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--line); padding: 32px 0; font-size: 0.88rem; color: var(--faint); }
+        .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .footer-inner ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+        .footer-inner a { color: var(--muted); }
+        .footer-inner a:hover { color: var(--accent); }
+
+        /* Back to top */
+        .to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 90;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-line);
+            background: var(--surface);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(19, 26, 43, 0.08);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.25s, transform 0.25s, visibility 0.25s, background 0.2s, color 0.2s;
+        }
+        .to-top.show { opacity: 1; visibility: visible; transform: none; }
+        .to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            section { padding: 72px 0; }
+            .hero { padding: 48px 0 64px; }
+            .hero canvas { -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.15) 45%, transparent 70%); mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.15) 45%, transparent 70%); }
+            .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+            .hero-photo { order: -1; justify-self: start; }
+            .hero-photo img { width: 180px; height: 180px; padding: 6px; }
+            .hero-photo figcaption { text-align: left; }
+            .quick { grid-template-columns: 1fr; margin-top: 48px; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+            .project, .research .project { grid-template-columns: 1fr; }
+            .gallery { min-height: 0; aspect-ratio: 4 / 3; border-bottom: 1px solid var(--line); }
+            .project-body { padding: 28px 24px; }
+        }
+        @media (max-width: 720px) {
+            .menu-toggle { display: inline-block; }
             .nav-links {
                 display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .about-card {
+                position: absolute;
+                top: 64px; left: 0; right: 0;
                 flex-direction: column;
+                gap: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--line);
+                padding: 8px 24px 16px;
             }
-            .about-image {
-                max-width: 150px;
-                align-self: center;
-            }
-            #honors .projects-grid {
-                flex-direction: column;
-            }
-            #honors .project-card {
-                max-width: 100%;
-            }
+            .nav-links.open { display: flex; }
+            .nav-links a { display: block; padding: 10px 0; font-size: 1rem; }
+            .field-row { grid-template-columns: 1fr; gap: 0; }
+            form { padding: 24px 20px; }
+            .contact-list li { flex-direction: column; gap: 2px; }
+            .contact-list a, .contact-list span:last-child { text-align: left; }
+            .to-top { right: 16px; bottom: 16px; }
         }
-        @media (max-width: 540px) {
-            .hero {
-                padding: 120px 0 50px;
-            }
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            .hero p {
-                font-size: 0.92rem;
-            }
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-            .project-right {
-                min-height: 200px;
-                flex: 0 0 200px;
-            }
-            #research .project-right {
-                flex: 0 0 200px;
-                min-height: 200px;
-            }
-            .carousel-slide img {
-                padding: 10px;
-            }
-            .carousel-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
-            .project-content h3 {
-                font-size: 1.1rem;
-            }
-            .project-content>p {
-                font-size: 0.84rem;
-            }
-            .project-content {
-                padding-top: 70px;
-            }
-            .btn {
-                padding: 9px 16px;
-                font-size: 0.84rem;
-            }
-            .contact-content {
-                flex-direction: column;
-            }
-            footer .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .gallery-track img { padding: 16px 16px 56px; }
+            .project h3 { font-size: 1.35rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Clara <span>Holst</span></div>
+            <nav aria-label="Main">
+                <a href="#top" class="logo">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2.5"/><path d="M7 6.8l9.7 4.3M7 17.2l9.7-4.3M5 8v8"/></svg>
+                    Clara Holst
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#work">Work</a></li>
                     <li><a href="#research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <div></div><div></div><div></div>
-                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Clara Holst - Personal Portfolio</h1>
-            <p>Cognitive Science student at Aarhus University: blending brain research, data science, and human-centered design to build tools that make learning more engaging, effective, and impactful.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
-            </div>
-        </div>
-    </section>
+    <main id="top">
 
-    <!-- About -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title"><h2>About Me</h2></div>
-            <div class="about-card">
-                <div class="about-image">
-                    <img src="images/Clara_about.jpg" alt="Clara Holst" loading="lazy">
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <canvas id="net" aria-hidden="true"></canvas>
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <p class="eyebrow">HCI and XR, University of Twente and KTH</p>
+                        <h1>I build digital tools grounded in how people think and learn.</h1>
+                        <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. I connect brain research, data and human-centred design.</p>
+                        <div class="hero-actions">
+                            <a href="#work" class="btn">See my work</a>
+                            <a href="#research" class="btn btn-ghost">Read my research</a>
+                            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                        </div>
+                    </div>
+                    <figure class="hero-photo" id="heroPhoto">
+                        <img src="images/Clara_about.jpg" alt="Portrait of Clara Holst">
+                        <figcaption>Enschede, NL &middot; from Denmark</figcaption>
+                    </figure>
                 </div>
-                <div class="about-text" style="flex:1;min-width:260px;">
-                    <h3>Hi, I'm Clara Holst</h3>
-                    <p>I'm a Cognitive Science student at Aarhus University passionate about turning research on learning and memory into practical, meaningful tools. My work sits at the intersection of data science, AI, and human-centered design: building interactive systems that make learning more engaging, effective, and grounded in how the brain actually works. Currently on exchange at Sophia University in Tokyo (Spring 2026).</p>
-                    <p>This comes to life through projects ranging from <strong>CogCards</strong>: a gamified learning platform I built and run as a startup: to critical data exhibitions, agent-based simulations, and award-winning hackathon builds. I code all my projects solo (except the Game Jam, shared with one teammate), collaborating with peers on research, user studies, and analysis. Driven by: <em>How can we make complex knowledge more intuitive, playful, and impactful?</em></p>
-                    <p>My work is built on the belief that research should be practical, not just theoretical. I love translating experimental insights into better tools for learning, communication and digital behavior.</p>
+
+                <div class="quick">
+                    <a href="#research">
+                        <span class="label">Research</span>
+                        <strong>Emotional face processing with OPM-MEG</strong>
+                        <span class="sub">My bachelor's thesis on brain rhythms, plus an EEG study of mental fatigue.</span>
+                        <span class="go">Read the papers &rarr;</span>
+                    </a>
+                    <a href="#experience">
+                        <span class="label">Now</span>
+                        <strong>Junior data scientist at Raptor</strong>
+                        <span class="sub">Recommendation systems and personalisation for e-commerce.</span>
+                        <span class="go">See experience &rarr;</span>
+                    </a>
+                    <a href="#japper">
+                        <span class="label">Building</span>
+                        <strong>Japper Studio</strong>
+                        <span class="sub">A print shop and online gallery for painter Laura Kruuse.</span>
+                        <span class="go">View the project &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container about-grid">
+                <div>
+                    <p class="eyebrow">About</p>
+                    <h2>Where people, brains and technology meet</h2>
+                </div>
+                <div class="about-text">
+                    <p>I'm studying for an MSc in <strong>Human-Computer Interaction and Extended Reality</strong> at the EIT Digital Master School, a joint degree between the University of Twente in Enschede and KTH Royal Institute of Technology in Stockholm. Before that I took a BSc in <strong>Cognitive Science</strong> at Aarhus University, including an exchange semester at Sophia University in Tokyo.</p>
+                    <p>Alongside my studies I work as a <strong>junior data scientist at Raptor Services</strong>, building recommendation and personalisation tools for e-commerce. I also run <strong>CogCards</strong>, a gamified flashcard platform, and I build websites for clients such as <strong>Japper Studio</strong>.</p>
+                    <p>Teaching has followed me the whole way, from tutoring and homework cafés with Save the Children to talent camps for gifted pupils. It is a big part of why I care about learning tools that actually work.</p>
+                    <p class="question">The question I keep coming back to: how can complex knowledge become more intuitive, playful and useful?</p>
                     <div class="skills">
-                        <div class="skill-category">
-                            <h4>Data & Technology</h4>
+                        <div>
+                            <h3>Data and code</h3>
                             <ul>
-                                <li><span class="skill-badge">Data Science</span></li>
-                                <li><span class="skill-badge">Python</span></li>
-                                <li><span class="skill-badge">Machine Learning</span></li>
-                                <li><span class="skill-badge">R</span></li>
-                                <li><span class="skill-badge">Web Dev</span></li>
+                                <li class="tag">Python</li>
+                                <li class="tag">R</li>
+                                <li class="tag">Machine learning</li>
+                                <li class="tag">Recommender systems</li>
+                                <li class="tag">Flask</li>
+                                <li class="tag">HTML, CSS, JS</li>
+                                <li class="tag">WordPress</li>
                             </ul>
                         </div>
-                        <div class="skill-category">
-                            <h4>Cognitive Science</h4>
+                        <div>
+                            <h3>Humans and interaction</h3>
                             <ul>
-                                <li><span class="skill-badge">User-Centered Design</span></li>
-                                <li><span class="skill-badge">HCI</span></li>
-                                <li><span class="skill-badge">Learning & Memory</span></li>
-                                <li><span class="skill-badge">AI</span></li>
-                                <li><span class="skill-badge">UX/UI Evaluation</span></li>
+                                <li class="tag">Interaction design</li>
+                                <li class="tag">Extended reality</li>
+                                <li class="tag">User-centred design</li>
+                                <li class="tag">UX evaluation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Brain and cognition</h3>
+                            <ul>
+                                <li class="tag">Learning and memory</li>
+                                <li class="tag">EEG and MEG analysis</li>
+                                <li class="tag">Experimental design</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Projects</h2>
-                <p>A collection of my work in educational technology, data visualization, and interactive experiences.</p>
-            </div>
-            <div class="projects-grid">
-
-                <!-- CogCards -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/logo.png');background-color:#ffffff;border:1px solid rgba(15,23,42,0.08);"></div>
-                            <div class="project-content">
-                                <h3>CogCards.dk</h3>
-                                <p>Started as an Applied Cognitive Science course project: I noticed students flashcard poorly, fall for the fluency illusion, and procrastinate. My solution: a gamified flashcard platform where you study via mini-games (TetriCards, WordMatch, EscapeRoom) built on active recall and spaced repetition. Built solo in Flask, Python, SQLite, JS, HTML &amp; CSS. Now a live startup at Aarhus University's The Kitchen hub.</p>
-                                <p>CogCards is designed using proven cognitive science techniques to help you learn faster, remember longer, and actually enjoy the process. You can use flashcards from your own decks or from our public library, making learning more effective and engaging than traditional methods.</p>
-                                <p><strong>My role:</strong> Sole developer - all design, code, and product strategy. User research and beta testing conducted as part of a course group.</p>
-                                <p class="project-date">March 2024 - Present</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">EdTech</span>
-                                    <span class="project-tag">Gamification</span>
-                                    <span class="project-tag">Startup</span>
-                                    <span class="project-tag">Cognitive Science</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://cogcards.dk" class="btn btn-sm" target="_blank" rel="noopener">🌐 Visit Site</a>
-                                    <a href="papers/Exam paper, Applied CogSci - Google Docs.pdf" class="btn btn-sm btn-outline" target="_blank" download>📄 Research PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/cogcardspic.jpg" alt="CogCards" loading="lazy">
-                                        <img src="images/cogcardspic2.jpg" alt="CogCards" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 2</div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Work -->
+        <section id="work">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Selected work</p>
+                        <h2>Projects</h2>
+                        <p>Web platforms, games and data projects. I wrote the code for all of them myself, except the game jam entry, which I shared with one teammate.</p>
                     </div>
-                </div> 
-
-                <!-- Social & Green -->
-                  <!-- Social & Green -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/logodgi.webp');background-color:#16a34a;"></div>
-                            <div class="project-content">
-                                <h3>Social & Green</h3>
-                                <p>A youth-driven platform for hands-on sustainable events and rewarding initiatives that make climate action engaging through community participation. Even though awareness is growing, many young people still feel overwhelmed or unsure about what to actually do to help the environment.</p>
-                                <p>We designed a digital solution that uses events, gamification, creativity and community to make sustainable habits accessible, social and engaging. Users can join pop-up events, learn through games and quizzes, complete challenges, earn rewards and track their impact through clear data and statistics.</p>
-                                <p><strong>My role:</strong> Sole developer overseeing design, development, and product strategy. User research, beta testing, and business meetings were conducted in collaboration with the group.</p>                                <p><strong>Platform Features:</strong> Community cooking, gardening, trash pickups, walks and creative workshops | DIY and upcycling activities | Data on CO₂, water, energy and waste | Streaks, certificates and shared challenges</p>
-                                <p class="project-date">November 24, 2025 - Now</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Sustainability</span>
-                                    <span class="project-tag">Community</span>
-                                    <span class="project-tag">Gamification</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://azrae101.github.io/DeepGreenSocial/index.html" class="btn btn-sm" target="_blank" rel="noopener">🌐 View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/deepgreen.jpg" alt="Social & Green" loading="lazy">
-                                        <img src="images/deepgreen1.png" alt="Social & Green" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 2</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="filters" role="group" aria-label="Filter projects">
+                        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+                        <button class="filter" data-filter="product" aria-pressed="false">Products and clients</button>
+                        <button class="filter" data-filter="competition" aria-pressed="false">Competitions</button>
+                        <button class="filter" data-filter="course" aria-pressed="false">Course projects</button>
                     </div>
                 </div>
 
-                <!-- Curating Data Science -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/cds.png');background-color:#14b8a6;"></div>
-                            <div class="project-content">
+                <div class="project-list">
+
+                    <!-- Japper Studio -->
+                    <article class="project featured" id="japper" data-cat="product">
+                        <div class="gallery" data-label="Japper Studio">
+                            <div class="gallery-track">
+                                <img src="images/japper.jpg" alt="Front page of the Japper Studio website" loading="lazy">
+                                <img src="images/japper-vestige.jpg" alt="The painting Vestige, sold as a print on the site" loading="lazy">
+                                <img src="images/japper-florere.jpg" alt="The painting Florere, sold as a print on the site" loading="lazy">
+                                <img src="images/japper-catch.jpg" alt="The painting Will You Catch Me?, sold as a print on the site" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/japperlogo.png" alt="" loading="lazy">
+                                <h3>Japper Studio</h3>
+                            </div>
+                            <div class="meta"><span>Oct 2026 to present</span><span class="badge">In development</span></div>
+                            <p>A web shop and online gallery for Japper Studio, the atelier of Danish painter Laura Kruuse. Her nature-inspired paintings are made with dried flowers and gold leaf, and the site sells them as signed, numbered prints in 50 × 70 cm.</p>
+                            <ul class="nodes">
+                                <li>Print shop with cart, quantities, and a choice of delivery or free pickup in Odense</li>
+                                <li>A walk-through portfolio where the paintings hang on a wall like in a real gallery, each with the story behind it</li>
+                                <li>Sketches and studies pinned to a board, with a larger view on click</li>
+                                <li>Danish and English versions, an about page in Laura's own words, and a contact form</li>
+                            </ul>
+                            <p class="role"><strong>My role:</strong> Sole designer and developer. Artwork, photos and texts by Laura Kruuse, with the structure and tone worked out together.</p>
+                            <div class="tags">
+                                <span class="tag">Client work</span>
+                                <span class="tag">E-commerce</span>
+                                <span class="tag">Web design</span>
+                                <span class="tag">Bilingual</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://japperstudio.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
+                                <a href="https://github.com/Azrae101/LauraKunst" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CogCards -->
+                    <article class="project" data-cat="product">
+                        <div class="gallery" data-label="CogCards">
+                            <div class="gallery-track">
+                                <img src="images/cogcardspic.jpg" alt="CogCards platform" loading="lazy">
+                                <img src="images/cogcardspic2.jpg" alt="CogCards platform" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/logo.png" alt="" loading="lazy">
+                                <h3>CogCards</h3>
+                            </div>
+                            <div class="meta"><span>Mar 2024 to present</span><span class="badge">Startup</span></div>
+                            <p>This started as an Applied Cognitive Science course project. I noticed that students often use flashcards poorly, fall for the fluency illusion and procrastinate. CogCards is my answer: a flashcard platform where you study through mini-games such as TetriCards, WordMatch and EscapeRoom, built on active recall and spaced repetition.</p>
+                            <p>You can study your own decks or pick from a public library. The platform is built in Flask, Python, SQLite, JavaScript, HTML and CSS, and became a live startup at The Kitchen, Aarhus University's startup hub. I develop and run it alongside my studies.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer, covering design, code and product strategy. User research and beta testing were done with my course group.</p>
+                            <div class="tags">
+                                <span class="tag">EdTech</span>
+                                <span class="tag">Gamification</span>
+                                <span class="tag">Startup</span>
+                                <span class="tag">Cognitive science</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://cogcards.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
+                                <a href="papers/Applied Cognitive Science.pdf" class="btn btn-sm btn-ghost" target="_blank">Research paper (PDF)</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Social & Green -->
+                    <article class="project" data-cat="product">
+                        <div class="gallery" data-label="Social and Green">
+                            <div class="gallery-track">
+                                <img src="images/deepgreen.jpg" alt="Social and Green platform" loading="lazy">
+                                <img src="images/deepgreen1.png" alt="Social and Green platform" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/logodgi.webp" alt="" loading="lazy">
+                                <h3>Social &amp; Green</h3>
+                            </div>
+                            <div class="meta"><span>Nov 2025 to present</span></div>
+                            <p>Awareness of climate change is growing, but many young people still feel overwhelmed or unsure what to actually do. Social &amp; Green is a youth platform that makes sustainable habits social through hands-on events, games, challenges and community.</p>
+                            <ul class="nodes">
+                                <li>Community cooking, gardening, trash pickups, walks and creative workshops</li>
+                                <li>DIY and upcycling activities, quizzes and shared challenges</li>
+                                <li>Impact data on CO₂, water, energy and waste, plus streaks and certificates</li>
+                            </ul>
+                            <p class="role"><strong>My role:</strong> Sole developer, covering design, development and product strategy. User research, beta testing and business meetings were done with the group.</p>
+                            <div class="tags">
+                                <span class="tag">Sustainability</span>
+                                <span class="tag">Community</span>
+                                <span class="tag">Gamification</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://azrae101.github.io/DeepGreenSocial/index.html" class="btn btn-sm" target="_blank" rel="noopener">View project</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Curating Data Science -->
+                    <article class="project" data-cat="course">
+                        <div class="gallery" data-label="Curating Data Science">
+                            <div class="gallery-track">
+                                <img src="images/curating1.png" alt="Curating Data Science exhibition" loading="lazy">
+                                <img src="images/curating3.png" alt="Curating Data Science exhibition" loading="lazy">
+                                <img src="images/curating2.png" alt="Curating Data Science exhibition" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/cds.png" alt="" loading="lazy">
                                 <h3>Curating Data Science</h3>
-                                <p>A digital exhibition exploring data curation through critical data studies: examining how choices in collection, framing, and presentation shape what data can say. Data is never neutral. I designed and built the full interactive exhibition website from scratch.</p>
-                                <p><strong>My role:</strong> Sole developer and interaction designer. Critical analysis and research framing done collaboratively with the course group.</p>
-                                <p class="project-date">November 11-30, 2025</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Critical Data Studies</span>
-                                    <span class="project-tag">Curating Data</span>
-                                    <span class="project-tag">Digital Exhibition</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://azrae101.github.io/CuratingDataScience/" class="btn btn-sm" target="_blank" rel="noopener">🌐 View Project</a>
-                                    <a href="papers/PORTFOLIO.pdf" class="btn btn-sm btn-outline" target="_blank" download>📄 PDF</a>
-                                </div>
+                            </div>
+                            <div class="meta"><span>Nov 2025</span></div>
+                            <p>A digital exhibition about data curation, seen through critical data studies. It looks at how choices in collection, framing and presentation shape what data can say, because data is never neutral. I designed and built the interactive exhibition site from scratch.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer and interaction designer. Critical analysis and research framing were done with the course group.</p>
+                            <div class="tags">
+                                <span class="tag">Critical data studies</span>
+                                <span class="tag">Digital exhibition</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://azrae101.github.io/CuratingDataScience/" class="btn btn-sm" target="_blank" rel="noopener">View project</a>
+                                <a href="papers/PORTFOLIO.pdf" class="btn btn-sm btn-ghost" target="_blank">Portfolio (PDF)</a>
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/curating1.png" alt="Curating Data" loading="lazy">
-                                        <img src="images/curating3.png" alt="Curating Data" loading="lazy">
-                                        <img src="images/curating2.png" alt="Curating Data" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 3</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Algorithmic Mirror -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/algomirror.png');background-color:#ea580c;"></div>
-                            <div class="project-content">
+                    <!-- Algorithmic Mirror -->
+                    <article class="project" data-cat="course">
+                        <div class="gallery" data-label="The Algorithmic Mirror">
+                            <div class="gallery-track">
+                                <img src="images/algomirror1.png" alt="The Algorithmic Mirror" loading="lazy">
+                                <img src="images/algomirror2.png" alt="The Algorithmic Mirror" loading="lazy">
+                                <img src="images/algomirror3.png" alt="The Algorithmic Mirror" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/algomirror.png" alt="" loading="lazy">
                                 <h3>The Algorithmic Mirror</h3>
-                                <p>A critical design project and interactive data visualization exposing how e-commerce platforms silently build consumer profiles from behavioral data. Invites users to see themselves through the algorithm's lens. Built entirely solo as an interactive web experience.</p>
-                                <p><strong>My role:</strong> Sole developer and designer. Critical design framing developed with the course group.</p>
-                                <p class="project-date">November 2025</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Critical Data Studies</span>
-                                    <span class="project-tag">Data Visualization</span>
-                                    <span class="project-tag">Critical Design</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://azrae101.github.io/Assignment3_CDS/" class="btn btn-sm" target="_blank" rel="noopener">🌐 View Project</a>
-                                    <a href="papers/PORTFOLIO.pdf" class="btn btn-sm btn-outline" target="_blank" download>📄 PDF</a>
-                                </div>
+                            </div>
+                            <div class="meta"><span>Nov 2025</span></div>
+                            <p>A critical design project and interactive data visualisation that shows how e-commerce platforms quietly build consumer profiles from behavioural data. Visitors get to see themselves the way the algorithm sees them.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer and designer. The critical design framing was developed with the course group.</p>
+                            <div class="tags">
+                                <span class="tag">Critical data studies</span>
+                                <span class="tag">Data visualisation</span>
+                                <span class="tag">Critical design</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://azrae101.github.io/Assignment3_CDS/" class="btn btn-sm" target="_blank" rel="noopener">View project</a>
+                                <a href="papers/PORTFOLIO.pdf" class="btn btn-sm btn-ghost" target="_blank">Portfolio (PDF)</a>
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/algomirror1.png" alt="Algorithmic Mirror" loading="lazy">
-                                        <img src="images/algomirror2.png" alt="Algorithmic Mirror" loading="lazy">
-                                        <img src="images/algomirror3.png" alt="Algorithmic Mirror" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 3</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- 10Space10 -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/10space10.png');background-color:#334155;"></div>
-                            <div class="project-content">
-                                <h3>10Space10 🏆</h3>
-                                <p>Built in one weekend at the Viborg Game Jam (Viborg Animation Festival 2025) under the theme "10 × 10": a spaceship escape room where players solve puzzles across 10 rooms in under 10 minutes, with two possible endings. Selected as the winning team.</p>
-                                <p><strong>My role:</strong> Co-developer (split coding with one teammate). Puzzle design and narrative developed collaboratively.</p>
-                                <p class="project-date">September 12-14, 2025 · Winner</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Game Jam</span>
-                                    <span class="project-tag">Game Dev</span>
-                                    <span class="project-tag">Winner</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://one0space10.onrender.com" class="btn btn-sm" target="_blank" rel="noopener">🎮 Play Game</a>
-                                </div>
+                    <!-- 10Space10 -->
+                    <article class="project" data-cat="competition">
+                        <div class="gallery" data-label="10Space10">
+                            <div class="gallery-track">
+                                <img src="images/space.jpg" alt="10Space10 at the Viborg Game Jam" loading="lazy">
+                                <img src="images/space2.jpg" alt="10Space10 at the Viborg Game Jam" loading="lazy">
+                                <img src="images/space3.jpg" alt="10Space10 at the Viborg Game Jam" loading="lazy">
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/space.jpg" alt="Game Jam" loading="lazy">
-                                        <img src="images/space2.jpg" alt="Game Jam" loading="lazy">
-                                        <img src="images/space3.jpg" alt="Game Jam" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 3</div>
-                                </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/10space10.png" alt="" loading="lazy">
+                                <h3>10Space10</h3>
+                            </div>
+                            <div class="meta"><span>Sep 2025</span><span class="badge">Winner</span></div>
+                            <p>Built over one weekend at the Viborg Game Jam (Viborg Animation Festival 2025) under the theme "10 × 10". It is a spaceship escape room where players solve puzzles across 10 rooms in under 10 minutes, with two possible endings. Our team won.</p>
+                            <p class="role"><strong>My role:</strong> Co-developer, splitting the code with one teammate. Puzzle design and story were developed together.</p>
+                            <div class="tags">
+                                <span class="tag">Game jam</span>
+                                <span class="tag">Game development</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://one0space10.onrender.com" class="btn btn-sm" target="_blank" rel="noopener">Play the game</a>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- SustainaBag -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/sustainabaglogo.png');background-color:#16a34a;"></div>
-                            <div class="project-content">
-                                <h3>SustainaBag 🏆</h3>
-                                <p>At the MAGICA Summer School on Climate Innovation (H-FARM College, Venice lagoon), our international team tackled airport textile waste. I built the full platform from scratch: users donate clean clothes, track donations, see environmental impact, and earn rewards like airport store discounts. Won the pitch competition out of 20 international teams.</p>
-                                <p><strong>My role:</strong> Sole developer - designed and coded the entire website. Business model and strategy co-developed with the team.</p>
-                                <p class="project-date">July 7-11, 2025 · Winner</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Sustainability</span>
-                                    <span class="project-tag">Circular Economy</span>
-                                    <span class="project-tag">Winner</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://sustainabag.onrender.com" class="btn btn-sm" target="_blank" rel="noopener">🌐 Visit Site</a>
-                                </div>
+                    <!-- SustainaBag -->
+                    <article class="project" data-cat="competition">
+                        <div class="gallery" data-label="SustainaBag">
+                            <div class="gallery-track">
+                                <img src="images/sustainabag.jpg" alt="SustainaBag team at MAGICA Summer School" loading="lazy">
+                                <img src="images/sustainabag2.jpg" alt="SustainaBag" loading="lazy">
+                                <img src="images/sustainabag3.jpg" alt="SustainaBag" loading="lazy">
+                                <img src="images/sustainabag4.jpg" alt="SustainaBag" loading="lazy">
+                                <img src="images/sustainabag5.jpg" alt="SustainaBag" loading="lazy">
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/sustainabag.jpg" alt="SustainaBag" loading="lazy">
-                                        <img src="images/sustainabag2.jpg" alt="SustainaBag" loading="lazy">
-                                        <img src="images/sustainabag3.jpg" alt="SustainaBag" loading="lazy">
-                                        <img src="images/sustainabag4.jpg" alt="SustainaBag" loading="lazy">
-                                        <img src="images/sustainabag5.jpg" alt="SustainaBag" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span><span class="indicator"></span><span class="indicator"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 5</div>
-                                </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/sustainabaglogo.png" alt="" loading="lazy">
+                                <h3>SustainaBag</h3>
+                            </div>
+                            <div class="meta"><span>Jul 2025</span><span class="badge">Winner</span></div>
+                            <p>At the MAGICA Summer School on Climate Innovation (H-FARM College, Venice lagoon), our international team took on textile waste at airports. I built the platform from scratch: travellers donate clean clothes, track their donations, see the environmental impact and earn rewards such as discounts in airport shops. We won the pitch competition out of 20 international teams.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer, designing and coding the whole site. Business model and strategy were developed with the team.</p>
+                            <div class="tags">
+                                <span class="tag">Sustainability</span>
+                                <span class="tag">Circular economy</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://sustainabag.onrender.com" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Misinformation Simulation -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/soccultlogo.webp');background-color:#2563eb;"></div>
-                            <div class="project-content">
+                    <!-- Misinformation Simulation -->
+                    <article class="project" data-cat="course">
+                        <div class="gallery" data-label="Misinformation simulation">
+                            <div class="gallery-track">
+                                <img src="images/soccult2.png" alt="Agent-based misinformation simulation" loading="lazy">
+                                <img src="images/soccult1.png" alt="Agent-based misinformation simulation" loading="lazy">
+                                <img src="images/soccult3.png" alt="Agent-based misinformation simulation" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/soccultlogo.webp" alt="" loading="lazy">
                                 <h3>Misinformation Spread Simulation</h3>
-                                <p>A Pygame agent-based model simulating how misinformation propagates through social networks in different contexts: home, work, and social media. Agents interact, share beliefs, and are shaped by their environment. Coded entirely solo.</p>
-                                <p><strong>My role:</strong> Sole developer. Research design and analysis done collaboratively with the course group.</p>
-                                <p class="project-date">April-May 2025</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Pygame</span>
-                                    <span class="project-tag">Simulation</span>
-                                    <span class="project-tag">Agent-Based Model</span>
-                                    <span class="project-tag">Python</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Azrae101/SocialCulturalABM.git" class="btn btn-sm" target="_blank" rel="noopener">💻 GitHub</a>
-                                </div>
+                            </div>
+                            <div class="meta"><span>Apr to May 2025</span></div>
+                            <p>An agent-based model in Pygame that simulates how misinformation spreads through social networks at home, at work and on social media. Agents interact, share beliefs and are shaped by their surroundings.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer. Research design and analysis were done with the course group.</p>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pygame</span>
+                                <span class="tag">Agent-based modelling</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://github.com/Azrae101/SocialCulturalABM" class="btn btn-sm" target="_blank" rel="noopener">GitHub</a>
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/soccult2.png" alt="ABM Simulation" loading="lazy">
-                                        <img src="images/soccult1.png" alt="ABM Simulation" loading="lazy">
-                                        <img src="images/soccult3.png" alt="ABM Simulation" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 3</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </article>
 
-                <!-- Vestas -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="project-img" style="background-image:url('images/vestaslogo.png');background-color:#1e40af;"></div>
-                            <div class="project-content">
+                    <!-- Vestas -->
+                    <article class="project" data-cat="competition">
+                        <div class="gallery" data-label="Vestas Cybersecurity Challenge">
+                            <div class="gallery-track">
+                                <img src="images/vestas1.png" alt="Cybersecurity training game for Vestas" loading="lazy">
+                                <img src="images/vestas2.png" alt="Team at the Vestas case competition" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-head">
+                                <img class="project-logo" src="images/vestaslogo.png" alt="" loading="lazy">
                                 <h3>Vestas Cybersecurity Challenge</h3>
-                                <p>A case competition where I applied gamification to a real corporate problem: making cybersecurity training engaging for Vestas employees. Built a full interactive educational game with quiz scenarios and challenges. Coded entirely solo. Reached finalist stage.</p>
-                                <p><strong>My role:</strong> Sole developer and game designer. Case framing and strategy developed with the group.</p>
-                                <p class="project-date">April 2024 · Finalist</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Cybersecurity</span>
-                                    <span class="project-tag">Educational Game</span>
-                                    <span class="project-tag">Case Competition</span>
-                                    <span class="project-tag">Finalist</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://azrae101.github.io/CaseCompetition/templates/home.html" class="btn btn-sm" target="_blank" rel="noopener">🌐 Visit Site</a>
-                                    <a href="https://github.com/Azrae101/CaseCompetition.git" class="btn btn-sm btn-outline" target="_blank" rel="noopener">💻 GitHub</a>
-                                </div>
+                            </div>
+                            <div class="meta"><span>Apr 2024</span><span class="badge">Finalist</span></div>
+                            <p>A case competition where I used gamification on a real company problem: making cybersecurity training engaging for Vestas employees. I built an interactive training game with quiz scenarios and challenges, and we reached the final.</p>
+                            <p class="role"><strong>My role:</strong> Sole developer and game designer. Case framing and strategy were developed with the group.</p>
+                            <div class="tags">
+                                <span class="tag">Cybersecurity</span>
+                                <span class="tag">Educational game</span>
+                                <span class="tag">Case competition</span>
+                            </div>
+                            <div class="links">
+                                <a href="https://azrae101.github.io/CaseCompetition/templates/home.html" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
+                                <a href="https://github.com/Azrae101/CaseCompetition" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">GitHub</a>
                             </div>
                         </div>
-                        <div class="project-right">
-                            <div class="winner-carousel">
-                                <div class="carousel-container">
-                                    <div class="carousel-slide">
-                                        <img src="images/vestas1.png" alt="Vestas Game" loading="lazy">
-                                        <img src="images/vestas2.png" alt="Vestas Team" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 2</div>
-                                </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Research -->
+        <section id="research" class="research">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Research</p>
+                        <h2>Papers</h2>
+                        <p>Selected academic work in cognitive neuroscience, from brain rhythms to fatigue.</p>
+                    </div>
+                </div>
+                <div class="project-list">
+
+                    <article class="project">
+                        <div class="gallery" data-label="Bachelor's thesis">
+                            <div class="gallery-track">
+                                <img src="images/bach.png" alt="Figure from the bachelor's thesis" loading="lazy">
+                                <img src="images/bach2.png" alt="Figure from the bachelor's thesis" loading="lazy">
                             </div>
                         </div>
+                        <div class="project-body">
+                            <div class="meta"><span>Bachelor's thesis, 2025</span><span class="badge">Grade 12/12<sup>*</sup></span></div>
+                            <h3 style="margin-bottom:14px;">Oscillatory Patterns During Emotional Face Processing using OPM-MEG Data</h3>
+                            <p>How does the brain recognise an emotional face within a fraction of a second? This thesis used OPM-MEG, a wearable form of brain imaging, to study neural oscillations during emotional face perception.</p>
+                            <ul class="nodes">
+                                <li>Theta, alpha and gamma activity in time-frequency analysis</li>
+                                <li>Cross-frequency coupling between brain rhythms</li>
+                                <li>Machine learning models that classify facial expressions from brain activity</li>
+                            </ul>
+                            <p class="role"><strong>My role:</strong> Data analysis, time-frequency processing and machine learning. Study design and data collection were done with a research partner and our supervisor.</p>
+                            <div class="tags">
+                                <span class="tag">Neuroscience</span>
+                                <span class="tag">OPM-MEG</span>
+                                <span class="tag">Machine learning</span>
+                                <span class="tag">Emotion</span>
+                            </div>
+                            <div class="links">
+                                <a href="papers/Bachelor's paper.pdf" class="btn btn-sm" target="_blank">Read the thesis (PDF)</a>
+                                <a href="https://github.com/Azrae101/Bachelor2025" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">Dataset</a>
+                                <a href="https://github.com/RekaForgo/Oscillatory-Patterns-During-Emotional-Face-Processing-using-OPM-MEG-data" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="gallery" data-label="Fatigue paper">
+                            <div class="gallery-track">
+                                <img src="images/neuro.png" alt="Figure from the fatigue paper" loading="lazy">
+                                <img src="images/neuro2.png" alt="Figure from the fatigue paper" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="meta"><span>Cognitive Neuroscience, 2025</span><span class="badge">Grade 10/12<sup>*</sup></span></div>
+                            <h3 style="margin-bottom:14px;">Fatigue-Driven Declines in Cognitive and Neural Performance Across Trials</h3>
+                            <p>How do time on task and time of day affect cognitive performance? We measured reaction times, accuracy and EEG/ERP markers to find neural signs of fatigue. The work was presented at the ITEASc Summer School on Interdisciplinary Science Communication.</p>
+                            <p class="role"><strong>My role:</strong> Statistical analysis and ERP processing. Experiment design and data collection were done with the research group.</p>
+                            <div class="tags">
+                                <span class="tag">Neuroscience</span>
+                                <span class="tag">EEG analysis</span>
+                                <span class="tag">Fatigue</span>
+                            </div>
+                            <div class="links">
+                                <a href="papers/Cognitive Neuroscience.pdf" class="btn btn-sm" target="_blank">Read the paper (PDF)</a>
+                                <a href="https://github.com/RekaForgo/Fatigue-in-EEG-Cognitive-Neuroscience-2025-" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                <p class="footnote"><sup>*</sup> Graded on the Danish 7-point scale, where 12 is the highest grade.</p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Experience</p>
+                        <h2>Work, education and volunteering</h2>
+                        <p>Data science, web development and a lot of teaching.</p>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Papers -->
-    <section id="research">
-        <div class="container">
-            <div class="section-title">
-                <h2>Research Papers</h2>
-                <p>Selected academic research and project papers within Cognitive Science.</p>
-            </div>
-            <div class="projects-grid">
-
-                <!-- Bachelor's -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="winner-carousel">
-                                <div class="carousel-container" style="background:linear-gradient(135deg,#4ade80,#22c55e);">
-                                    <div class="carousel-slide">
-                                        <img src="images/bach.png" alt="Bachelor's Thesis" loading="lazy">
-                                        <img src="images/bach2.png" alt="Bachelor's Thesis" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 2</div>
-                                    <div class="paper-badge">Bachelor's Thesis · 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-right">
-                            <div class="project-content">
-                                <h3>Oscillatory Patterns During Emotional Face Processing using OPM-MEG Data</h3>
-                                <p>How does the brain recognize an emotional face within a fraction of a second? This bachelor's thesis (grade: 12/12) used OPM-MEG - wearable brain imaging - to examine neural oscillatory dynamics during emotional face perception. Analysed theta, alpha, and gamma oscillations, cross-frequency coupling, and trained machine learning models to classify emotional expressions from brain rhythms.</p>
-                                <p><strong>My role:</strong> Data analysis, time-frequency processing, and ML modelling. Study design and data collection in collaboration with a research partner and supervisor.</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Neuroscience</span>
-                                    <span class="project-tag">OPM-MEG</span>
-                                    <span class="project-tag">EEG/ERP</span>
-                                    <span class="project-tag">Emotion</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="papers/Bachelor's paper - Google Docs.pdf" class="btn btn-sm" target="_blank" download>📄 PDF</a>
-                                    <a href="https://github.com/Azrae101/Bachelor2025.git" class="btn btn-sm btn-outline" target="_blank" rel="noopener">📊 Dataset</a>
-                                    <a href="https://github.com/RekaForgo/Oscillatory-Patterns-During-Emotional-Face-Processing-using-OPM-MEG-data.git" class="btn btn-sm btn-outline" target="_blank" rel="noopener">💻 Code</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fatigue -->
-                <div class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-left">
-                            <div class="winner-carousel">
-                                <div class="carousel-container" style="background:linear-gradient(135deg,#f472b6,#ec4899);">
-                                    <div class="carousel-slide">
-                                        <img src="images/neuro.png" alt="Cognitive Neuroscience" loading="lazy">
-                                        <img src="images/neuro2.png" alt="Cognitive Neuroscience" loading="lazy">
-                                    </div>
-                                    <button class="carousel-btn prev" aria-label="Previous">◀</button>
-                                    <button class="carousel-btn next" aria-label="Next">▶</button>
-                                    <div class="carousel-indicators"><span class="indicator active"></span><span class="indicator"></span></div>
-                                    <div class="carousel-counter">1 / 2</div>
-                                    <div class="paper-badge">Cognitive Neuroscience · 2025</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-right">
-                            <div class="project-content">
-                                <h3>Fatigue-Driven Declines in Cognitive and Neural Performance Across Trials</h3>
-                                <p>Examining how time-on-task and time-of-day affect cognitive performance: measuring reaction times, accuracy, and EEG/ERP brain markers to reveal neural correlates of fatigue. Presented at the ITEASc Summer School on Interdisciplinary Science Communication.</p>
-                                <p><strong>My role:</strong> Statistical analysis and ERP processing. Experiment design and data collection done collaboratively with the research group.</p>
-                                <div class="project-tags">
-                                    <span class="project-tag">Neuroscience</span>
-                                    <span class="project-tag">EEG Analysis</span>
-                                    <span class="project-tag">Fatigue</span>
-                                    <span class="project-tag">Performance</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="papers/Final Exam Paper, Neuroscience - Google Docs.pdf" class="btn btn-sm" target="_blank" download>📄 PDF</a>
-                                    <a href="https://github.com/RekaForgo/Fatigue-in-EEG-Cognitive-Neuroscience-2025-.git" class="btn btn-sm btn-outline" target="_blank" rel="noopener">💻 Code</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Honors -->
-    <section id="honors">
-        <div class="container">
-            <div class="section-title">
-                <h2>Honorable Mentions</h2>
-                <p>Selected collaborations and consulting work.</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-card-inner" style="flex-direction:column;">
-                        <div class="project-img" style="background-image:url('images/stark.png');background-color:#ffffff;width:180px;height:180px;background-size:70%;border:2px solid rgba(37,99,235,0.22);"></div>
-                        <div class="project-content">
-                            <h3>Stærk Balance Consultant</h3>
-                            <p>I helped consult on design choices for the Stærk Balance website.</p>
-                            <div class="project-links">
-                                <a href="https://staerkbalance.dk/" class="btn btn-sm" target="_blank" rel="noopener">🌐 Visit Site</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have a question or want to work together? Feel free to reach out!</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always interested in new opportunities, collaborations, and discussions about cognitive science, educational technology, and data visualization.</p>
-                    <ul class="contact-details">
-                        <li>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span>Aarhus, Denmark</span>
+                <!-- Work -->
+                <div class="xp-group">
+                    <div class="sub-h"><span class="n">01</span><h3>Work</h3><span class="aside">Data, web and teaching</span></div>
+                    <ol class="cv">
+                        <li class="now">
+                            <div class="yr">2024<small>Sep 2024 to now</small></div>
+                            <div><h4>Junior Data Scientist</h4><span class="org"><a href="https://raptorservices.com/en" target="_blank" rel="noopener">Raptor Services</a></span></div>
+                            <p>Building recommendation systems and personalisation tools for e-commerce, and AI solutions tailored to each client.</p>
                         </li>
                         <li>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <a href="mailto:clara.holst@outlook.com">clara.holst@outlook.com</a>
+                            <div class="yr">2025<small>Jun 2025 to Mar 2026</small></div>
+                            <div><h4>Project Lead and Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div>
+                            <p>Taught maths, Danish and English at the Ellekær homework café, planned schedules for staff and volunteers, and ran onboarding meetings and social events.</p>
                         </li>
                         <li>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                            <span>Cognitive Science, Aarhus University</span>
+                            <div class="yr">2024<small>Feb 2024 to Mar 2026</small></div>
+                            <div><h4>Tutor</h4><span class="org"><a href="https://gotutor.dk/" target="_blank" rel="noopener">GoTutor (Egmont)</a></span></div>
+                            <p>One-to-one tutoring planned around each student's level, needs and interests.</p>
                         </li>
-                        <li style="gap:10px;">
-                            <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--text);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="#3b82f6"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <span>Clara Holst - CogCards</span>
+                        <li>
+                            <div class="yr">2023<small>Aug 2023 to Jun 2024</small></div>
+                            <div><h4>Teaching Assistant</h4><span class="org"><a href="https://talentcamp.dk/" target="_blank" rel="noopener">TalentCamp</a></span></div>
+                            <p>Prepared teaching modules and led groups of gifted secondary school pupils on weekend camps.</p>
                         </li>
-                        <li style="gap:10px;">
-                            <a href="https://github.com/Azrae101" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--text);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="#3b82f6"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </a>
-                            <span>Azrae101</span>
+                        <li>
+                            <div class="yr">2022<small>Apr 2022 to Aug 2023</small></div>
+                            <div><h4>IT Support and Web</h4><span class="org"><a href="https://staerkbalance.dk/" target="_blank" rel="noopener">Stærk Balance</a></span></div>
+                            <p>WordPress development, IT support and social media for a fitness and health company, including advice on their website design.</p>
                         </li>
+                        <li>
+                            <div class="yr">2021<small>Aug 2021 to Jun 2022</small></div>
+                            <div><h4>Student Tutor</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div>
+                            <p>Welcomed new students, gave school tours and taught at Girls' Day in Science, where pupils programmed a robot arm.</p>
+                        </li>
+                        <li>
+                            <div class="yr">2020<small>Jul 2020 to Oct 2022</small></div>
+                            <div><h4>Store Assistant</h4><span class="org"><a href="https://sallinggroup.com/" target="_blank" rel="noopener">Netto, Odense</a></span></div>
+                            <p>Checkout, restocking and keeping the store welcoming, with a focus on working efficiently and helping customers with their questions.</p>
+                        </li>
+                    </ol>
+                    <p class="cv-note"><strong>Also:</strong> harvest assistant at DLG's grain laboratory and chess coach at Bolbro Chess Academy.</p>
+                </div>
+
+                <!-- Education -->
+                <div class="xp-group">
+                    <div class="sub-h"><span class="n">02</span><h3>Education</h3></div>
+
+                    <div class="study" id="studyMap">
+                        <div class="maps">
+                            <figure class="map">
+                                <svg id="mapEurope" viewBox="0 0 520 440" role="img" aria-label="Map of Northern Europe with Odense, Aarhus, Enschede and Stockholm marked"></svg>
+                                <figcaption>Northern Europe</figcaption>
+                            </figure>
+                            <figure class="map">
+                                <svg id="mapWorld" viewBox="0 0 640 380" role="img" aria-label="Map from Europe to Tokyo"></svg>
+                                <figcaption>Europe to Japan</figcaption>
+                            </figure>
+                        </div>
+                        <ol class="stops">
+                            <li><b>01</b><strong>Odense</strong><em>Odense Technical Gymnasium</em><span>2020 &middot; HTX</span></li>
+                            <li><b>02</b><strong>Aarhus</strong><em>Aarhus University</em><span>2023 &middot; BSc</span></li>
+                            <li><b>03</b><strong>Tokyo</strong><em>Sophia University</em><span>2026 &middot; Exchange</span></li>
+                            <li><b>04</b><strong>Enschede</strong><em>University of Twente</em><span>2026 &middot; MSc</span></li>
+                            <li><b>05</b><strong>Stockholm</strong><em>KTH Royal Institute of Technology</em><span>Next &middot; MSc</span></li>
+                        </ol>
+                    </div>
+
+                    <ol class="cv">
+                        <li class="now">
+                            <div class="yr">2026<small>Sep 2026 to now</small></div>
+                            <div><h4>MSc Human-Computer Interaction and Extended Reality</h4><span class="org">University of Twente and KTH</span></div>
+                            <p>EIT Digital Master School joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
+                        </li>
+                        <li>
+                            <div class="yr">2023<small>Sep 2023 to Sep 2026</small></div>
+                            <div><h4>BSc Cognitive Science</h4><span class="org">Aarhus University</span></div>
+                            <p>Psychology, neuroscience and AI, with an exchange semester at Sophia University in Tokyo.</p>
+                        </li>
+                        <li>
+                            <div class="yr">2020<small>Aug 2020 to Jun 2023</small></div>
+                            <div><h4>HTX, Communication and IT</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div>
+                            <p>Programming, Electronics A and 3D printing. Awarded a school scholarship.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Volunteering -->
+                <div class="xp-group">
+                    <div class="sub-h"><span class="n">03</span><h3>Volunteering</h3><span class="aside">Children, learning and student life</span></div>
+                    <ol class="cv">
+                        <li class="now">
+                            <div class="yr">2026<small>Oct 2026 to now</small></div>
+                            <div><h4>Children's Room Volunteer</h4><span class="org">COA asylum centre, Enschede</span></div>
+                            <p>Planning creative activities and games for children living at the centre, through M-Pact.</p>
+                        </li>
+                        <li>
+                            <div class="yr">2023<small>Nov 2023 to Jun 2025</small></div>
+                            <div><h4>Volunteer Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div>
+                            <p>Helped primary and upper secondary pupils with maths, English and Danish at the Bispehaven homework café.</p>
+                        </li>
+                        <li>
+                            <div class="yr">2023<small>Sep 2023 to Jun 2024</small></div>
+                            <div><h4>Student Panel Member</h4><span class="org">Arts Karriere, Aarhus University</span></div>
+                            <p>Reviewed career events, brochures and website design with a focus on UX.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Languages -->
+                <div class="xp-group">
+                    <div class="sub-h"><span class="n">04</span><h3>Languages</h3></div>
+                    <ul class="langs">
+                        <li><strong>Danish</strong><span>Native</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></li>
+                        <li><strong>English</strong><span>Fluent</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></li>
+                        <li><strong>German</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
+                        <li><strong>Japanese</strong><span>Conversational</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></li>
                     </ul>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group"><label for="name">Name</label><input type="text" id="name" class="form-control" required></div>
-                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" class="form-control" required></div>
-                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" class="form-control" required></div>
-                        <div class="form-group"><label for="message">Message</label><textarea id="message" class="form-control" required></textarea></div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Clara Holst</div>
-                    <p style="max-width:280px;font-size:0.88rem;">Cognitive Science student passionate about creating educational tools grounded in research.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="https://github.com/Azrae101" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                    </div>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container contact-grid">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let's talk</h2>
+                    <p>I'm always happy to hear about new opportunities, collaborations or a website you need built. Questions about HCI, cognitive science, learning tools or data are welcome too.</p>
+                    <ul class="contact-list">
+                        <li><span>Email</span><a href="mailto:clara.holst@outlook.com">clara.holst@outlook.com</a></li>
+                        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener">Clara Holst</a></li>
+                        <li><span>GitHub</span><a href="https://github.com/Azrae101" target="_blank" rel="noopener">Azrae101</a></li>
+                        <li><span>Studies</span><span>MSc HCI and XR, University of Twente and KTH</span></li>
+                        <li><span>Location</span><span>Enschede, Netherlands</span></li>
+                    </ul>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#research">Research Papers</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
+                <form id="contactForm">
+                    <div class="field-row">
+                        <div class="field"><label for="name">Name</label><input type="text" id="name" autocomplete="name" required></div>
+                        <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="email" required></div>
                     </div>
-                    <div class="footer-column">
-                        <h4>Projects</h4>
-                        <ul>
-                            <li><a href="https://cogcards.dk" target="_blank" rel="noopener">CogCards</a></li>
-                            <li><a href="https://azrae101.github.io/CuratingDataScience/" target="_blank" rel="noopener">Curating Data Science</a></li>
-                            <li><a href="https://one0space10.onrender.com" target="_blank" rel="noopener">One0Space10</a></li>
-                            <li><a href="https://sustainabag.onrender.com" target="_blank" rel="noopener">SustainaBag</a></li>
-                        </ul>
-                    </div>
-                </div>
+                    <div class="field"><label for="subject">Subject</label><input type="text" id="subject" required></div>
+                    <div class="field"><label for="message">Message</label><textarea id="message" required></textarea></div>
+                    <button type="submit" class="btn">Send message</button>
+                    <p class="form-note">This opens your email app with the message ready to send.</p>
+                </form>
             </div>
-            <div class="copyright">&copy; 2026 Clara Holst. All Rights Reserved.</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <span>&copy; 2026 Clara Holst</span>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/Azrae101" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:clara.holst@outlook.com">Email</a></li>
+            </ul>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
+    <a href="#top" class="to-top" id="toTop" aria-label="Back to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', () => {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                });
-            }
-
-            // Form
-            const form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! I will get back to you soon.');
-                    form.reset();
-                });
-            }
-
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(a => {
-                a.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const id = this.getAttribute('href');
-                    if (id === '#') return;
-                    const el = document.querySelector(id);
-                    if (el) {
-                        window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
-                        if (navLinks && window.innerWidth <= 860) navLinks.style.display = 'none';
-                    }
-                });
-            });
-
-            // Scroll to top
-            const scrollBtn = document.getElementById('scrollToTop');
-            window.addEventListener('scroll', () => {
-                scrollBtn.classList.toggle('show', window.pageYOffset > 300);
-            });
-            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-            // Carousels
-            document.querySelectorAll('.winner-carousel').forEach(carousel => {
-                const container = carousel.querySelector('.carousel-container');
-                const slide = carousel.querySelector('.carousel-slide');
-                const images = slide.querySelectorAll('img');
-                const prevBtn = carousel.querySelector('.carousel-btn.prev');
-                const nextBtn = carousel.querySelector('.carousel-btn.next');
-                const indicators = carousel.querySelectorAll('.indicator');
-                const counter = carousel.querySelector('.carousel-counter');
-                const autoplayBtn = carousel.querySelector('.carousel-autoplay');
-                let current = 0;
-                let interval = null;
-                const duration = 4000;
-
-                function update() {
-                    slide.style.transform = `translateX(-${current * 100}%)`;
-                    indicators.forEach((ind, i) => ind.classList.toggle('active', i === current));
-                    if (counter) counter.textContent = `${current + 1} / ${images.length}`;
-                    if (autoplayBtn) autoplayBtn.textContent = interval ? '⏸' : '▶';
-                }
-
-                function next() { current = (current + 1) % images.length;
-                    update(); }
-
-                function prev() { current = (current - 1 + images.length) % images.length;
-                    update(); }
-
-                function goTo(i) { current = i;
-                    update(); }
-
-                function startAutoplay() { stopAutoplay();
-                    interval = setInterval(next, duration);
-                    update(); }
-
-                function stopAutoplay() { if (interval) { clearInterval(interval);
-                        interval = null;
-                    } update(); }
-
-                function toggleAutoplay() { interval ? stopAutoplay() : startAutoplay(); }
-
-                if (prevBtn) prevBtn.addEventListener('click', e => { e.stopPropagation();
-                    prev();
-                    startAutoplay(); });
-                if (nextBtn) nextBtn.addEventListener('click', e => { e.stopPropagation();
-                    next();
-                    startAutoplay(); });
-                if (autoplayBtn) autoplayBtn.addEventListener('click', e => { e.stopPropagation();
-                    toggleAutoplay(); });
-                indicators.forEach((ind, i) => ind.addEventListener('click', e => { e.stopPropagation();
-                    goTo(i);
-                    startAutoplay(); }));
-
-                // Touch
-                let touchX = 0;
-                container.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; }, { passive: true });
-                container.addEventListener('touchend', e => {
-                    const diff = touchX - e.changedTouches[0].screenX;
-                    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev();
-                        startAutoplay(); }
-                }, { passive: true });
-
-                container.addEventListener('mouseenter', stopAutoplay);
-                container.addEventListener('mouseleave', () => { if (images.length > 1) startAutoplay(); });
-
-                update();
-                if (images.length > 1) setTimeout(startAutoplay, 2000);
-            });
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+            toggle.textContent = open ? 'Close' : 'Menu';
         });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = 'Menu';
+        }));
+
+        // Back to top: shown once the About section has been scrolled past
+        const toTop = document.getElementById('toTop');
+        const about = document.getElementById('about');
+        const updateToTop = () => {
+            toTop.classList.toggle('show', about.getBoundingClientRect().bottom < 0);
+        };
+        window.addEventListener('scroll', updateToTop, { passive: true });
+        updateToTop();
+
+        // Project filters
+        const filters = document.querySelectorAll('.filter');
+        const projects = document.querySelectorAll('#work .project');
+        filters.forEach(btn => btn.addEventListener('click', () => {
+            const f = btn.dataset.filter;
+            filters.forEach(b => b.setAttribute('aria-pressed', b === btn));
+            projects.forEach(p => { p.hidden = f !== 'all' && p.dataset.cat !== f; });
+        }));
+
+        // Galleries: controls are added only when there is more than one image
+        const chevron = d => `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="${d}"/></svg>`;
+        document.querySelectorAll('.gallery').forEach(gallery => {
+            const track = gallery.querySelector('.gallery-track');
+            const imgs = track.querySelectorAll('img');
+            if (imgs.length < 2) return;
+            const label = gallery.dataset.label || 'gallery';
+            let i = 0;
+
+            const ctrl = document.createElement('div');
+            ctrl.className = 'gallery-ctrl';
+            ctrl.innerHTML = `
+                <button class="gallery-btn" aria-label="Previous image, ${label}">${chevron('M15 18l-6-6 6-6')}</button>
+                <span class="gallery-count" aria-live="polite"></span>
+                <button class="gallery-btn" aria-label="Next image, ${label}">${chevron('M9 18l6-6-6-6')}</button>`;
+            gallery.appendChild(ctrl);
+            const [prev, next] = ctrl.querySelectorAll('button');
+            const count = ctrl.querySelector('.gallery-count');
+
+            const go = n => {
+                i = (n + imgs.length) % imgs.length;
+                track.style.transform = `translateX(-${i * 100}%)`;
+                count.textContent = `${i + 1} / ${imgs.length}`;
+            };
+            prev.addEventListener('click', () => go(i - 1));
+            next.addEventListener('click', () => go(i + 1));
+
+            let startX = 0;
+            gallery.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; }, { passive: true });
+            gallery.addEventListener('touchend', e => {
+                const dx = startX - e.changedTouches[0].screenX;
+                if (Math.abs(dx) > 50) go(i + (dx > 0 ? 1 : -1));
+            }, { passive: true });
+
+            go(0);
+        });
+
+        // Contact form: open the visitor's email app with the message filled in
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const v = id => document.getElementById(id).value.trim();
+            const body = `${v('message')}\n\n${v('name')}\n${v('email')}`;
+            window.location.href = `mailto:clara.holst@outlook.com?subject=${encodeURIComponent(v('subject'))}&body=${encodeURIComponent(body)}`;
+        });
+
+        // Hero network: slowly drifting nodes linked to each other and to the portrait
+        (() => {
+            const canvas = document.getElementById('net');
+            const hero = document.getElementById('hero');
+            const photo = document.querySelector('#heroPhoto img');
+            const ctx = canvas.getContext('2d');
+            const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let w, h, nodes = [], anchor = null, running = true, raf;
+
+            function resize() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                w = hero.clientWidth; h = hero.clientHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                const count = Math.round(Math.min(90, (w * h) / 11000));
+                nodes = Array.from({ length: count }, () => ({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.18,
+                    vy: (Math.random() - 0.5) * 0.18,
+                    r: 1.4 + Math.random() * 1.6
+                }));
+                const hr = hero.getBoundingClientRect(), pr = photo.getBoundingClientRect();
+                anchor = { x: pr.left - hr.left + pr.width / 2, y: pr.top - hr.top + pr.height / 2, r: pr.width / 2 + 4 };
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                const max = 130;
+                for (let a = 0; a < nodes.length; a++) {
+                    const n = nodes[a];
+                    for (let b = a + 1; b < nodes.length; b++) {
+                        const m = nodes[b];
+                        const d = Math.hypot(n.x - m.x, n.y - m.y);
+                        if (d < max) {
+                            ctx.strokeStyle = `rgba(43, 89, 195, ${0.22 * (1 - d / max)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
+                        }
+                    }
+                    // Links from the portrait outwards, like a node in the network
+                    const da = Math.hypot(n.x - anchor.x, n.y - anchor.y);
+                    if (da > anchor.r && da < anchor.r + 150) {
+                        const t = 1 - (da - anchor.r) / 150;
+                        const ux = (n.x - anchor.x) / da, uy = (n.y - anchor.y) / da;
+                        ctx.strokeStyle = `rgba(43, 89, 195, ${0.3 * t})`;
+                        ctx.beginPath(); ctx.moveTo(anchor.x + ux * anchor.r, anchor.y + uy * anchor.r); ctx.lineTo(n.x, n.y); ctx.stroke();
+                    }
+                }
+                for (const n of nodes) {
+                    ctx.fillStyle = 'rgba(43, 89, 195, 0.45)';
+                    ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+                }
+            }
+
+            function step() {
+                for (const n of nodes) {
+                    n.x += n.vx; n.y += n.vy;
+                    if (n.x < 0 || n.x > w) n.vx *= -1;
+                    if (n.y < 0 || n.y > h) n.vy *= -1;
+                }
+                draw();
+                if (running) raf = requestAnimationFrame(step);
+            }
+
+            resize();
+            if (still) { draw(); }
+            else {
+                step();
+                new IntersectionObserver(([e]) => {
+                    running = e.isIntersecting;
+                    if (running) { cancelAnimationFrame(raf); step(); }
+                }).observe(hero);
+            }
+            let t;
+            window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { resize(); draw(); }, 150); });
+        })();
+
+        // Study map: dotted land, highlighted countries and city pins.
+        // d3 and the map data are only loaded when the section comes near the screen.
+        (() => {
+            const wrap = document.getElementById('studyMap');
+            if (!wrap) return;
+            const NS = 'http://www.w3.org/2000/svg';
+            const VISITED = new Set(['208', '528', '752', '392']); // Denmark, Netherlands, Sweden, Japan
+            const C = {
+                odense: [10.39, 55.40], aarhus: [10.20, 56.16], tokyo: [139.69, 35.69],
+                enschede: [6.89, 52.22], stockholm: [18.07, 59.33]
+            };
+            const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const load = src => new Promise((res, rej) => {
+                const s = document.createElement('script');
+                s.src = src; s.onload = res; s.onerror = rej;
+                document.head.appendChild(s);
+            });
+            const el = (name, attrs, parent) => {
+                const n = document.createElementNS(NS, name);
+                for (const k in attrs) n.setAttribute(k, attrs[k]);
+                if (parent) parent.appendChild(n);
+                return n;
+            };
+
+            function dots(svg, countries, projection, W, H, step) {
+                const cv = document.createElement('canvas');
+                cv.width = W; cv.height = H;
+                const ctx = cv.getContext('2d', { willReadFrequently: true });
+                const path = d3.geoPath(projection, ctx);
+                for (const f of countries.features) {
+                    ctx.fillStyle = VISITED.has(f.id) ? '#0000ff' : '#ff0000';
+                    ctx.beginPath(); path(f); ctx.fill();
+                }
+                const px = ctx.getImageData(0, 0, W, H).data;
+                let land = '', home = '';
+                const r = (step * 0.3).toFixed(2);
+                for (let y = step / 2; y < H; y += step) {
+                    for (let x = step / 2; x < W; x += step) {
+                        const i = (Math.floor(y) * W + Math.floor(x)) * 4;
+                        if (px[i + 2] > 120) home += `<circle cx="${x}" cy="${y}" r="${(step * 0.34).toFixed(2)}"/>`;
+                        else if (px[i] > 120) land += `<circle cx="${x}" cy="${y}" r="${r}"/>`;
+                    }
+                }
+                const g = el('g', {}, svg);
+                g.innerHTML = `<g fill="#c4cde0">${land}</g><g fill="#5f84d4">${home}</g>`;
+            }
+
+            function curve(a, b, bend) {
+                const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+                const dx = b[0] - a[0], dy = b[1] - a[1];
+                return `M${a[0]},${a[1]} Q${mx - dy * bend},${my + dx * bend} ${b[0]},${b[1]}`;
+            }
+
+            function pin(svg, p, num, name, opt = {}) {
+                const g = el('g', {}, svg);
+                if (opt.plan) {
+                    el('circle', { cx: p[0], cy: p[1], r: 5.5, fill: 'var(--bg)', stroke: 'var(--accent)', 'stroke-width': 1.6, 'stroke-dasharray': '2 2' }, g);
+                } else {
+                    el('circle', { cx: p[0], cy: p[1], r: 11, fill: 'var(--accent)', opacity: 0.14 }, g);
+                    el('circle', { cx: p[0], cy: p[1], r: 4.5, fill: 'var(--accent)', stroke: '#fff', 'stroke-width': 2 }, g);
+                }
+                if (!name) return;
+                const dx = opt.dx ?? 14, dy = opt.dy ?? 4, anchor = opt.anchor || 'start';
+                const t = el('text', { x: p[0] + dx, y: p[1] + dy, 'text-anchor': anchor }, g);
+                const n = el('tspan', { class: 'pin-num' }, t); n.textContent = num + ' ';
+                const l = el('tspan', { class: 'pin-label' }, t); l.textContent = name;
+                if (opt.sub) {
+                    const s = el('text', { x: p[0] + dx, y: p[1] + dy + 14, 'text-anchor': anchor, class: 'pin-sub' }, g);
+                    s.textContent = opt.sub;
+                }
+            }
+
+            function animate(paths) {
+                if (still) return;
+                paths.forEach((p, i) => {
+                    const len = p.getTotalLength();
+                    p.style.strokeDasharray = len;
+                    p.style.strokeDashoffset = len;
+                    p.getBoundingClientRect();
+                    p.style.transition = `stroke-dashoffset 1.4s ease ${0.3 + i * 0.5}s`;
+                    p.style.strokeDashoffset = 0;
+                });
+            }
+
+            function europe(countries) {
+                const svg = document.getElementById('mapEurope');
+                const W = 520, H = 440;
+                const proj = d3.geoMercator().fitExtent([[10, 10], [W - 10, H - 10]],
+                    { type: 'MultiPoint', coordinates: [[3.2, 50.6], [20.4, 60.4]] });
+                dots(svg, countries, proj, W, H, 6);
+                const P = k => proj(C[k]);
+                const drawn = [
+                    el('path', { class: 'route', d: curve(P('odense'), P('aarhus'), 0.35) }, svg),
+                    el('path', { class: 'route', d: curve(P('aarhus'), P('enschede'), -0.25) }, svg)
+                ];
+                el('path', { class: 'route plan', d: curve(P('enschede'), P('stockholm'), -0.25) }, svg);
+                pin(svg, P('odense'), '01', 'Odense', { dx: 14, dy: 14, sub: 'Odense Technical Gymnasium' });
+                pin(svg, P('aarhus'), '02', 'Aarhus', { dx: -14, dy: -10, anchor: 'end', sub: 'Aarhus University' });
+                pin(svg, P('enschede'), '04', 'Enschede', { dx: 14, dy: 0, sub: 'University of Twente' });
+                pin(svg, P('stockholm'), '05', 'Stockholm', { dx: -12, dy: -26, anchor: 'end', plan: true, sub: 'KTH' });
+                return drawn;
+            }
+
+            function world(countries) {
+                const svg = document.getElementById('mapWorld');
+                const W = 640, H = 380;
+                const proj = d3.geoMercator().fitExtent([[10, 10], [W - 10, H - 10]],
+                    { type: 'MultiPoint', coordinates: [[-11, 18], [150, 71]] });
+                dots(svg, countries, proj, W, H, 6);
+                // Outline of the area shown in the Northern Europe map
+                const a = proj([3.2, 60.4]), b = proj([20.4, 50.6]);
+                el('rect', { class: 'lens', x: a[0], y: a[1], width: b[0] - a[0], height: b[1] - a[1], rx: 3 }, svg);
+                // Great-circle routes between Europe and Tokyo
+                const gc = (from, to) => {
+                    const f = d3.geoInterpolate(from, to);
+                    return 'M' + d3.range(0, 1.0001, 0.02).map(t => proj(f(t))).join('L');
+                };
+                const drawn = [
+                    el('path', { class: 'route', d: gc(C.aarhus, C.tokyo) }, svg),
+                    el('path', { class: 'route', d: gc(C.tokyo, C.enschede), opacity: 0.55 }, svg)
+                ];
+                ['odense', 'aarhus', 'enschede'].forEach(k => pin(svg, proj(C[k])));
+                pin(svg, proj(C.stockholm), null, null, { plan: true });
+                pin(svg, proj(C.tokyo), '03', 'Tokyo', { dx: -14, dy: -16, anchor: 'end', sub: 'Sophia University' });
+                return drawn;
+            }
+
+            let started = false;
+            const io = new IntersectionObserver(async ([e]) => {
+                if (!e.isIntersecting || started) return;
+                started = true; io.disconnect();
+                try {
+                    if (!window.d3) await load('https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js');
+                    if (!window.topojson) await load('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js');
+                    const topo = await (await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')).json();
+                    const countries = topojson.feature(topo, topo.objects.countries);
+                    const routes = [...europe(countries), ...world(countries)];
+                    const show = new IntersectionObserver(([v]) => {
+                        if (v.isIntersecting) { animate(routes); show.disconnect(); }
+                    }, { threshold: 0.3 });
+                    show.observe(wrap);
+                } catch (err) {
+                    wrap.classList.add('no-map');
+                }
+            }, { rootMargin: '800px 0px' });
+            io.observe(wrap);
+        })();
     </script>
 </body>
 </html>
