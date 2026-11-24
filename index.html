@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clara Holst | HCI, Cognitive Science and Web Development</title>
     <meta name="description" content="Portfolio of Clara Holst: MSc student in Human-Computer Interaction and XR, BSc in Cognitive Science, junior data scientist. Projects, research and experience.">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta name="theme-color" content="#f4f6fa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -150,26 +154,68 @@
 
         .quick {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 64px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 72px;
+            border-top: 1px solid var(--ink);
+            background: var(--bg);
         }
         .quick a {
             display: flex;
             flex-direction: column;
             gap: 6px;
-            padding: 18px 20px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 12px;
+            padding: 28px 32px 4px;
             color: var(--ink);
-            transition: border-color 0.2s, transform 0.2s;
         }
-        .quick a:hover { border-color: var(--accent-line); transform: translateY(-2px); color: var(--ink); }
-        .quick .label { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
-        .quick strong { font-weight: 600; font-size: 0.98rem; line-height: 1.4; }
-        .quick span.sub { font-size: 0.88rem; color: var(--muted); }
-        .quick .go { margin-top: auto; padding-top: 6px; font-size: 0.85rem; font-weight: 500; color: var(--accent); }
+        .quick a + a { border-left: 1px solid var(--line); }
+        .quick a:first-child { padding-left: 0; }
+        .quick a:last-child { padding-right: 0; }
+        .quick a:hover { color: var(--ink); }
+        .quick .label { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 6px; }
+        .quick strong { font-family: var(--serif); font-weight: 500; font-size: 1.25rem; line-height: 1.3; }
+        .quick span.sub { font-size: 0.9rem; color: var(--muted); }
+        .quick .go { margin-top: auto; padding-top: 10px; font-size: 0.86rem; font-weight: 500; color: var(--accent); }
+        .quick .go i { display: inline-block; font-style: normal; transition: transform 0.25s; }
+        .quick a:hover .go i { transform: translateX(5px); }
+
+        .viz { position: relative; height: 92px; margin-bottom: 14px; }
+
+        /* Brain waves: three rhythms scrolling like an EEG trace */
+        .viz-waves svg { width: calc(100% - 20px); height: 100%; margin-left: 20px; overflow: hidden; }
+        .viz-waves .trace path { fill: none; stroke: var(--accent); stroke-width: 1.4; vector-effect: non-scaling-stroke; animation: eeg 6s linear infinite; }
+        .viz-waves .trace:nth-child(2) path { opacity: 0.7; animation-duration: 5s; }
+        .viz-waves .trace:nth-child(3) path { opacity: 0.45; animation-duration: 4s; }
+        .viz-waves .band { position: absolute; left: 0; font: 500 0.72rem var(--mono); color: var(--faint); }
+        @keyframes eeg { to { transform: translateX(-240px); } }
+        .quick a:hover .trace path { animation-duration: 2.5s; }
+
+        /* Recommendation matrix */
+        .viz-matrix .cells { display: grid; grid-template-columns: repeat(18, 1fr); gap: 3px; height: 74px; }
+        .viz-matrix .cells span { border-radius: 2px; background: var(--accent); opacity: var(--o, 0.1); transition: opacity 0.6s, background 0.6s; }
+        .viz-matrix .cells span.rec { opacity: 1; background: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+        .viz-matrix .axis { position: absolute; left: 0; bottom: -2px; font: 500 0.68rem var(--mono); color: var(--faint); }
+
+        /* Framed painting on a gallery wire */
+        .viz-frame { display: flex; flex-direction: column; align-items: flex-start; }
+        .viz-frame .wire { width: 96px; height: 24px; margin-left: 2px; }
+        .viz-frame .wire path { fill: none; stroke: var(--faint); stroke-width: 1; }
+        .viz-frame .wire circle { fill: var(--ink); }
+        .viz-frame .frame {
+            width: 100px; height: 68px;
+            margin-top: -2px;
+            padding: 5px;
+            background: #fff;
+            border: 3px solid var(--ink);
+            box-shadow: 4px 6px 0 var(--accent-soft);
+            transform: rotate(-3deg);
+            transform-origin: 50% -20px;
+            transition: transform 0.5s cubic-bezier(.3,1.6,.5,1);
+        }
+        .viz-frame .frame img { width: 100%; height: 100%; object-fit: cover; }
+        .quick a:hover .frame { transform: rotate(0deg); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .viz-waves .trace path { animation: none; }
+        }
 
         /* About */
         .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
@@ -306,6 +352,38 @@
         .cv .org a:hover { text-decoration-color: var(--accent); }
         .cv .org a::after { content: " \2197"; font-size: 0.8em; }
         .cv p { color: var(--muted); font-size: 0.95rem; }
+        .cv-more p + p { margin-top: 10px; }
+        .cv-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 14px; font: 500 0.74rem var(--mono); color: var(--accent); }
+        .cv .cv-tags li { display: inline-block; padding: 0; border: 0; }
+        .cv-tags li::before { content: "#"; color: var(--accent-line); margin-right: 1px; }
+
+        /* Recommendation flow diagram */
+        .flow { grid-column: 2 / -1; margin: 6px 0 0; padding-top: 18px; border-top: 1px dashed var(--accent-line); }
+        .flow-svg { display: block; width: 100%; height: auto; }
+        .flow-heads text { font: 500 11px var(--mono); fill: var(--accent); text-anchor: middle; text-transform: uppercase; letter-spacing: 0.08em; }
+        .flow-edges path { fill: none; stroke: var(--accent); stroke-opacity: 0.45; stroke-width: 1.5; stroke-dasharray: 4 6; animation: flow 1.4s linear infinite; }
+        .flow-nodes circle { fill: var(--surface); stroke: var(--accent); stroke-width: 1.6; }
+        .flow-nodes .hub { fill: var(--accent-soft); }
+        .flow-nodes .model circle { fill: var(--accent); stroke: none; animation: fire 2.4s ease-in-out infinite; }
+        .flow-nodes .model circle:nth-child(2n) { animation-delay: 0.4s; }
+        .flow-nodes .model circle:nth-child(3n) { animation-delay: 0.8s; }
+        .flow-labels text { font: 400 12px var(--sans); fill: var(--muted); }
+        .flow-text { display: none; font: 500 0.78rem var(--mono); color: var(--accent); }
+        @keyframes flow { to { stroke-dashoffset: -20; } }
+        @keyframes fire { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+        @media (prefers-reduced-motion: reduce) {
+            .flow-edges path, .flow-nodes .model circle { animation: none; }
+        }
+        @media (max-width: 900px) {
+            .cv-more { grid-column: 2; }
+            .flow { grid-column: 1 / -1; }
+        }
+        @media (max-width: 640px) {
+            .flow-svg { display: none; }
+            .flow-text { display: block; }
+            .cv-more, .flow { grid-column: auto; }
+        }
+
         .cv-note { margin-top: 18px; font-size: 0.92rem; color: var(--faint); }
         .cv-note strong { color: var(--muted); font-weight: 600; }
 
@@ -318,6 +396,19 @@
         .map .pin-label { font: 600 13px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
         .map .pin-num { font: 500 10.5px var(--mono); fill: var(--accent); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
         .map .pin-sub { font: 400 11px var(--sans); fill: var(--muted); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+        .map .camp-mark { fill: var(--bg); stroke: var(--accent); stroke-width: 1.6; }
+        .map .camp-label { font: 600 12px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+        .camps-legend { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px; margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--accent-line); }
+        .camps-legend .k { display: flex; align-items: center; gap: 10px; font: 500 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); align-self: start; padding-top: 3px; }
+        .diamond { width: 8px; height: 8px; border: 1.6px solid var(--accent); transform: rotate(45deg); flex-shrink: 0; }
+        .camps-legend ul { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .camps-legend strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.05rem; }
+        .camps-legend em { display: block; font-style: normal; font-size: 0.86rem; color: var(--accent); line-height: 1.35; margin: 2px 0 3px; }
+        .camps-legend span:not(.k) { font-size: 0.84rem; color: var(--faint); }
+        @media (max-width: 720px) {
+            .camps-legend { grid-template-columns: 1fr; }
+            .camps-legend ul { grid-template-columns: 1fr; gap: 12px; }
+        }
         .stops em { display: block; font-style: normal; font-size: 0.88rem; color: var(--accent); line-height: 1.35; margin: 2px 0 4px; }
         .map .route { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
         .map .route.plan { stroke-dasharray: 2 5; }
@@ -422,6 +513,8 @@
             .hero-photo img { width: 180px; height: 180px; padding: 6px; }
             .hero-photo figcaption { text-align: left; }
             .quick { grid-template-columns: 1fr; margin-top: 48px; }
+            .quick a, .quick a:first-child, .quick a:last-child { padding: 24px 0; }
+            .quick a + a { border-left: none; border-top: 1px solid var(--line); }
             .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
             .project, .research .project { grid-template-columns: 1fr; }
             .gallery { min-height: 0; aspect-ratio: 4 / 3; border-bottom: 1px solid var(--line); }
@@ -500,22 +593,31 @@
 
                 <div class="quick">
                     <a href="#research">
-                        <span class="label">Research</span>
+                        <div class="viz viz-waves" aria-hidden="true">
+                            <svg viewBox="0 0 240 84" preserveAspectRatio="none"><g class="trace" data-c="2,5" data-a="9,4" data-y="16"></g><g class="trace" data-c="5,11" data-a="7,3" data-y="42"></g><g class="trace" data-c="16,27" data-a="4,2.5" data-y="68"></g></svg>
+                            <span class="band" style="top:8px">&theta;</span><span class="band" style="top:34px">&alpha;</span><span class="band" style="top:60px">&gamma;</span>
+                        </div>
+                        <span class="label">01 / Research</span>
                         <strong>Emotional face processing with OPM-MEG</strong>
                         <span class="sub">My bachelor's thesis on brain rhythms, plus an EEG study of mental fatigue.</span>
-                        <span class="go">Read the papers &rarr;</span>
+                        <span class="go">Read the papers <i>&rarr;</i></span>
                     </a>
                     <a href="#experience">
-                        <span class="label">Now</span>
+                        <div class="viz viz-matrix" aria-hidden="true"><div class="cells" id="recoCells"></div><span class="axis">users &times; items</span></div>
+                        <span class="label">02 / Work</span>
                         <strong>Junior data scientist at Raptor</strong>
                         <span class="sub">Recommendation systems and personalisation for e-commerce.</span>
-                        <span class="go">See experience &rarr;</span>
+                        <span class="go">See experience <i>&rarr;</i></span>
                     </a>
                     <a href="#japper">
-                        <span class="label">Building</span>
+                        <div class="viz viz-frame" aria-hidden="true">
+                            <svg class="wire" viewBox="0 0 120 30"><path d="M20 30 L60 6 L100 30"/><circle cx="60" cy="5" r="2.5"/></svg>
+                            <div class="frame"><img src="images/japper-vestige.jpg" alt=""></div>
+                        </div>
+                        <span class="label">03 / Building</span>
                         <strong>Japper Studio</strong>
                         <span class="sub">A print shop and online gallery for painter Laura Kruuse.</span>
-                        <span class="go">View the project &rarr;</span>
+                        <span class="go">View the project <i>&rarr;</i></span>
                     </a>
                 </div>
             </div>
@@ -529,7 +631,7 @@
                     <h2>Where people, brains and technology meet</h2>
                 </div>
                 <div class="about-text">
-                    <p>I'm studying for an MSc in <strong>Human-Computer Interaction and Extended Reality</strong> at the EIT Digital Master School, a joint degree between the University of Twente in Enschede and KTH Royal Institute of Technology in Stockholm. Before that I took a BSc in <strong>Cognitive Science</strong> at Aarhus University, including an exchange semester at Sophia University in Tokyo.</p>
+                    <p>I'm studying for an MSc in <strong>Human-Computer Interaction and Extended Reality</strong> at the 28Digital Master School, a joint degree between the University of Twente in Enschede and KTH Royal Institute of Technology in Stockholm. Before that I took a BSc in <strong>Cognitive Science</strong> at Aarhus University, including an exchange semester at Sophia University in Tokyo.</p>
                     <p>Alongside my studies I work as a <strong>junior data scientist at Raptor Services</strong>, building recommendation and personalisation tools for e-commerce. I also run <strong>CogCards</strong>, a gamified flashcard platform, and I build websites for clients such as <strong>Japper Studio</strong>.</p>
                     <p>Teaching has followed me the whole way, from tutoring and homework cafés with Save the Children to talent camps for gifted pupils. It is a big part of why I care about learning tools that actually work.</p>
                     <p class="question">The question I keep coming back to: how can complex knowledge become more intuitive, playful and useful?</p>
@@ -949,7 +1051,53 @@
                         <li class="now">
                             <div class="yr">2024<small>Sep 2024 to now</small></div>
                             <div><h4>Junior Data Scientist</h4><span class="org"><a href="https://raptorservices.com/en" target="_blank" rel="noopener">Raptor Services</a></span></div>
-                            <p>Building recommendation systems and personalisation tools for e-commerce, and AI solutions tailored to each client.</p>
+                            <div class="cv-more">
+                                <p>Raptor is a Danish customer data and personalisation platform, now part of the Ibexa group. It brings together what customers do on websites, in emails and in physical stores, and turns it into audiences and product recommendations for retailers such as nemlig.com, Imerco, hummel and XL-BYG.</p>
+                                <p>I work on the recommendation algorithms behind it: deciding which products each visitor sees on a homepage, a category page or in an email, based on their browsing and shopping behaviour. Along the way I help develop new AI solutions tailored to each client, in a team that is now also building AI agents for marketers.</p>
+                                <ul class="cv-tags">
+                                    <li>Recommender systems</li><li>Customer data platform</li><li>Personalisation</li><li>E-commerce</li><li>AI</li>
+                                </ul>
+                            </div>
+                            <figure class="flow" aria-label="How a recommendation is made: customer signals form a profile, a model ranks products, and recommendations appear on the website and in emails">
+                                <svg viewBox="0 0 760 190" class="flow-svg" aria-hidden="true">
+                                    <g class="flow-heads">
+                                        <text x="60" y="16">01 signals</text>
+                                        <text x="270" y="16">02 profile</text>
+                                        <text x="480" y="16">03 model</text>
+                                        <text x="690" y="16">04 output</text>
+                                    </g>
+                                    <g class="flow-edges">
+                                        <path d="M84 60 C 180 60, 180 108, 246 108"/>
+                                        <path d="M84 108 L 246 108"/>
+                                        <path d="M84 156 C 180 156, 180 108, 246 108"/>
+                                        <path d="M296 108 L 452 108"/>
+                                        <path d="M508 108 C 590 108, 590 60, 666 60"/>
+                                        <path d="M508 108 L 666 108"/>
+                                        <path d="M508 108 C 590 108, 590 156, 666 156"/>
+                                    </g>
+                                    <g class="flow-nodes">
+                                        <circle cx="76" cy="60" r="6"/><circle cx="76" cy="108" r="6"/><circle cx="76" cy="156" r="6"/>
+                                        <circle cx="271" cy="108" r="20" class="hub"/>
+                                        <g class="model">
+                                            <circle cx="466" cy="90" r="4"/><circle cx="466" cy="126" r="4"/>
+                                            <circle cx="480" cy="78" r="4"/><circle cx="480" cy="108" r="4"/><circle cx="480" cy="138" r="4"/>
+                                            <circle cx="494" cy="96" r="4"/><circle cx="494" cy="120" r="4"/>
+                                        </g>
+                                        <circle cx="674" cy="60" r="6"/><circle cx="674" cy="108" r="6"/><circle cx="674" cy="156" r="6"/>
+                                    </g>
+                                    <g class="flow-labels">
+                                        <text x="64" y="64" text-anchor="end">browsing</text>
+                                        <text x="64" y="112" text-anchor="end">email</text>
+                                        <text x="64" y="160" text-anchor="end">in-store</text>
+                                        <text x="271" y="150" text-anchor="middle">customer profile</text>
+                                        <text x="480" y="168" text-anchor="middle">ranking model</text>
+                                        <text x="686" y="64">website</text>
+                                        <text x="686" y="112">email</text>
+                                        <text x="686" y="160">triggers</text>
+                                    </g>
+                                </svg>
+                                <p class="flow-text">signals &rarr; customer profile &rarr; ranking model &rarr; website, email and triggers</p>
+                            </figure>
                         </li>
                         <li>
                             <div class="yr">2025<small>Jun 2025 to Mar 2026</small></div>
@@ -1007,13 +1155,21 @@
                             <li><b>04</b><strong>Enschede</strong><em>University of Twente</em><span>2026 &middot; MSc</span></li>
                             <li><b>05</b><strong>Stockholm</strong><em>KTH Royal Institute of Technology</em><span>Next &middot; MSc</span></li>
                         </ol>
+                        <div class="camps-legend">
+                            <span class="k"><i class="diamond" aria-hidden="true"></i>Camps along the way</span>
+                            <ul>
+                                <li><strong>Venice</strong><em>MAGICA Summer School, H-FARM</em><span>Jul 2025</span></li>
+                                <li><strong>Hefei, China</strong><em>USTC Winter Camp</em><span>Dec 2025</span></li>
+                                <li><strong>Tallinn</strong><em>Kick-in event, 28Digital Master School</em><span>Oct 2026</span></li>
+                            </ul>
+                        </div>
                     </div>
 
                     <ol class="cv">
                         <li class="now">
                             <div class="yr">2026<small>Sep 2026 to now</small></div>
                             <div><h4>MSc Human-Computer Interaction and Extended Reality</h4><span class="org">University of Twente and KTH</span></div>
-                            <p>EIT Digital Master School joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
+                            <p>28Digital Master School joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
                         </li>
                         <li>
                             <div class="yr">2023<small>Sep 2023 to Sep 2026</small></div>
@@ -1186,6 +1342,40 @@
             window.location.href = `mailto:clara.holst@outlook.com?subject=${encodeURIComponent(v('subject'))}&body=${encodeURIComponent(body)}`;
         });
 
+        // Hero link visuals: brain-wave traces and a user x item matrix
+        (() => {
+            const NS = 'http://www.w3.org/2000/svg';
+            // Each trace is two summed sines with whole cycles per 240px, drawn twice as wide so it loops seamlessly
+            document.querySelectorAll('.viz-waves .trace').forEach((g, k) => {
+                const [c1, c2] = g.dataset.c.split(',').map(Number);
+                const [a1, a2] = g.dataset.a.split(',').map(Number);
+                const y0 = Number(g.dataset.y);
+                let d = '';
+                for (let x = 0; x <= 480; x += 2) {
+                    const y = y0 + a1 * Math.sin(2 * Math.PI * c1 * x / 240 + k) + a2 * Math.sin(2 * Math.PI * c2 * x / 240 + k * 2);
+                    d += (x ? 'L' : 'M') + x + ',' + y.toFixed(2);
+                }
+                const p = document.createElementNS(NS, 'path');
+                p.setAttribute('d', d);
+                g.appendChild(p);
+            });
+
+            const grid = document.getElementById('recoCells');
+            if (!grid) return;
+            const cells = [];
+            for (let i = 0; i < 18 * 6; i++) {
+                const s = document.createElement('span');
+                s.style.setProperty('--o', (0.06 + Math.random() * Math.random() * 0.45).toFixed(2));
+                grid.appendChild(s); cells.push(s);
+            }
+            const pick = () => {
+                cells.forEach(c => c.classList.remove('rec'));
+                for (let r = 0; r < 6; r += 2) cells[r * 18 + Math.floor(Math.random() * 18)].classList.add('rec');
+            };
+            pick();
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(pick, 2200);
+        })();
+
         // Hero network: slowly drifting nodes linked to each other and to the portrait
         (() => {
             const canvas = document.getElementById('net');
@@ -1337,16 +1527,32 @@
                 }
             }
 
+            // Draws each leg in turn, then fades in the planned move to Stockholm
             function animate(paths) {
                 if (still) return;
+                const dur = 2.2, start = 0.6;
                 paths.forEach((p, i) => {
                     const len = p.getTotalLength();
                     p.style.strokeDasharray = len;
                     p.style.strokeDashoffset = len;
                     p.getBoundingClientRect();
-                    p.style.transition = `stroke-dashoffset 1.4s ease ${0.3 + i * 0.5}s`;
+                    p.style.transition = `stroke-dashoffset ${dur}s ease-in-out ${start + i * dur}s`;
                     p.style.strokeDashoffset = 0;
                 });
+                if (paths.camps) {
+                    const c = paths.camps;
+                    c.style.opacity = 0;
+                    c.getBoundingClientRect();
+                    c.style.transition = `opacity 1.4s ease ${start + paths.length * dur + 0.8}s`;
+                    c.style.opacity = 1;
+                }
+                if (paths.plan) {
+                    const plan = paths.plan;
+                    plan.style.opacity = 0;
+                    plan.getBoundingClientRect();
+                    plan.style.transition = `opacity 1.2s ease ${start + paths.length * dur}s`;
+                    plan.style.opacity = 1;
+                }
             }
 
             function europe(countries) {
@@ -1356,11 +1562,33 @@
                     { type: 'MultiPoint', coordinates: [[3.2, 50.6], [20.4, 60.4]] });
                 dots(svg, countries, proj, W, H, 6);
                 const P = k => proj(C[k]);
+                const a = P('aarhus'), e = P('enschede');
+                // Aarhus and Enschede are not linked directly: one line leaves for Tokyo, another arrives from it
+                const outEnd = [W - 4, a[1] - 60], inStart = [W - 4, e[1] - 50];
+                const defs = el('defs', {}, svg);
+                const fade = (id, from, to, o1, o2) => {
+                    const g = el('linearGradient', { id, gradientUnits: 'userSpaceOnUse', x1: from[0], y1: from[1], x2: to[0], y2: to[1] }, defs);
+                    el('stop', { offset: 0, 'stop-color': '#2b59c3', 'stop-opacity': o1 }, g);
+                    el('stop', { offset: 1, 'stop-color': '#2b59c3', 'stop-opacity': o2 }, g);
+                };
+                fade('toTokyo', a, outEnd, 1, 0);
+                fade('fromTokyo', inStart, e, 0, 1);
+                const out = el('path', { class: 'route', d: curve(a, outEnd, -0.12) }, svg);
+                const back = el('path', { class: 'route', d: curve(inStart, e, -0.1) }, svg);
+                out.style.stroke = 'url(#toTokyo)';
+                back.style.stroke = 'url(#fromTokyo)';
+                const note = (p, txt, dy) => {
+                    const t = el('text', { x: p[0] - 4, y: p[1] + dy, 'text-anchor': 'end', class: 'pin-sub' }, svg);
+                    t.textContent = txt;
+                };
+                note(outEnd, 'to Tokyo →', -8);
+                note(inStart, '← from Tokyo', -8);
                 const drawn = [
-                    el('path', { class: 'route', d: curve(P('odense'), P('aarhus'), 0.35) }, svg),
-                    el('path', { class: 'route', d: curve(P('aarhus'), P('enschede'), -0.25) }, svg)
+                    el('path', { class: 'route', d: curve(P('odense'), a, 0.35) }, svg),
+                    out,
+                    back
                 ];
-                el('path', { class: 'route plan', d: curve(P('enschede'), P('stockholm'), -0.25) }, svg);
+                drawn.plan = el('path', { class: 'route plan', d: curve(P('enschede'), P('stockholm'), 0.3) }, svg);
                 pin(svg, P('odense'), '01', 'Odense', { dx: 14, dy: 14, sub: 'Odense Technical Gymnasium' });
                 pin(svg, P('aarhus'), '02', 'Aarhus', { dx: -14, dy: -10, anchor: 'end', sub: 'Aarhus University' });
                 pin(svg, P('enschede'), '04', 'Enschede', { dx: 14, dy: 0, sub: 'University of Twente' });
@@ -1389,6 +1617,21 @@
                 ['odense', 'aarhus', 'enschede'].forEach(k => pin(svg, proj(C[k])));
                 pin(svg, proj(C.stockholm), null, null, { plan: true });
                 pin(svg, proj(C.tokyo), '03', 'Tokyo', { dx: -14, dy: -16, anchor: 'end', sub: 'Sophia University' });
+                // Camps: short stays, marked with hollow diamonds
+                const camps = el('g', { class: 'camps' }, svg);
+                [
+                    { c: [12.34, 45.44], name: 'Venice', sub: 'Jul 2025', dx: 10, dy: 14, anchor: 'start' },
+                    { c: [117.23, 31.82], name: 'Hefei', sub: 'Dec 2025', dx: -10, dy: 14, anchor: 'end' },
+                    { c: [24.75, 59.44], name: 'Tallinn', sub: 'Oct 2026', dx: 10, dy: -4, anchor: 'start' }
+                ].forEach(k => {
+                    const p = proj(k.c);
+                    el('rect', { x: p[0] - 4, y: p[1] - 4, width: 8, height: 8, transform: `rotate(45 ${p[0]} ${p[1]})`, class: 'camp-mark' }, camps);
+                    const t = el('text', { x: p[0] + k.dx, y: p[1] + k.dy, 'text-anchor': k.anchor, class: 'camp-label' }, camps);
+                    t.textContent = k.name;
+                    const s = el('text', { x: p[0] + k.dx, y: p[1] + k.dy + 12, 'text-anchor': k.anchor, class: 'pin-sub' }, camps);
+                    s.textContent = k.sub;
+                });
+                drawn.camps = camps;
                 return drawn;
             }
 
@@ -1401,7 +1644,11 @@
                     if (!window.topojson) await load('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js');
                     const topo = await (await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')).json();
                     const countries = topojson.feature(topo, topo.objects.countries);
-                    const routes = [...europe(countries), ...world(countries)];
+                    const eu = europe(countries), wo = world(countries);
+                    // Journey order: Odense, Aarhus, out to Tokyo, Tokyo, back to Enschede, then Stockholm next
+                    const routes = [eu[0], eu[1], wo[0], wo[1], eu[2]];
+                    routes.plan = eu.plan;
+                    routes.camps = wo.camps;
                     const show = new IntersectionObserver(([v]) => {
                         if (v.isIntersecting) { animate(routes); show.disconnect(); }
                     }, { threshold: 0.3 });
