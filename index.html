@@ -135,23 +135,20 @@
         }
         .nav-in:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-        /* EN / DA switch */
-        .lang-switch { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
-        .lang-switch button {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 4px 8px;
-            border: 0; border-radius: 6px;
-            background: transparent;
-            font: 600 0.74rem var(--mono); letter-spacing: 0.04em; color: var(--faint);
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
+        /* Language button: shows the flag and name of the language you can switch to (as on japperstudio.dk) */
+        .lang-btn {
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            min-height: 40px; min-width: 40px; padding: 0 0.4rem;
+            border: 0; background: transparent; cursor: pointer;
+            font: 500 0.88rem var(--sans); color: var(--muted); white-space: nowrap;
         }
-        .lang-switch svg { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); opacity: 0.55; transition: opacity 0.2s; }
-        .lang-switch button:hover { color: var(--ink); }
-        .lang-switch button:hover svg { opacity: 1; }
-        .lang-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
-        .lang-switch button[aria-pressed="true"] svg { opacity: 1; }
-        @media (max-width: 480px) { .lang-switch span { display: none; } .lang-switch button { padding: 5px 6px; } }
+        .lang-btn:hover { color: var(--accent); }
+        .lang-btn:hover .lang-long, .lang-btn:hover .lang-short { text-decoration: underline; text-underline-offset: 4px; }
+        .lang-btn .flag { display: block; width: 24px; height: 16px; border-radius: 2px; overflow: hidden; flex: none; box-shadow: 0 0 0 1px var(--line); }
+        .lang-btn .flag svg { display: block; width: 100%; height: 100%; }
+        .lang-btn .lang-short { display: none; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; }
+        @media (max-width: 1080px) { .lang-btn .lang-long { display: none; } .lang-btn .lang-short { display: inline; } }
+        @media (max-width: 380px) { .lang-btn .lang-short { display: none; } }
         @media (max-width: 720px) { .nav-end { gap: 10px; } }
 
         .hero-social { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 22px; }
@@ -518,6 +515,7 @@
         .cv-aside .k { display: block; font: 500 0.7rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; }
         .cv li.feature .cv-more .cv-aside p { margin-top: 0; }
         .cv p.quote { grid-column: 3; margin-top: -18px; font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--ink); }
+        .cv li.feature .cv-more p.quote { grid-column: auto; margin-top: 0; }
         @media (max-width: 900px) { .cv p.quote { grid-column: 2; margin-top: -4px; } }
         @media (max-width: 560px) { .cv p.quote { grid-column: auto; margin-top: 4px; } }
 
@@ -718,14 +716,7 @@
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <div class="lang-switch" role="group" aria-label="Language / Sprog">
-                        <button type="button" data-lang="en" aria-pressed="true" title="English">
-                            <svg viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><clipPath id="ukNav"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukNav)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg><span>EN</span>
-                        </button>
-                        <button type="button" data-lang="da" aria-pressed="false" title="Dansk">
-                            <svg viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#c8102e"/><path d="M12 0h4v28h-4zM0 12h37v4H0z" fill="#fff"/></svg><span>DA</span>
-                        </button>
-                    </div>
+                    <button class="lang-btn" type="button" lang="da" aria-label="Skift til dansk"></button>
                     <a class="nav-in" href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener" aria-label="Clara Holst on LinkedIn" title="LinkedIn">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
                     </a>
@@ -936,7 +927,8 @@
                             </div>
                             <div class="links">
                                 <a href="https://cogcards.dk" class="btn btn-sm" target="_blank" rel="noopener">Visit site</a>
-                                <a href="papers/Applied Cognitive Science.pdf" class="btn btn-sm btn-ghost" target="_blank">Research paper (PDF)</a>
+                                <a href="papers/Applied Cognitive Science.pdf" class="btn btn-sm btn-ghost" target="_blank">Applied Cognitive Science (PDF)</a>
+                                <a href="papers/Concepts, Measure and methods.pdf" class="btn btn-sm btn-ghost" target="_blank">Concepts, Measures and Methods (PDF)</a>
                             </div>
                         </div>
                     </article>
@@ -946,9 +938,8 @@
                         <div class="gallery" data-label="Japper Studio">
                             <div class="gallery-track">
                                 <img src="images/japper.jpg" alt="Front page of the Japper Studio website" loading="lazy">
-                                <img src="images/japper-vestige.jpg" alt="The painting Vestige, sold as a print on the site" loading="lazy">
-                                <img src="images/japper-florere.jpg" alt="The painting Florere, sold as a print on the site" loading="lazy">
-                                <img src="images/japper-catch.jpg" alt="The painting Will You Catch Me?, sold as a print on the site" loading="lazy">
+                                <img src="images/japper-prints.jpg" alt="The print shop on japperstudio.dk: three framed prints with prices and add-to-basket buttons" loading="lazy">
+                                <img src="images/japper-exhibition.jpg" alt="The virtual exhibition on japperstudio.dk: a visitor silhouette in front of a painting hung on a gallery wall" loading="lazy">
                             </div>
                         </div>
                         <div class="project-body">
@@ -1443,21 +1434,23 @@
                             <div class="who"><img class="org-logo" src="images/logos/au.png" alt="Aarhus University logo" loading="lazy"><div><h4>BSc Cognitive Science</h4><span class="org"><a href="https://bachelor.au.dk/en/cognitivescience/" target="_blank" rel="noopener">Aarhus University</a></span></div></div>
                             <div class="cv-more">
                                 <p>An interdisciplinary degree between psychology, neuroscience and artificial intelligence: how people perceive, think and act, and how to turn that knowledge into technology. Along the way I built solid skills in programming, data analysis and experimental design, mainly in Python and R.</p>
-                                <p>My bachelor's thesis used OPM-MEG, a new wearable form of brain imaging, to study how brain rhythms interact when we see emotional faces, and trained machine learning models on those rhythms. It received the top grade, 12. Thanks to my supervisor Lau Møller Andersen and collaborator Réka Forgó.</p>
+                                <p>My bachelor's thesis used OPM-MEG, a new wearable form of brain imaging, to study how brain rhythms interact when we see emotional faces, and trained machine learning models on those rhythms, in collaboration with Réka Forgó. I would like to thank my supervisor Lau Møller Andersen.</p>
                                 <div class="cv-aside">
                                     <span class="k">Last semester in Tokyo</span>
-                                    <p>I finished the degree on exchange at Sophia University, supported by Otto Mønsteds Fond. I studied games critically and built an 8-bit escape room in Lua and PICO-8, and took courses in market research, management and ethics that I now use for CogCards. I also kept working for Raptor across a seven-hour time difference, which more than once meant debugging recommendation modules from a Tokyo café while my colleagues in Denmark were asleep.</p>
+                                    <p>I finished the degree on exchange at Sophia University. I studied games critically and built an 8-bit escape room in Lua and PICO-8, and took courses in market research, management and ethics that I now use for CogCards. I also kept working for Raptor across a seven-hour time difference, which more than once meant debugging recommendation modules from a Tokyo café while my colleagues in Denmark were asleep.</p>
                                 </div>
                                 <ul class="cv-tags">
                                     <li>Python</li><li>R</li><li>Neuroscience</li><li>Machine learning</li><li>Experimental design</li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
+                        <li class="feature">
                             <div class="yr">2020<small>Aug 2020 to Jun 2023</small></div>
-                            <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>HTX, Communication and IT</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
-                            <p>A technical upper secondary school with Communication and IT and Programming as my main subjects. I built lots of small games and programs, learned to explain technical ideas clearly, worked with analogue and digital electronics in Electronics A, and designed products for 3D printing.</p>
-                            <p class="quote">Awarded a school scholarship with the citation: "Super skilled, charming and ultra hard-working. Always smiling and does much more than the teacher expects. She always says yes, and when she's in a group, things get done."</p>
+                            <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>HTX, Communication & IT and Programming</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
+                            <div class="cv-more">
+                                <p>A technical upper secondary school with Communication & IT and Programming as my study programme. I built lots of small games and programs, learned to explain technical ideas clearly, worked with analogue and digital electronics in Electronics A, and designed products for 3D printing.</p>
+                                <p class="quote">Awarded a school scholarship with the citation: "Super skilled, charming and ultra hard-working. Always smiling and does much more than the teacher expects. She always says yes, and when she's in a group, things get done."</p>
+                            </div>
                         </li>
                     </ol>
                 </div>
@@ -1621,7 +1614,7 @@
 
             function apply(root = document.body) {
                 const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-                    acceptNode: n => n.parentElement && !n.parentElement.closest('script,style')
+                    acceptNode: n => n.parentElement && !n.parentElement.closest('script,style,.lang-btn')
                         ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
                 });
                 let n;
@@ -1641,12 +1634,28 @@
                 document.title = lang === 'da'
                     ? 'Clara Holst | HCI, kognitionsvidenskab og webudvikling'
                     : 'Clara Holst | HCI, Cognitive Science and Web Development';
-                document.querySelectorAll('.lang-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+                renderButton();
                 apply();
                 try { localStorage.setItem('lang', lang); } catch (e) {}
             }
 
-            document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => set(b.dataset.lang)));
+            // Like japperstudio.dk, the button shows the flag and name of the language you can switch TO
+            const FLAGS = {
+                en: '<svg viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><clipPath id="ukBtn"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukBtn)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg>',
+                da: '<svg viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#c8102e"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>'
+            };
+            const OTHER = { en: { long: 'Dansk', short: 'DA', label: 'Skift til dansk' }, da: { long: 'English', short: 'EN', label: 'Switch to English' } };
+            function renderButton() {
+                const other = lang === 'da' ? 'en' : 'da', o = OTHER[lang];
+                document.querySelectorAll('.lang-btn').forEach(b => {
+                    b.innerHTML = `<span class="flag">${FLAGS[other]}</span><span class="lang-long">${o.long}</span><span class="lang-short">${o.short}</span>`;
+                    b.setAttribute('aria-label', o.label);
+                    b.setAttribute('lang', other);
+                });
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => set(lang === 'da' ? 'en' : 'da')));
+            renderButton();
             let saved = 'en';
             try { saved = localStorage.getItem('lang') || 'en'; } catch (e) {}
             if (saved === 'da') set('da');
