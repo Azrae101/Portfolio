@@ -226,7 +226,7 @@ window.DA = {
   "Children's Room Volunteer": "Frivillig i børnerummet",
   "COA asylum centre, Enschede": "COA-asylcenter, Enschede",
   "Planning creative activities and games for children living at the centre, through M-Pact.": "Planlægger kreative aktiviteter og lege for børn, der bor på centret, gennem M-Pact.",
-  "Volunteer Tutor": "Frivillig lektiehjælper",
+  "Volunteer Tutor": "Frivillig underviser",
   "Helped primary and upper secondary pupils with maths, English and Danish at the Bispehaven homework café.": "Hjalp folkeskole- og gymnasieelever med matematik, engelsk og dansk i Bispehavens lektiecafé.",
   "Student Panel Member": "Medlem af studenterpanel",
   "Arts Karriere, Aarhus University": "Arts Karriere, Aarhus Universitet",
