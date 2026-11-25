@@ -134,6 +134,24 @@
             transition: background 0.2s, color 0.2s, border-color 0.2s;
         }
         .nav-in:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        /* EN / DA switch */
+        .lang-switch { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+        .lang-switch button {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 8px;
+            border: 0; border-radius: 6px;
+            background: transparent;
+            font: 600 0.74rem var(--mono); letter-spacing: 0.04em; color: var(--faint);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .lang-switch svg { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); opacity: 0.55; transition: opacity 0.2s; }
+        .lang-switch button:hover { color: var(--ink); }
+        .lang-switch button:hover svg { opacity: 1; }
+        .lang-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
+        .lang-switch button[aria-pressed="true"] svg { opacity: 1; }
+        @media (max-width: 480px) { .lang-switch span { display: none; } .lang-switch button { padding: 5px 6px; } }
         @media (max-width: 720px) { .nav-end { gap: 10px; } }
 
         .hero-social { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 22px; }
@@ -495,6 +513,24 @@
             .vol .art { max-width: 200px; }
         }
 
+        /* Education extras: a side note across the wide rows, and a quote */
+        .cv-aside { grid-column: 1 / -1; margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--accent-line); }
+        .cv-aside .k { display: block; font: 500 0.7rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; }
+        .cv li.feature .cv-more .cv-aside p { margin-top: 0; }
+        .cv p.quote { grid-column: 3; margin-top: -18px; font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--ink); }
+        @media (max-width: 900px) { .cv p.quote { grid-column: 2; margin-top: -4px; } }
+        @media (max-width: 560px) { .cv p.quote { grid-column: auto; margin-top: 4px; } }
+
+        /* Business impact line under each job */
+        .cv p.impact { grid-column: 3; margin-top: -18px; color: var(--ink); font-size: 0.93rem; }
+        .cv p.impact span { display: inline-block; margin-right: 10px; padding: 1px 8px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); font: 600 0.68rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; vertical-align: 1px; }
+        .cv li.feature .cv-more p.impact { grid-column: 1 / -1; margin-top: 14px; }
+        @media (max-width: 900px) {
+            .cv p.impact { grid-column: 2; margin-top: -4px; }
+        }
+        @media (max-width: 560px) {
+            .cv p.impact { grid-column: auto; margin-top: 4px; }
+        }
         .cv-note { margin-top: 18px; font-size: 0.92rem; color: var(--faint); }
         .cv-note strong { color: var(--muted); font-weight: 600; }
 
@@ -682,6 +718,14 @@
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
+                    <div class="lang-switch" role="group" aria-label="Language / Sprog">
+                        <button type="button" data-lang="en" aria-pressed="true" title="English">
+                            <svg viewBox="0 0 60 30" preserveAspectRatio="none" aria-hidden="true"><clipPath id="ukNav"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukNav)" stroke="#c8102e" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg><span>EN</span>
+                        </button>
+                        <button type="button" data-lang="da" aria-pressed="false" title="Dansk">
+                            <svg viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#c8102e"/><path d="M12 0h4v28h-4zM0 12h37v4H0z" fill="#fff"/></svg><span>DA</span>
+                        </button>
+                    </div>
                     <a class="nav-in" href="https://www.linkedin.com/in/clara-holst-cogcards/" target="_blank" rel="noopener" aria-label="Clara Holst on LinkedIn" title="LinkedIn">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
                     </a>
@@ -701,7 +745,7 @@
                     <div>
                         <p class="eyebrow">HCI and XR, University of Twente and KTH</p>
                         <h1>I build digital tools grounded in how people think and learn.</h1>
-                        <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Design with Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. I connect brain research, data and human-centred design.</p>
+                        <p class="hero-lead">I'm doing an MSc in Human-Computer Interaction and Design with Extended Reality, with a BSc in Cognitive Science behind me, and I work as a junior data scientist on recommendation systems. In short: I study brains, crunch data and build websites people actually enjoy using.</p>
                         <div class="hero-actions">
                             <a href="#work" class="btn">Projects</a>
                             <a href="#research" class="btn btn-ghost">Research</a>
@@ -749,7 +793,7 @@
                         <div class="viz viz-matrix" aria-hidden="true"><div class="cells" id="recoCells"></div><span class="axis">users &times; items</span></div>
                         <span class="label">03 / Experience</span>
                         <strong>Junior data scientist at Raptor</strong>
-                        <span class="sub">Recommendation systems and personalisation for e-commerce.</span>
+                        <span class="sub">Customising recommendation modules for e-commerce.</span>
                         <span class="go">See experience <i>&rarr;</i></span>
                     </a>
                 </div>
@@ -1263,7 +1307,8 @@
                             <div class="who"><img class="org-logo" src="images/logos/raptor.png" alt="Raptor Services logo" loading="lazy"><div><h4>Junior Data Scientist</h4><span class="org"><a href="https://raptorservices.com/en" target="_blank" rel="noopener">Raptor Services</a></span></div></div>
                             <div class="cv-more">
                                 <p>Raptor is a Danish customer data and personalisation platform, now part of the Ibexa group. It brings together what customers do on websites, in emails and in physical stores, and turns it into audiences and product recommendations for retailers such as nemlig.com, Imerco, hummel and XL-BYG.</p>
-                                <p>I work on the recommendation algorithms behind it: deciding which products each visitor sees on a homepage, a category page or in an email, based on their browsing and shopping behaviour. Along the way I help develop new AI solutions tailored to each client, in a team that is now also building AI agents for marketers.</p>
+                                <p>I customise Raptor's recommendation modules for each e-commerce client: tuning which products each visitor sees on the homepage, category and product pages or in an email, so the logic fits that shop's range, customers and goals. Along the way I help develop new AI solutions tailored to each client, in a team that is now also building AI agents for marketers.</p>
+                                <p class="impact"><span>Impact</span>The recommendations let Raptor's customers increase revenue and profitability by upselling, cross-selling and tailoring their marketing to each shopper.</p>
                                 <ul class="cv-tags">
                                     <li>Recommender systems</li><li>Customer data platform</li><li>Personalisation</li><li>E-commerce</li><li>AI</li>
                                 </ul>
@@ -1313,31 +1358,37 @@
                             <div class="yr">2025<small>Jun 2025 to Mar 2026</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/redbarnet.png" alt="Red Barnet Ungdom logo" loading="lazy"><div><h4>Project Lead and Tutor</h4><span class="org"><a href="https://redbarnetungdom.dk/" target="_blank" rel="noopener">Save the Children Denmark (Red Barnet Ungdom)</a></span></div></div>
                             <p>Taught maths, Danish and English at the Ellekær homework café, planned schedules for staff and volunteers, and ran onboarding meetings and social events.</p>
+                            <p class="impact"><span>Impact</span>Kept the café fully staffed, so pupils could count on getting help every week.</p>
                         </li>
                         <li>
                             <div class="yr">2024<small>Feb 2024 to Mar 2026</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/gotutor.png" alt="GoTutor logo" loading="lazy"><div><h4>Tutor</h4><span class="org"><a href="https://gotutor.dk/" target="_blank" rel="noopener">GoTutor (Egmont)</a></span></div></div>
                             <p>One-to-one tutoring planned around each student's level, needs and interests.</p>
+                            <p class="impact"><span>Impact</span>Helped students keep up in class and stay motivated, which is what families pay GoTutor for.</p>
                         </li>
                         <li>
                             <div class="yr">2023<small>Aug 2023 to Jun 2024</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/talentcamp.png" alt="TalentCamp logo" loading="lazy"><div><h4>Teaching Assistant</h4><span class="org"><a href="https://talentcamp.dk/" target="_blank" rel="noopener">TalentCamp</a></span></div></div>
                             <p>Prepared teaching modules and led groups of gifted secondary school pupils on weekend camps.</p>
+                            <p class="impact"><span>Impact</span>Gave the programme an extra pair of hands, so gifted pupils got the challenge they lacked in school.</p>
                         </li>
                         <li>
                             <div class="yr">2022<small>Apr 2022 to Aug 2023</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/staerkbalance.png" alt="Stærk Balance logo" loading="lazy"><div><h4>IT Support and Web</h4><span class="org"><a href="https://staerkbalance.dk/" target="_blank" rel="noopener">Stærk Balance</a></span></div></div>
                             <p>WordPress development, IT support and social media for a fitness and health company, including advice on their website design.</p>
+                            <p class="impact"><span>Impact</span>Gave the company a website and social media presence to show its services and reach new clients.</p>
                         </li>
                         <li>
                             <div class="yr">2021<small>Aug 2021 to Jun 2022</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>Student Tutor</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
                             <p>Welcomed new students, gave school tours and taught at Girls' Day in Science, where pupils programmed a robot arm.</p>
+                            <p class="impact"><span>Impact</span>Supported the school's recruitment through tours, talks and taster days for pupils choosing their next school.</p>
                         </li>
                         <li>
                             <div class="yr">2020<small>Jul 2020 to Oct 2022</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/netto.png" alt="Netto logo" loading="lazy"><div><h4>Store Assistant</h4><span class="org"><a href="https://sallinggroup.com/" target="_blank" rel="noopener">Netto, Odense</a></span></div></div>
                             <p>Checkout, restocking and keeping the store welcoming, with a focus on working efficiently and helping customers with their questions.</p>
+                            <p class="impact"><span>Impact</span>Helped keep the store efficient and customers coming back.</p>
                         </li>
                     </ol>
                     <p class="cv-note"><strong>Also:</strong> harvest assistant at DLG's grain laboratory and chess coach at Bolbro Chess Academy.</p>
@@ -1376,20 +1427,37 @@
                     </div>
 
                     <ol class="cv">
-                        <li class="now">
+                        <li class="now feature">
                             <div class="yr">2026<small>Sep 2026 to now</small></div>
                             <div class="who"><span class="logo-pair"><img class="org-logo" src="images/logos/utwente.png" alt="University of Twente logo" loading="lazy"><img class="org-logo" src="images/logos/kth.png" alt="KTH logo" loading="lazy"></span><div><h4>MSc Human-Computer Interaction and Design with Extended Reality</h4><span class="org"><a href="https://masterschool.28digital.eu/human-computer-interaction-and-design-with-extended-reality" target="_blank" rel="noopener">28Digital Master School: University of Twente and KTH</a></span></div></div>
-                            <p>Joint degree, combining interaction design, user-centred design and XR development. First year in Enschede, second year in Stockholm.</p>
+                            <div class="cv-more">
+                                <p>A double-degree master's in designing immersive, human-centred technology, run by the 28Digital Master School (initiated by the European Institute of Innovation and Technology). I spend the first year at the University of Twente in Enschede and the second at KTH in Stockholm, with a technical major in AR, VR and XR and a minor in Innovation and Entrepreneurship.</p>
+                                <p>The focus is on interaction beyond screens, through gestures, speech, gaze and spatial input, designed around how people actually think and behave. My first project compared arm-swing and joystick locomotion for navigation in VR (see Research). The degree ends with an industry internship and a thesis with an innovation angle.</p>
+                                <ul class="cv-tags">
+                                    <li>Interaction design</li><li>Extended reality</li><li>Unity</li><li>User research</li><li>Innovation and entrepreneurship</li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
+                        <li class="feature">
                             <div class="yr">2023<small>Sep 2023 to Sep 2026</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/au.png" alt="Aarhus University logo" loading="lazy"><div><h4>BSc Cognitive Science</h4><span class="org"><a href="https://bachelor.au.dk/en/cognitivescience/" target="_blank" rel="noopener">Aarhus University</a></span></div></div>
-                            <p>Psychology, neuroscience and AI, with an exchange semester at Sophia University in Tokyo.</p>
+                            <div class="cv-more">
+                                <p>An interdisciplinary degree between psychology, neuroscience and artificial intelligence: how people perceive, think and act, and how to turn that knowledge into technology. Along the way I built solid skills in programming, data analysis and experimental design, mainly in Python and R.</p>
+                                <p>My bachelor's thesis used OPM-MEG, a new wearable form of brain imaging, to study how brain rhythms interact when we see emotional faces, and trained machine learning models on those rhythms. It received the top grade, 12. Thanks to my supervisor Lau Møller Andersen and collaborator Réka Forgó.</p>
+                                <div class="cv-aside">
+                                    <span class="k">Last semester in Tokyo</span>
+                                    <p>I finished the degree on exchange at Sophia University, supported by Otto Mønsteds Fond. I studied games critically and built an 8-bit escape room in Lua and PICO-8, and took courses in market research, management and ethics that I now use for CogCards. I also kept working for Raptor across a seven-hour time difference, which more than once meant debugging recommendation modules from a Tokyo café while my colleagues in Denmark were asleep.</p>
+                                </div>
+                                <ul class="cv-tags">
+                                    <li>Python</li><li>R</li><li>Neuroscience</li><li>Machine learning</li><li>Experimental design</li>
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <div class="yr">2020<small>Aug 2020 to Jun 2023</small></div>
                             <div class="who"><img class="org-logo" src="images/logos/otg.png" alt="Odense Technical Gymnasium logo" loading="lazy"><div><h4>HTX, Communication and IT</h4><span class="org"><a href="https://otg.dk/" target="_blank" rel="noopener">Odense Technical Gymnasium</a></span></div></div>
-                            <p>Programming, Electronics A and 3D printing. Awarded a school scholarship.</p>
+                            <p>A technical upper secondary school with Communication and IT and Programming as my main subjects. I built lots of small games and programs, learned to explain technical ideas clearly, worked with analogue and digital electronics in Electronics A, and designed products for 3D printing.</p>
+                            <p class="quote">Awarded a school scholarship with the citation: "Super skilled, charming and ultra hard-working. Always smiling and does much more than the teacher expects. She always says yes, and when she's in a group, things get done."</p>
                         </li>
                     </ol>
                 </div>
@@ -1533,19 +1601,71 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </a>
 
+    <script src="i18n/da.js"></script>
     <script>
+        // Language switch: English is written in the HTML; Danish swaps text nodes using window.DA.
+        // Each text node's English original is remembered, so switching back restores it exactly.
+        window.i18n = (() => {
+            const DA = window.DA || {};
+            const MONTHS = { Jan: 'jan.', Feb: 'feb.', Mar: 'mar.', Apr: 'apr.', May: 'maj', Jun: 'jun.', Jul: 'jul.', Aug: 'aug.', Sep: 'sep.', Oct: 'okt.', Nov: 'nov.', Dec: 'dec.' };
+            const original = new WeakMap();
+            let lang = 'en';
+
+            // Dates like "Sep 2024 to now" or "Apr to May 2025"
+            const dateDa = s => /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/.test(s)
+                ? s.replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g, m => MONTHS[m])
+                   .replace(/ to (now|present)$/, ' til nu').replace(/ to /g, ' til ')
+                : null;
+            const lookup = s => DA[s] ?? dateDa(s);
+            const t = s => (lang === 'da' ? lookup(s) ?? s : s);
+
+            function apply(root = document.body) {
+                const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                    acceptNode: n => n.parentElement && !n.parentElement.closest('script,style')
+                        ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+                });
+                let n;
+                while ((n = walker.nextNode())) {
+                    if (!original.has(n)) original.set(n, n.nodeValue);
+                    const en = original.get(n);
+                    const key = en.replace(/\s+/g, ' ').trim();
+                    if (!key) continue;
+                    const da = lang === 'da' ? lookup(key) : null;
+                    n.nodeValue = da ? en.match(/^\s*/)[0] + da + en.match(/\s*$/)[0] : en;
+                }
+            }
+
+            function set(next) {
+                lang = next === 'da' ? 'da' : 'en';
+                document.documentElement.lang = lang;
+                document.title = lang === 'da'
+                    ? 'Clara Holst | HCI, kognitionsvidenskab og webudvikling'
+                    : 'Clara Holst | HCI, Cognitive Science and Web Development';
+                document.querySelectorAll('.lang-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+                apply();
+                try { localStorage.setItem('lang', lang); } catch (e) {}
+            }
+
+            document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => set(b.dataset.lang)));
+            let saved = 'en';
+            try { saved = localStorage.getItem('lang') || 'en'; } catch (e) {}
+            if (saved === 'da') set('da');
+
+            return { t, apply, set, get lang() { return lang; } };
+        })();
+
         // Mobile menu
         const toggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         toggle.addEventListener('click', () => {
             const open = navLinks.classList.toggle('open');
             toggle.setAttribute('aria-expanded', open);
-            toggle.textContent = open ? 'Close' : 'Menu';
+            toggle.textContent = i18n.t(open ? 'Close' : 'Menu');
         });
         navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
             navLinks.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
-            toggle.textContent = 'Menu';
+            toggle.textContent = i18n.t('Menu');
         }));
 
         // Back to top: shown once the About section has been scrolled past
@@ -1918,6 +2038,7 @@
                     const routes = [eu[0], eu[1], wo[0], wo[1], eu[2]];
                     routes.plan = eu.plan;
                     routes.camps = wo.camps;
+                    if (window.i18n) i18n.apply(wrap);
                     const show = new IntersectionObserver(([v]) => {
                         if (v.isIntersecting) { animate(routes); show.disconnect(); }
                     }, { threshold: 0.3 });
